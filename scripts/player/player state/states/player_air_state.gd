@@ -14,3 +14,6 @@ func input(event: InputEvent) -> void:
 		player.stop_jump_action.stop_jump()
 	if event.is_action_pressed("jump"):
 		player.air_jump_action.air_jump()
+	if event.is_action_pressed("dash"):
+		player.player_dash_action.cast()
+		
