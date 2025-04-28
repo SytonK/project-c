@@ -14,6 +14,7 @@ class_name Player extends CharacterBody2D
 @onready var gravity: Gravity = $Components/Gravity
 @onready var side_movement_action: SideMovementAction = $Components/SideMovementAction
 @onready var jump_action: JumpAction = $Components/JumpAction
+@onready var stop_jump_action: StopJumpAction = $Components/StopJumpAction
 
 func _ready() -> void:
 	reset_gravity()
