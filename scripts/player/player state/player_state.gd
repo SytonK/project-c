@@ -1,8 +1,5 @@
 class_name PlayerState extends State
 
-const GROUND: String = "Ground"
-const AIR: String = "Air"
-
 var player: Player
 
 func _ready() -> void:

@@ -32,6 +32,6 @@ func reset_side_movement() -> void:
 
 func calculate_transition() -> void:
 	if is_on_floor():
-		state_machine.transition(PlayerState.GROUND)
+		state_machine.transition(PlayerStates.GROUND)
 	else:
-		state_machine.transition(PlayerState.AIR)
+		state_machine.transition(PlayerStates.AIR)
