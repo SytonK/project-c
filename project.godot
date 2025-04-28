@@ -11,5 +11,22 @@ config_version=5
 [application]
 
 config/name="project c"
+run/main_scene="uid://caa2tvliprdb0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1440
+window/size/window_height_override=810
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "purple",
+"res://data/": "blue",
+"res://scenes/": "orange",
+"res://scripts/": "green"
+}
