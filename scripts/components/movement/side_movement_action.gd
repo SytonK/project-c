@@ -5,7 +5,7 @@ class_name SideMovementAction extends Node
 @export var max_speed: float
 
 func side_movement(strength: float, delta: float) -> void:
-	assert(owner is CharacterBody2D, "Owner of the side movement action component must be of type CharacterBody2D")
+	assert(owner is CharacterBody2D, "Owner of the SideMovementAction component must be of type CharacterBody2D")
 	if strength != 0:
 		_apply_acceleration(strength, delta)
 	else:

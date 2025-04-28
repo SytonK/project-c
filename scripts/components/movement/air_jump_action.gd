@@ -6,7 +6,7 @@ class_name AirJumpAction extends Node
 @onready var air_jump_charges: int = max_air_jumps
 
 func air_jump() -> bool:
-	assert(owner is CharacterBody2D, "Owner of the air jump action component must be of type CharacterBody2D")
+	assert(owner is CharacterBody2D, "Owner of the AirJumpAction component must be of type CharacterBody2D")
 	if air_jump_charges > 0:
 		air_jump_charges -= 1
 		owner.velocity.y = -air_jump_force

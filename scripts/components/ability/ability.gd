@@ -44,7 +44,7 @@ func _cooldown_can_cast() -> bool:
 
 func _cooldown_pay_for_cast() -> void:
 	if cooldown > 0:
-		assert(is_on_cooldown == false)
+		assert(is_on_cooldown == false, "Try to pay for cooldown while on cooldown")
 		is_on_cooldown = true
 
 func _cooldown_recharge() -> void:

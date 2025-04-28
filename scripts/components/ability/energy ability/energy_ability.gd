@@ -33,7 +33,7 @@ func _init_energy() -> void:
 
 func _on_energy_timer_timeour() -> void:
 	energy += 1
-	assert(energy <= max_energy)
+	assert(energy <= max_energy, "Energy exceeded the max energy")
 	
 	if energy < max_energy:
 		energy_timer.start()
@@ -42,7 +42,7 @@ func _energy_can_cast() -> bool:
 	return energy > 0
 
 func _energy_pay_for_cast() -> void:
-	assert(energy > 0)
+	assert(energy > 0, "Energy < 0")
 	energy -= 1
 
 func  _energy_recharge() -> void:
