@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=8 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://hfw2x4dqo8od" path="res://scripts/components/state machine/state_machine.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://cgh7dud8js4l6" path="res://scripts/player/player state/states/player_ground_state.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://c7hcwai3wka0l" path="res://scripts/player/player state/states/player_air_state.gd" id="4_lvxji"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side_movement_action.gd" id="6_75vfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(64, 96)
@@ -14,6 +15,9 @@ collision_layer = 2
 script = ExtResource("1_8afob")
 gravity_force = 2000.0
 max_fall_speed = 700.0
+acceleration = 5000.0
+friction = 2500.0
+max_speed = 500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x7p2l")
@@ -34,3 +38,7 @@ script = ExtResource("3_lvxji")
 [node name="Gravity" type="Node" parent="Components"]
 script = ExtResource("5_p47bc")
 metadata/_custom_type_script = "uid://5i0ndfls3olj"
+
+[node name="SideMovementAction" type="Node" parent="Components"]
+script = ExtResource("6_75vfm")
+metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
