@@ -1,6 +1,7 @@
 class_name PlayerState extends State
 
-const GROUND = "Ground"
+const GROUND: String = "Ground"
+const AIR: String = "Air"
 
 var player: Player
 
