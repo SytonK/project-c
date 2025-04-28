@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+enum FACING_DIRECTIONS {LEFT, RIGHT}
+
 @export_category("Gravity")
 @export var gravity_force: float
 @export var max_fall_speed: float
@@ -17,6 +19,8 @@ class_name Player extends CharacterBody2D
 @onready var stop_jump_action: StopJumpAction = $Components/StopJumpAction
 @onready var air_jump_action: AirJumpAction = $Components/AirJumpAction
 @onready var player_dash_action: PlayerDashAction = $Components/PlayerDashAction
+
+var facing_direction: FACING_DIRECTIONS = FACING_DIRECTIONS.RIGHT: set = _set_facing_direction
 
 func _ready() -> void:
 	reset_gravity()
@@ -36,3 +40,15 @@ func calculate_transition() -> void:
 		state_machine.transition(PlayerStates.GROUND)
 	else:
 		state_machine.transition(PlayerStates.AIR)
+
+func _set_facing_direction(new_value: FACING_DIRECTIONS) -> void:
+	facing_direction = new_value
+	#if you scale x to -1 while using the move and slide func it scales the y and rotation insted
+	scale.y = -1 if facing_direction != FACING_DIRECTIONS.RIGHT else 1
+	rotation = (1 if facing_direction != FACING_DIRECTIONS.RIGHT else 0) * PI
+
+func look_at_movement_direction() -> void:
+	if velocity.x > 0:
+		facing_direction = FACING_DIRECTIONS.RIGHT
+	elif velocity.x < 0:
+		facing_direction = FACING_DIRECTIONS.LEFT

@@ -7,6 +7,8 @@ func process(delta: float) -> void:
 	
 	player.move_and_slide()
 	
+	player.look_at_movement_direction()
+	
 	player.calculate_transition()
 
 func input(event: InputEvent) -> void:
