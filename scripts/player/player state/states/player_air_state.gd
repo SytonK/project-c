@@ -12,3 +12,5 @@ func process(delta: float) -> void:
 func input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		player.stop_jump_action.stop_jump()
+	if event.is_action_pressed("jump"):
+		player.air_jump_action.air_jump()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=11 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://hfw2x4dqo8od" path="res://scripts/components/state machine/state_machine.gd" id="2_gmlin"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side_movement_action.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://bsd5260km1pjq" path="res://scripts/components/movement/jump_action.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bdat73a1rvolc" path="res://scripts/components/movement/stop_jump_action.gd" id="8_qek5x"]
+[ext_resource type="Script" uid="uid://h4io0iikjqmk" path="res://scripts/components/movement/air_jump_action.gd" id="9_5gtgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(64, 96)
@@ -53,3 +54,8 @@ metadata/_custom_type_script = "uid://bsd5260km1pjq"
 [node name="StopJumpAction" type="Node" parent="Components"]
 script = ExtResource("8_qek5x")
 metadata/_custom_type_script = "uid://bdat73a1rvolc"
+
+[node name="AirJumpAction" type="Node" parent="Components"]
+script = ExtResource("9_5gtgg")
+air_jump_force = 700.0
+metadata/_custom_type_script = "uid://h4io0iikjqmk"
