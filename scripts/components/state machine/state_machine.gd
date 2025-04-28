@@ -19,6 +19,9 @@ func _set_initial_state() -> void:
 	state.enter()
 
 func transition(target_state_path: String, data: Dictionary = {}) -> void:
+	if state.name == target_state_path:
+		return
+	
 	if not has_node(target_state_path):
 		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 	

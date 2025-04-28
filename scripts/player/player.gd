@@ -28,3 +28,9 @@ func reset_side_movement() -> void:
 	side_movement_action.acceleration = acceleration
 	side_movement_action.friction = friction
 	side_movement_action.max_speed = max_speed
+
+func calculate_transition() -> void:
+	if is_on_floor():
+		state_machine.transition(PlayerState.GROUND)
+	else:
+		state_machine.transition(PlayerState.AIR)
