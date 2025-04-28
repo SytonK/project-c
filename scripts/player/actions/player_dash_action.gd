@@ -13,4 +13,4 @@ func _ready() -> void:
 
 func _ability_effect() -> void:
 	player.state_machine.transition(PlayerStates.DASH, {"dash_force": dash_force, "dash_duration": dash_duration})
-	player.velocity.x = dash_force
+	player.velocity = Vector2(dash_force * player.get_input_side_direction(), 0)

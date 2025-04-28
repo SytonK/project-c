@@ -52,3 +52,9 @@ func look_at_movement_direction() -> void:
 		facing_direction = FACING_DIRECTIONS.RIGHT
 	elif velocity.x < 0:
 		facing_direction = FACING_DIRECTIONS.LEFT
+
+func get_input_side_direction() -> float:
+	var strength: float = PlayerInput.get_side_strength()
+	if strength == 0:
+		return 1 if facing_direction == FACING_DIRECTIONS.RIGHT else -1
+	return strength/abs(strength)
