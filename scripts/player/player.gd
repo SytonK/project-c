@@ -39,7 +39,7 @@ func reset_side_movement() -> void:
 func calculate_transition() -> void:
 	if is_on_floor():
 		state_machine.transition(PlayerStates.GROUND)
-	elif is_on_wall() && velocity.y >= 0:
+	elif _should_transition_to_wall_state():
 		state_machine.transition(PlayerStates.WALL)
 	else:
 		state_machine.transition(PlayerStates.AIR)
@@ -61,3 +61,13 @@ func get_input_side_direction() -> float:
 	if strength == 0:
 		return 1 if facing_direction == FACING_DIRECTIONS.RIGHT else -1
 	return strength/abs(strength)
+
+func _should_transition_to_wall_state() -> bool:
+	if !is_on_wall() || velocity.y < 0:
+		return false
+	
+	var collision = get_last_slide_collision()
+	
+	assert(collision, "Calculate stikcy wall without being on a wall")
+	
+	return collision.get_collider().is_in_group("sticky_walls")

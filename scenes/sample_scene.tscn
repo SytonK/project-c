@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_jcc8f")
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-1000, -50, 1000, -50, 1000, 50, -1000, 51)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="." groups=["sticky_walls"]]
 position = Vector2(125, 579)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -52,7 +52,7 @@ position = Vector2(909, 863)
 shape = SubResource("RectangleShape2D_7kit5")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
-color = Color(0.674815, 0.674815, 0.674815, 1)
+color = Color(0.0338533, 0.0338533, 0.0338532, 1)
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
@@ -62,7 +62,17 @@ position = Vector2(1523, 795)
 shape = SubResource("RectangleShape2D_70445")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
-color = Color(0.674815, 0.674815, 0.674815, 1)
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)
+polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(544, 877)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_70445")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6"]
+color = Color(0.0214346, 0.0214346, 0.0214346, 1)
 polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
@@ -73,5 +83,5 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_70445")
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
-color = Color(0.674815, 0.674815, 0.674815, 1)
+color = Color(0.00351917, 0.00351917, 0.00351916, 1)
 polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)

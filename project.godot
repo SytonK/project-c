@@ -32,6 +32,10 @@ folder_colors={
 "res://scripts/": "green"
 }
 
+[global_group]
+
+sticky_walls=""
+
 [input]
 
 move_left={
