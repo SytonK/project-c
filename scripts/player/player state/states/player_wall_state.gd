@@ -7,6 +7,7 @@ func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 	player.velocity = Vector2(0,0)
 	_set_gravity()
 	_set_facing_direction()
+	player.air_jump_action.reset_air_jumps()
 
 func exit() -> void:
 	player.reset_gravity()
