@@ -38,6 +38,8 @@ func reset_side_movement() -> void:
 func calculate_transition() -> void:
 	if is_on_floor():
 		state_machine.transition(PlayerStates.GROUND)
+	elif is_on_wall() && velocity.y >= 0:
+		state_machine.transition(PlayerStates.WALL)
 	else:
 		state_machine.transition(PlayerStates.AIR)
 

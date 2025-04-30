@@ -52,6 +52,8 @@ script = ExtResource("5_h17s1")
 
 [node name="Wall" type="Node" parent="StateMachine"]
 script = ExtResource("6_fm80t")
+gravity_force = 500.0
+max_fall_speed = 75.0
 
 [node name="Components" type="Node" parent="."]
 

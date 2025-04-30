@@ -60,3 +60,14 @@ shape = SubResource("RectangleShape2D_70445")
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
 color = Color(0.674815, 0.674815, 0.674815, 1)
 polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(1338, 216)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_70445")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
+color = Color(0.674815, 0.674815, 0.674815, 1)
+polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
