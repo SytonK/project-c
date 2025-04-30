@@ -29,3 +29,7 @@ func _set_facing_direction() -> void:
 	assert(normal.x != 0, "Wall slide collide with no side")
 	
 	player.facing_direction = Player.FACING_DIRECTIONS.RIGHT if normal.x > 0 else Player.FACING_DIRECTIONS.LEFT
+
+func input(event: InputEvent) -> void:
+	if event.is_action_pressed("jump"):
+		player.player_wall_jump_action.jump()
