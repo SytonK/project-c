@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=14 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://hfw2x4dqo8od" path="res://scripts/components/state machine/state_machine.gd" id="2_gmlin"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c7ga5h60sov0f" path="res://scripts/player/player state/states/player_dash_state.gd" id="5_h17s1"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side_movement_action.gd" id="6_75vfm"]
+[ext_resource type="Script" uid="uid://cjvfh0742h8xw" path="res://scripts/player/player state/states/player_wall_state.gd" id="6_fm80t"]
 [ext_resource type="Script" uid="uid://bsd5260km1pjq" path="res://scripts/components/movement/jump_action.gd" id="7_0owmy"]
 [ext_resource type="Script" uid="uid://bdat73a1rvolc" path="res://scripts/components/movement/stop_jump_action.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://h4io0iikjqmk" path="res://scripts/components/movement/air_jump_action.gd" id="9_5gtgg"]
@@ -48,6 +49,9 @@ script = ExtResource("3_lvxji")
 
 [node name="Dash" type="Node" parent="StateMachine"]
 script = ExtResource("5_h17s1")
+
+[node name="Wall" type="Node" parent="StateMachine"]
+script = ExtResource("6_fm80t")
 
 [node name="Components" type="Node" parent="."]
 
