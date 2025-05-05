@@ -45,6 +45,10 @@ metadata/_custom_type_script = "uid://hfw2x4dqo8od"
 [node name="Air" type="Node" parent="StateMachine"]
 script = ExtResource("4_lvxji")
 
+[node name="EdgeForgivenessTimer" type="Timer" parent="StateMachine/Air"]
+wait_time = 0.125
+one_shot = true
+
 [node name="Ground" type="Node" parent="StateMachine"]
 script = ExtResource("3_lvxji")
 
@@ -94,3 +98,5 @@ script = ExtResource("13_gx1jg")
 jump_force = 850.0
 jump_pushback_force = 800.0
 metadata/_custom_type_script = "uid://bf1wciljq743l"
+
+[connection signal="timeout" from="StateMachine/Air/EdgeForgivenessTimer" to="StateMachine/Air" method="_on_edge_forgiveness_timer_timeout"]
