@@ -3,6 +3,9 @@ extends Node
 const PUSHBACK_FOCRCE: float = 250
 const PUSHUP_FORCE: float = -500
 
+const BLINK_FREQUENCY: float = 0.1
+const BLINK_MODULATE_A_VALUE: float = 0.2
+
 @onready var invulnerable_timer: Timer = $InvulnerableTimer
 var is_invulnerable: bool = false
 
@@ -19,10 +22,9 @@ func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 		return
 	
 	player.state_machine.transition(PlayerStates.HURT)
-	
 	_launch_player(hitbox, hurtbox)
-	
 	_start_invulnerable()
+	_blink()
 
 func _launch_player(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 	player.velocity = Vector2(
@@ -33,6 +35,13 @@ func _start_invulnerable() -> void:
 	is_invulnerable = true
 	invulnerable_timer.start()
 
-
 func _on_invulnerable_timer_timeout() -> void:
 	is_invulnerable = false
+
+func _blink() -> void:
+	var blinking_tween: Tween = create_tween()
+	blinking_tween.set_loops(int(invulnerable_timer.wait_time / (BLINK_FREQUENCY * 2)))
+	blinking_tween.tween_property(player, "modulate:a", BLINK_MODULATE_A_VALUE, BLINK_FREQUENCY)
+	blinking_tween.tween_property(player, "modulate:a", 1.0, BLINK_FREQUENCY)
+	await blinking_tween.finished
+	player.modulate.a = 1
