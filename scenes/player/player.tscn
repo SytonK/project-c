@@ -79,6 +79,7 @@ script = ExtResource("8_myrg7")
 
 [node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
 wait_time = 0.25
+one_shot = true
 
 [node name="Components" type="Node" parent="."]
 
