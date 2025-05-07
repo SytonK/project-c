@@ -25,6 +25,7 @@ func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 	_launch_player(hitbox, hurtbox)
 	_start_invulnerable()
 	_blink()
+	_hurt_player(hitbox.attack_resource)
 
 func _launch_player(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 	player.velocity = Vector2(
@@ -45,3 +46,6 @@ func _blink() -> void:
 	blinking_tween.tween_property(player, "modulate:a", 1.0, BLINK_FREQUENCY)
 	await blinking_tween.finished
 	player.modulate.a = 1
+
+func _hurt_player(attack_resource: AttackResource):
+	player.health.value -= attack_resource.damage
