@@ -122,6 +122,11 @@ metadata/_custom_type_script = "uid://bf1wciljq743l"
 [node name="PlayerHurt" type="Node" parent="Components"]
 script = ExtResource("15_fcs02")
 
+[node name="InvulnerableTimer" type="Timer" parent="Components/PlayerHurt"]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="hurt" from="Hurtbox" to="Components/PlayerHurt" method="_on_hurtbox_hurt"]
 [connection signal="timeout" from="StateMachine/Air/EdgeForgivenessTimer" to="StateMachine/Air" method="_on_edge_forgiveness_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
+[connection signal="timeout" from="Components/PlayerHurt/InvulnerableTimer" to="Components/PlayerHurt" method="_on_invulnerable_timer_timeout"]
