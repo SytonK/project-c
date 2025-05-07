@@ -77,6 +77,9 @@ max_fall_speed = 75.0
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("8_myrg7")
 
+[node name="HurtTimer" type="Timer" parent="StateMachine/Hurt"]
+wait_time = 0.25
+
 [node name="Components" type="Node" parent="."]
 
 [node name="Gravity" type="Node" parent="Components"]
@@ -121,3 +124,4 @@ script = ExtResource("15_fcs02")
 
 [connection signal="hurt" from="Hurtbox" to="Components/PlayerHurt" method="_on_hurtbox_hurt"]
 [connection signal="timeout" from="StateMachine/Air/EdgeForgivenessTimer" to="StateMachine/Air" method="_on_edge_forgiveness_timer_timeout"]
+[connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
