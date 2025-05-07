@@ -9,6 +9,14 @@
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
 @onready var player: Player = $Player
+
+
+func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
+	print(hitbox.attack_resource.damage, hurtbox)
+
+
+func _on_hitbox_hit(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
+	print(hitbox.attack_resource.damage, hurtbox)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
@@ -28,12 +36,6 @@ script/source = "extends Node2D
 
 @onready var hitbox: Hitbox = $Hitbox
 
-func _on_hurtbox_hurt(attack_resource: AttackResource, defense_resource: DefenseResource) -> void:
-	print(attack_resource.damage, defense_resource)
-
-
-func _on_hitbox_hit(attack_resource: AttackResource, defense_resource: DefenseResource) -> void:
-	print(attack_resource.damage, defense_resource)
 
 func _physics_process(delta: float) -> void:
 	hitbox.position.x += 100 * delta
@@ -162,5 +164,5 @@ shape = SubResource("RectangleShape2D_hvwi5")
 color = Color(0.878431, 0, 0.172549, 1)
 polygon = PackedVector2Array(25, -25, -25, -25, -25, 25, 25, 25)
 
-[connection signal="hit" from="CombatTest/Hitbox" to="CombatTest" method="_on_hitbox_hit"]
-[connection signal="hurt" from="CombatTest/Hurtbox" to="CombatTest" method="_on_hurtbox_hurt"]
+[connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
+[connection signal="hurt" from="CombatTest/Hurtbox" to="." method="_on_hurtbox_hurt"]

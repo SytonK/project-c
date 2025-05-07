@@ -1,6 +1,6 @@
 class_name Hurtbox extends Area2D
 
-signal hurt(attack_resource: AttackResource, defense_resource: DefenseResource)
+signal hurt(hitbox: Hitbox, hurtbox: Hurtbox)
 
 @export var defense_resource: DefenseResource
 
@@ -10,6 +10,6 @@ func _init() -> void:
 
 func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox:
-		hurt.emit(hitbox.attack_resource, defense_resource)
+		hurt.emit(hitbox, self)
 		
-		hitbox.on_hit(defense_resource)
+		hitbox.on_hit(self)

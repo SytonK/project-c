@@ -7,5 +7,6 @@ func _ready() -> void:
 	player = owner as Player
 	assert(player != null, "The PlayerHurt component was used on an owner that is not a Player")
 
-func _on_hurtbox_hurt(attack_resource: AttackResource, defense_resource: DefenseResource) -> void:
+
+func _on_hurtbox_hurt(_hitbox: Hitbox, _hurtbox: Hurtbox) -> void:
 	player.state_machine.transition(PlayerStates.HURT)
