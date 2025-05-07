@@ -17,3 +17,5 @@ func input(event: InputEvent) -> void:
 		player.jump_action.jump()
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
+	if event.is_action_pressed("block"):
+		player.player_block_action.cast()

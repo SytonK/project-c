@@ -21,6 +21,7 @@ enum FACING_DIRECTIONS {LEFT, RIGHT}
 @onready var player_dash_action: PlayerDashAction = $Components/PlayerDashAction
 @onready var player_wall_jump_action: PlayerWallJumpAction = $Components/PlayerWallJumpAction
 @onready var health: Health = $Components/Health
+@onready var player_block_action: PlayerBlockAction = $Components/PlayerBlockAction
 
 var facing_direction: FACING_DIRECTIONS = FACING_DIRECTIONS.RIGHT: set = _set_facing_direction
 

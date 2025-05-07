@@ -28,7 +28,8 @@ func input(event: InputEvent) -> void:
 			player.air_jump_action.air_jump()
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
-		
+	if event.is_action_pressed("block"):
+		player.player_block_action.cast()
 
 func _start_edge_forgivness() -> void:
 	if player.velocity.y < 0:
