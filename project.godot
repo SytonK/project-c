@@ -29,7 +29,8 @@ folder_colors={
 "res://assets/": "purple",
 "res://data/": "blue",
 "res://scenes/": "orange",
-"res://scripts/": "green"
+"res://scripts/": "green",
+"res://scripts/resources/": "teal"
 }
 
 [global_group]
@@ -69,3 +70,5 @@ dash={
 
 2d_physics/layer_1="enviroment"
 2d_physics/layer_2="player"
+2d_physics/layer_3="player_hitbox"
+2d_physics/layer_4="enemy_hitbox"

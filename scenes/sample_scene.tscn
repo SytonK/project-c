@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=16 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
+[ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
+[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/resources/combat/attack_resource.gd" id="3_hvwi5"]
+[ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_yqgs1"]
+[ext_resource type="Script" uid="uid://bq5jjhig8psre" path="res://scripts/resources/combat/defense_resource.gd" id="5_xw57j"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -18,6 +22,35 @@ size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70445"]
 size = Vector2(100, 300)
+
+[sub_resource type="GDScript" id="GDScript_hvwi5"]
+script/source = "extends Node2D
+
+@onready var hitbox: Hitbox = $Hitbox
+
+func _on_hurtbox_hurt(attack_resource: AttackResource, defense_resource: DefenseResource) -> void:
+	print(attack_resource.damage, defense_resource)
+
+
+func _on_hitbox_hit(attack_resource: AttackResource, defense_resource: DefenseResource) -> void:
+	print(attack_resource.damage, defense_resource)
+
+func _physics_process(delta: float) -> void:
+	hitbox.position.x += 100 * delta
+"
+
+[sub_resource type="Resource" id="Resource_jddra"]
+script = ExtResource("3_hvwi5")
+damage = 4
+metadata/_custom_type_script = "uid://brg71t7h26ou0"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw57j"]
+
+[sub_resource type="Resource" id="Resource_76x20"]
+script = ExtResource("5_xw57j")
+metadata/_custom_type_script = "uid://bq5jjhig8psre"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jddra"]
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -85,3 +118,27 @@ shape = SubResource("RectangleShape2D_70445")
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
 color = Color(0.00351917, 0.00351917, 0.00351916, 1)
 polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
+
+[node name="CombatTest" type="Node2D" parent="."]
+script = SubResource("GDScript_hvwi5")
+
+[node name="Hitbox" type="Area2D" parent="CombatTest"]
+position = Vector2(316, 156)
+script = ExtResource("2_7kit5")
+attack_resource = SubResource("Resource_jddra")
+metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatTest/Hitbox"]
+shape = SubResource("RectangleShape2D_xw57j")
+
+[node name="Hurtbox" type="Area2D" parent="CombatTest"]
+script = ExtResource("3_yqgs1")
+defense_resource = SubResource("Resource_76x20")
+metadata/_custom_type_script = "uid://e14frlxwqj6p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatTest/Hurtbox"]
+position = Vector2(384, 155)
+shape = SubResource("RectangleShape2D_jddra")
+
+[connection signal="hit" from="CombatTest/Hitbox" to="CombatTest" method="_on_hitbox_hit"]
+[connection signal="hurt" from="CombatTest/Hurtbox" to="CombatTest" method="_on_hurtbox_hurt"]
