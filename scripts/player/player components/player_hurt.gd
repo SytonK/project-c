@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
-	if is_invulnerable:
+	if is_invulnerable || player.state_machine.state.name == PlayerStates.BLOCK:
 		return
 	
 	player.state_machine.transition(PlayerStates.HURT)
