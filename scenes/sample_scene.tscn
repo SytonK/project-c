@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=18 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -51,6 +51,14 @@ script = ExtResource("5_xw57j")
 metadata/_custom_type_script = "uid://bq5jjhig8psre"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jddra"]
+
+[sub_resource type="Resource" id="Resource_hvwi5"]
+script = ExtResource("3_hvwi5")
+damage = 3
+metadata/_custom_type_script = "uid://brg71t7h26ou0"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvwi5"]
+size = Vector2(50, 50)
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -139,6 +147,20 @@ metadata/_custom_type_script = "uid://e14frlxwqj6p"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CombatTest/Hurtbox"]
 position = Vector2(384, 155)
 shape = SubResource("RectangleShape2D_jddra")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(721, 888)
+collision_layer = 8
+script = ExtResource("2_7kit5")
+attack_resource = SubResource("Resource_hvwi5")
+metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_hvwi5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hurtbox"]
+color = Color(0.878431, 0, 0.172549, 1)
+polygon = PackedVector2Array(25, -25, -25, -25, -25, 25, 25, 25)
 
 [connection signal="hit" from="CombatTest/Hitbox" to="CombatTest" method="_on_hitbox_hit"]
 [connection signal="hurt" from="CombatTest/Hurtbox" to="CombatTest" method="_on_hurtbox_hurt"]
