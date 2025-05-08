@@ -34,3 +34,5 @@ func _set_facing_direction() -> void:
 func input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		player.player_wall_jump_action.jump()
+	if event.is_action_pressed("dash"):
+		player.player_dash_action.cast()
