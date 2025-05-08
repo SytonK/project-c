@@ -131,6 +131,7 @@ metadata/_custom_type_script = "uid://bf1wciljq743l"
 
 [node name="PlayerHurt" type="Node" parent="Components"]
 script = ExtResource("15_fcs02")
+metadata/_custom_type_script = "uid://mgmnw6x6ay7"
 
 [node name="InvulnerableTimer" type="Timer" parent="Components/PlayerHurt"]
 wait_time = 0.5

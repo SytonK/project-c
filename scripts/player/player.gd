@@ -20,6 +20,7 @@ enum FACING_DIRECTIONS {LEFT, RIGHT}
 @onready var air_jump_action: AirJumpAction = $Components/AirJumpAction
 @onready var player_dash_action: PlayerDashAction = $Components/PlayerDashAction
 @onready var player_wall_jump_action: PlayerWallJumpAction = $Components/PlayerWallJumpAction
+@onready var player_hurt: PlayerHurt = $Components/PlayerHurt
 @onready var health: Health = $Components/Health
 @onready var player_block_action: PlayerBlockAction = $Components/PlayerBlockAction
 

@@ -1,4 +1,4 @@
-extends Node
+class_name PlayerHurt extends Node
 
 const PUSHBACK_FOCRCE: float = 250
 const PUSHUP_FORCE: float = -500
