@@ -38,6 +38,8 @@ func _start_invulnerable() -> void:
 
 func _on_invulnerable_timer_timeout() -> void:
 	is_invulnerable = false
+	player.hurtbox.monitoring = false
+	player.hurtbox.monitoring = true
 
 func _blink() -> void:
 	var blinking_tween: Tween = create_tween()
