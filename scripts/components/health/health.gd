@@ -11,7 +11,7 @@ func _set_value(new_value: float) -> void:
 	value = clampf(new_value, 0, max_value)
 	
 	if old != value:
-		value_changed.emit(new_value)
+		value_changed.emit(value)
 	
 	if value == 0:
 		died.emit()
