@@ -152,6 +152,7 @@ script = ExtResource("19_lgqa7")
 cooldown = 2.0
 metadata/_custom_type_script = "uid://cqs7mhkrcck2f"
 
+[connection signal="hurt" from="Hurtbox" to="StateMachine/Block" method="_on_hurtbox_hurt"]
 [connection signal="hurt" from="Hurtbox" to="Components/PlayerHurt" method="_on_hurtbox_hurt"]
 [connection signal="timeout" from="StateMachine/Air/EdgeForgivenessTimer" to="StateMachine/Air" method="_on_edge_forgiveness_timer_timeout"]
 [connection signal="timeout" from="StateMachine/Hurt/HurtTimer" to="StateMachine/Hurt" method="_on_hurt_timer_timeout"]
