@@ -1,5 +1,7 @@
 extends PlayerState
 
+const BLOCK_COOLDOWN_REFUND_ON_BLOCK: float = 1.25
+
 @onready var block_timer: Timer = $BlockTimer
 
 @onready var block_sprite: Polygon2D = $"../../BlockSprite"
@@ -27,7 +29,7 @@ func _on_hurtbox_hurt(_hitbox: Hitbox, _hurtbox: Hurtbox) -> void:
 	blocked = true
 
 func _exit_after_blocking() -> void:
-	print('blocked')
+	player.player_block_action.charge_cooldown(BLOCK_COOLDOWN_REFUND_ON_BLOCK)
 
 func _exit_after_miss_blocking() -> void:
-	print('did not block')
+	pass

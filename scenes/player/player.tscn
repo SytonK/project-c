@@ -149,7 +149,7 @@ metadata/_custom_type_script = "uid://ms6uadhjfufy"
 
 [node name="PlayerBlockAction" type="Node" parent="Components"]
 script = ExtResource("19_lgqa7")
-cooldown = 2.0
+cooldown = 2.5
 metadata/_custom_type_script = "uid://cqs7mhkrcck2f"
 
 [connection signal="hurt" from="Hurtbox" to="StateMachine/Block" method="_on_hurtbox_hurt"]

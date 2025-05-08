@@ -53,3 +53,8 @@ func _cooldown_pay_for_cast() -> void:
 func _cooldown_recharge() -> void:
 	if cooldown_timer:
 		cooldown_timer.start()
+
+func charge_cooldown(charge_time: float) -> void:
+	var new_wait_time: float = max(cooldown_timer.time_left - charge_time, 0)
+	cooldown_timer.start(new_wait_time)
+	cooldown_timer.wait_time = cooldown
