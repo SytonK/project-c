@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_yqgs1"]
 [ext_resource type="Script" uid="uid://bq5jjhig8psre" path="res://scripts/resources/combat/defense_resource.gd" id="5_xw57j"]
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
-[ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/heads_up_display.tscn" id="7_jddra"]
+[ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
