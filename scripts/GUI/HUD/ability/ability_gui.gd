@@ -17,7 +17,6 @@ func set_ability(new_ability: Ability) -> void:
 
 func _start() -> void:
 	set_process(true)
-	value = 0
 
 func _process(delta: float) -> void:
 	value = ((ability.cooldown - ability.cooldown_timer.time_left) / ability.cooldown) * 100
