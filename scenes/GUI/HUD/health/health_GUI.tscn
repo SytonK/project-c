@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://mky47mb5rgag"]
+
+[ext_resource type="Script" uid="uid://c8kv52kh56fwf" path="res://scripts/GUI/HUD/health/health_GUI.gd" id="1_p4a7l"]
+
+[node name="HealthGUI" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p4a7l")
