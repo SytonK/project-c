@@ -46,6 +46,11 @@ polygon = PackedVector2Array(13, -38, 13, -25, 25, -31)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x7p2l")
 
+[node name="BlockSprite" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.3, 0.3, 0.3, 0.8)
+polygon = PackedVector2Array(0, -55, 20, -50, 35, -40, 45, -25, 50, 0, 45, 25, 35, 40, 20, 50, 0, 55, -18, 50, -37, 41, -49, 24, -55, 0, -50, -21, -38, -41, -20, -50)
+
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 script = ExtResource("2_ugbui")
