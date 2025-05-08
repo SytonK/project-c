@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddppfoesrk6ab"]
+[gd_scene load_steps=3 format=3 uid="uid://ddppfoesrk6ab"]
 
 [ext_resource type="Script" uid="uid://cgvr3fej24hub" path="res://scripts/GUI/HUD/HUD.gd" id="1_25ca6"]
+[ext_resource type="Script" uid="uid://c8kv52kh56fwf" path="res://scripts/GUI/HUD/health/health.gd" id="2_rlusd"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -10,3 +11,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_25ca6")
+
+[node name="Health" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 46.0
+offset_right = 52.0
+offset_bottom = 46.0
+script = ExtResource("2_rlusd")
