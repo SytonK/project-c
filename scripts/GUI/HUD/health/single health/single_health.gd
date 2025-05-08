@@ -1,6 +1,7 @@
-class_name SingleHealth extends Panel
+class_name SingleHealth extends TextureRect
 
-@onready var health: ColorRect = $Health
+const FULL_COLOR: Color = Color(0.1,0.9,0.1)
+const EMPTY_COLOR: Color = Color(0.25,0.25,0.25)
 
 func update(whole: bool) -> void:
-	health.visible = whole
+	modulate = FULL_COLOR if whole else EMPTY_COLOR
