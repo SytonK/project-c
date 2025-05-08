@@ -1,5 +1,7 @@
 class_name Ability extends Node
 
+signal casted
+
 @export var cooldown: float
 
 var is_on_cooldown: bool = false
@@ -13,6 +15,7 @@ func cast() -> void:
 		_pay_for_cast()
 		_ability_effect()
 		_recharge()
+		casted.emit()
 
 func _ability_effect() -> void:
 	pass

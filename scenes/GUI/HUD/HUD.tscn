@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddppfoesrk6ab"]
+[gd_scene load_steps=5 format=3 uid="uid://ddppfoesrk6ab"]
 
 [ext_resource type="Script" uid="uid://cgvr3fej24hub" path="res://scripts/GUI/HUD/HUD.gd" id="1_25ca6"]
 [ext_resource type="Script" uid="uid://c8kv52kh56fwf" path="res://scripts/GUI/HUD/health/health_GUI.gd" id="2_rlusd"]
+[ext_resource type="Texture2D" uid="uid://cv8p0go5ro44g" path="res://assets/temp assets/shield-icon.png" id="3_78xfm"]
+[ext_resource type="Script" uid="uid://60bqr1segsrg" path="res://scripts/GUI/HUD/ability/ability_gui.gd" id="4_jcln6"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -19,3 +21,21 @@ offset_top = 46.0
 offset_right = 52.0
 offset_bottom = 46.0
 script = ExtResource("2_rlusd")
+
+[node name="BlockGUI" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -79.0
+offset_right = -60.0
+offset_bottom = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("3_78xfm")
+script = ExtResource("4_jcln6")
+metadata/_custom_type_script = "uid://60bqr1segsrg"
