@@ -29,7 +29,7 @@ folder_colors={
 "res://assets/": "purple",
 "res://data/": "blue",
 "res://scenes/": "orange",
-"res://scenes/user interface/": "pink",
+"res://scenes/GUI/": "pink",
 "res://scripts/": "green",
 "res://scripts/resources/": "teal"
 }
