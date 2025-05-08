@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=19 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_yqgs1"]
 [ext_resource type="Script" uid="uid://bq5jjhig8psre" path="res://scripts/resources/combat/defense_resource.gd" id="5_xw57j"]
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
+[ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/user interface/heads up display/heads_up_display.tscn" id="7_jddra"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -155,6 +156,11 @@ polygon = PackedVector2Array(25, -25, -25, -25, -25, 25, 25, 25)
 [node name="AttackingDummy" parent="Hurtbox" instance=ExtResource("6_xw57j")]
 position = Vector2(-290, 2)
 scale = Vector2(-1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
+player = NodePath("../../Player")
 
 [connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
 [connection signal="hurt" from="CombatTest/Hurtbox" to="." method="_on_hurtbox_hurt"]
