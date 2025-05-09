@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=24 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -10,11 +10,15 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
+[ext_resource type="Script" uid="uid://f757cb66dyeg" path="res://scripts/player/weapon/weapon.gd" id="11_kg8jk"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
 @onready var player: Player = $Player
+@onready var weapon_test: Weapon = $WeaponTest
 
+func _ready() -> void:
+	weapon_test.player = player
 
 func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 	print(hitbox.attack_resource.damage, hurtbox)
@@ -22,6 +26,14 @@ func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 
 func _on_hitbox_hit(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
 	print(hitbox.attack_resource.damage, hurtbox)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"light_attack\"):
+		weapon_test.attack(Weapon.AttackType.LIGHT)
+	if event.is_action_pressed(\"heavy_attack\"):
+		weapon_test.attack(Weapon.AttackType.HEAVY)
+	if event.is_action_pressed(\"special_attack\"):
+		weapon_test.attack(Weapon.AttackType.SPECIAL)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
@@ -196,6 +208,10 @@ dead_zone_width = 0.25
 dead_zone_height = 0.4
 show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="WeaponTest" type="Node2D" parent="."]
+script = ExtResource("11_kg8jk")
+metadata/_custom_type_script = "uid://f757cb66dyeg"
 
 [connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
 [connection signal="hurt" from="CombatTest/Hurtbox" to="." method="_on_hurtbox_hurt"]
