@@ -125,7 +125,7 @@ dash_force = 2000.0
 dash_duration = 0.1
 max_energy = 2
 recharge_energy_time = 3.0
-cooldown = 0.5
+cooldown = 0.2
 metadata/_custom_type_script = "uid://ydvnrumpiyfg"
 
 [node name="PlayerWallJumpAction" type="Node" parent="Components"]

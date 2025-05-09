@@ -194,6 +194,7 @@ follow_offset = Vector2(0, -45)
 follow_damping = true
 dead_zone_width = 0.25
 dead_zone_height = 0.4
+show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
