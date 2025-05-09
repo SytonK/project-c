@@ -13,6 +13,8 @@ enum FACING_DIRECTIONS {LEFT, RIGHT}
 
 @onready var state_machine: StateMachine = $StateMachine
 
+@onready var weapon_manager: WeaponManager = $WeaponManager
+
 @onready var hurtbox: Hurtbox = $Hurtbox
 
 @onready var gravity: Gravity = $Components/Gravity

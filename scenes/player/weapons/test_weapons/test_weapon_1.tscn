@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cshugwpiehtc4"]
+
+[ext_resource type="Script" uid="uid://f757cb66dyeg" path="res://scripts/player/weapon/weapon.gd" id="1_k0w1p"]
+
+[node name="TestWeapon0" type="Node2D"]
+script = ExtResource("1_k0w1p")
+metadata/_custom_type_script = "uid://f757cb66dyeg"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0, 0, 1, 1)
+polygon = PackedVector2Array(13, -38, 13, -25, 25, -31)

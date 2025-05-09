@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=23 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://bo06h86do71w6" path="res://scripts/player/weapon manager/weapon_manager.gd" id="2_8ydkj"]
 [ext_resource type="Script" uid="uid://hfw2x4dqo8od" path="res://scripts/components/state machine/state_machine.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="2_ugbui"]
 [ext_resource type="Script" uid="uid://cgh7dud8js4l6" path="res://scripts/player/player state/states/player_ground_state.gd" id="3_lvxji"]
@@ -36,12 +37,18 @@ friction = 2500.0
 max_speed = 500.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(0, 0, 1, 1)
 polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(13, -38, 13, -25, 25, -31)
+
+[node name="WeaponManager" type="Node2D" parent="."]
+script = ExtResource("2_8ydkj")
+metadata/_custom_type_script = "uid://bo06h86do71w6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x7p2l")

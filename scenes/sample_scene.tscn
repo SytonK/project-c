@@ -1,39 +1,34 @@
-[gd_scene load_steps=24 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=16 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
 [ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/resources/combat/attack_resource.gd" id="3_hvwi5"]
-[ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_yqgs1"]
-[ext_resource type="Script" uid="uid://bq5jjhig8psre" path="res://scripts/resources/combat/defense_resource.gd" id="5_xw57j"]
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
 [ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
-[ext_resource type="Script" uid="uid://f757cb66dyeg" path="res://scripts/player/weapon/weapon.gd" id="11_kg8jk"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
 @onready var player: Player = $Player
-@onready var weapon_test: Weapon = $WeaponTest
 
-func _ready() -> void:
-	weapon_test.player = player
-
-func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
-	print(hitbox.attack_resource.damage, hurtbox)
+const TEST_WEAPON_0 = preload(\"res://scenes/player/weapons/test_weapons/test_weapon_0.tscn\")
+const TEST_WEAPON_1 = preload(\"res://scenes/player/weapons/test_weapons/test_weapon_1.tscn\")
+func _on_button_button_down() -> void:
+	player.weapon_manager.add_weapon(TEST_WEAPON_0.instantiate())
 
 
-func _on_hitbox_hit(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
-	print(hitbox.attack_resource.damage, hurtbox)
+func _on_button_2_button_down() -> void:
+	player.weapon_manager.add_weapon(TEST_WEAPON_1.instantiate())
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(\"light_attack\"):
-		weapon_test.attack(Weapon.AttackType.LIGHT)
-	if event.is_action_pressed(\"heavy_attack\"):
-		weapon_test.attack(Weapon.AttackType.HEAVY)
-	if event.is_action_pressed(\"special_attack\"):
-		weapon_test.attack(Weapon.AttackType.SPECIAL)
+
+func _on_button_3_button_down() -> void:
+	player.weapon_manager.next_weapon()
+
+
+func _on_button_4_button_down() -> void:
+	player.weapon_manager.remove_current_weapon()
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
@@ -44,29 +39,6 @@ size = Vector2(100, 1000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_70445"]
 size = Vector2(100, 300)
-
-[sub_resource type="GDScript" id="GDScript_hvwi5"]
-script/source = "extends Node2D
-
-@onready var hitbox: Hitbox = $Hitbox
-
-
-func _physics_process(delta: float) -> void:
-	hitbox.position.x += 100 * delta
-"
-
-[sub_resource type="Resource" id="Resource_jddra"]
-script = ExtResource("3_hvwi5")
-damage = 4
-metadata/_custom_type_script = "uid://brg71t7h26ou0"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw57j"]
-
-[sub_resource type="Resource" id="Resource_76x20"]
-script = ExtResource("5_xw57j")
-metadata/_custom_type_script = "uid://bq5jjhig8psre"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jddra"]
 
 [sub_resource type="Resource" id="Resource_hvwi5"]
 script = ExtResource("3_hvwi5")
@@ -139,27 +111,6 @@ shape = SubResource("RectangleShape2D_70445")
 color = Color(0.00351917, 0.00351917, 0.00351916, 1)
 polygon = PackedVector2Array(-51, -150, 50, -150, 50, 149, -50, 150)
 
-[node name="CombatTest" type="Node2D" parent="."]
-script = SubResource("GDScript_hvwi5")
-
-[node name="Hitbox" type="Area2D" parent="CombatTest"]
-position = Vector2(316, 156)
-script = ExtResource("2_7kit5")
-attack_resource = SubResource("Resource_jddra")
-metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatTest/Hitbox"]
-shape = SubResource("RectangleShape2D_xw57j")
-
-[node name="Hurtbox" type="Area2D" parent="CombatTest"]
-script = ExtResource("3_yqgs1")
-defense_resource = SubResource("Resource_76x20")
-metadata/_custom_type_script = "uid://e14frlxwqj6p"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CombatTest/Hurtbox"]
-position = Vector2(384, 155)
-shape = SubResource("RectangleShape2D_jddra")
-
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(966, 876)
 collision_layer = 8
@@ -179,6 +130,7 @@ position = Vector2(-290, 2)
 scale = Vector2(-1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
@@ -210,8 +162,38 @@ show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="WeaponTest" type="Node2D" parent="."]
-script = ExtResource("11_kg8jk")
-metadata/_custom_type_script = "uid://f757cb66dyeg"
 
-[connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
-[connection signal="hurt" from="CombatTest/Hurtbox" to="." method="_on_hurtbox_hurt"]
+[node name="Button" type="Button" parent="WeaponTest"]
+offset_left = 406.0
+offset_top = 531.0
+offset_right = 489.0
+offset_bottom = 562.0
+text = "weapon 1
+"
+
+[node name="Button2" type="Button" parent="WeaponTest"]
+offset_left = 571.0
+offset_top = 533.0
+offset_right = 654.0
+offset_bottom = 564.0
+text = "weapon 2
+"
+
+[node name="Button3" type="Button" parent="WeaponTest"]
+offset_left = 575.0
+offset_top = 637.0
+offset_right = 618.0
+offset_bottom = 668.0
+text = "next"
+
+[node name="Button4" type="Button" parent="WeaponTest"]
+offset_left = 538.0
+offset_top = 752.0
+offset_right = 605.0
+offset_bottom = 783.0
+text = "remove"
+
+[connection signal="button_down" from="WeaponTest/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="WeaponTest/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="WeaponTest/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="WeaponTest/Button4" to="." method="_on_button_4_button_down"]
