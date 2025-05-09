@@ -15,6 +15,10 @@ run/main_scene="uid://caa2tvliprdb0"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
@@ -23,9 +27,14 @@ window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "gray",
 "res://assets/": "purple",
 "res://data/": "blue",
 "res://scenes/": "orange",
@@ -81,6 +90,10 @@ block={
 2d_physics/layer_2="player"
 2d_physics/layer_3="player_hitbox"
 2d_physics/layer_4="enemy_hitbox"
+
+[physics]
+
+common/physics_interpolation=true
 
 [rendering]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=23 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://bq5jjhig8psre" path="res://scripts/resources/combat/defense_resource.gd" id="5_xw57j"]
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
 [ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -60,6 +63,12 @@ metadata/_custom_type_script = "uid://brg71t7h26ou0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvwi5"]
 size = Vector2(50, 50)
+
+[sub_resource type="Resource" id="Resource_1o07t"]
+script = ExtResource("9_udu4s")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -161,6 +170,31 @@ scale = Vector2(-1, 1)
 
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(262, 751)
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("10_udu4s")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(262, 751)
+script = ExtResource("8_1o07t")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_1o07t")
+tween_on_load = false
+follow_offset = Vector2(0, -45)
+follow_damping = true
+dead_zone_width = 0.25
+dead_zone_height = 0.4
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [connection signal="hit" from="CombatTest/Hitbox" to="." method="_on_hitbox_hit"]
 [connection signal="hurt" from="CombatTest/Hurtbox" to="." method="_on_hurtbox_hurt"]
