@@ -124,7 +124,7 @@ script = ExtResource("11_je7p5")
 dash_force = 2000.0
 dash_duration = 0.1
 max_energy = 2
-recharge_energy_time = 3.0
+recharge_energy_time = 1.4
 cooldown = 0.2
 metadata/_custom_type_script = "uid://ydvnrumpiyfg"
 
