@@ -166,7 +166,7 @@ text = "remove"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(262, 751)
+position = Vector2(262, 796)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -177,16 +177,15 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(262, 751)
+position = Vector2(262, 796)
 script = ExtResource("8_1o07t")
 follow_mode = 5
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_1o07t")
 tween_on_load = false
-follow_offset = Vector2(0, -45)
 follow_damping = true
-dead_zone_width = 0.25
-dead_zone_height = 0.4
+dead_zone_width = 0.24
+dead_zone_height = 0.24
 show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
