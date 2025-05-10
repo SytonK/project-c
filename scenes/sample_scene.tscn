@@ -130,10 +130,39 @@ position = Vector2(-290, 2)
 scale = Vector2(-1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 406.0
+offset_top = 531.0
+offset_right = 489.0
+offset_bottom = 562.0
+text = "weapon 1
+"
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 571.0
+offset_top = 533.0
+offset_right = 654.0
+offset_bottom = 564.0
+text = "weapon 2
+"
+
+[node name="Button3" type="Button" parent="CanvasLayer"]
+offset_left = 575.0
+offset_top = 637.0
+offset_right = 618.0
+offset_bottom = 668.0
+text = "next"
+
+[node name="Button4" type="Button" parent="CanvasLayer"]
+offset_left = 538.0
+offset_top = 752.0
+offset_right = 605.0
+offset_bottom = 783.0
+text = "remove"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -161,39 +190,7 @@ dead_zone_height = 0.4
 show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
-[node name="WeaponTest" type="Node2D" parent="."]
-
-[node name="Button" type="Button" parent="WeaponTest"]
-offset_left = 406.0
-offset_top = 531.0
-offset_right = 489.0
-offset_bottom = 562.0
-text = "weapon 1
-"
-
-[node name="Button2" type="Button" parent="WeaponTest"]
-offset_left = 571.0
-offset_top = 533.0
-offset_right = 654.0
-offset_bottom = 564.0
-text = "weapon 2
-"
-
-[node name="Button3" type="Button" parent="WeaponTest"]
-offset_left = 575.0
-offset_top = 637.0
-offset_right = 618.0
-offset_bottom = 668.0
-text = "next"
-
-[node name="Button4" type="Button" parent="WeaponTest"]
-offset_left = 538.0
-offset_top = 752.0
-offset_right = 605.0
-offset_bottom = 783.0
-text = "remove"
-
-[connection signal="button_down" from="WeaponTest/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="WeaponTest/Button2" to="." method="_on_button_2_button_down"]
-[connection signal="button_down" from="WeaponTest/Button3" to="." method="_on_button_3_button_down"]
-[connection signal="button_down" from="WeaponTest/Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="CanvasLayer/Button4" to="." method="_on_button_4_button_down"]
