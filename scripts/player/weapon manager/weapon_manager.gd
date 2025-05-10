@@ -7,18 +7,28 @@ var current_weapon_index: int = -1 : set = _set_current_weapon_index
 var current_weapon: Weapon
 var unarmed: Weapon
 
+var player: Player
 func _ready() -> void:
+	await _init_player()
 	_init_unarmed()
+
+func _init_player() -> void:
+	await owner.ready
+	player = owner as Player
+	assert(player != null, "The WeaponManager was used on an owner that is not a Player")
 
 func _init_unarmed() -> void:
 	unarmed = UNARMED.instantiate()
+	unarmed.player = player
 	add_child(unarmed)
 	current_weapon = unarmed
 
 func add_weapon(new_weapon: Weapon) -> void:
+	new_weapon.player = player
 	add_child(new_weapon)
 	weapons.append(new_weapon)
 	current_weapon_index = weapons.size() - 1
+	
 
 func remove_current_weapon() -> void:
 	if current_weapon_index == -1:
