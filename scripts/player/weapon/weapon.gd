@@ -1,6 +1,6 @@
 class_name Weapon extends Node2D
 
-enum AttackType {LIGHT, HEAVY, SPECIAL, DASH}
+enum AttackType {LIGHT, HEAVY, SPECIAL}
 
 var player: Player
 
@@ -67,22 +67,4 @@ func special_down_ground_attack() -> void:
 	pass
 
 func special_down_air_attack() -> void:
-	pass
-
-func dash_side_ground_attack() -> void:
-	pass
-
-func dash_side_air_attack() -> void:
-	pass
-
-func dash_up_ground_attack() -> void:
-	pass
-
-func dash_up_air_attack() -> void:
-	pass
-
-func dash_down_ground_attack() -> void:
-	pass
-
-func dash_down_air_attack() -> void:
 	pass
