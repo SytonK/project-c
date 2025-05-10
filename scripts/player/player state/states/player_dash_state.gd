@@ -1,7 +1,5 @@
 extends PlayerState
 
-const MIN_VELOCITY: float = 10
-
 var dash_timer: Timer
 
 func _ready() -> void:
@@ -32,7 +30,7 @@ func _on_dash_timer_timeout() -> void:
 	player.calculate_transition()
 
 func _calculate_early_exit() -> void:
-	if player.velocity.length() < MIN_VELOCITY:
+	if player.velocity.length() <= 0:
 		_early_exit()
 
 func _early_exit() -> void:
