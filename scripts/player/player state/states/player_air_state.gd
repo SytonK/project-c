@@ -31,6 +31,8 @@ func input(event: InputEvent) -> void:
 	if event.is_action_pressed("block"):
 		player.player_block_action.cast()
 	player.attack(event)
+	if event.is_action_pressed("next_weapon"):
+		player.weapon_manager.next_weapon()
 
 func _start_edge_forgivness() -> void:
 	if player.velocity.y < 0:
