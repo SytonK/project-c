@@ -20,6 +20,9 @@ func input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		_try_jump()
 
+func exit() -> void:
+	dash_timer.stop()
+
 func _init_dash_timer() -> void:
 	dash_timer = Timer.new()
 	dash_timer.one_shot = true
