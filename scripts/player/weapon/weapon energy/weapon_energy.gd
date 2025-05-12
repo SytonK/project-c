@@ -1,6 +1,7 @@
 class_name WeaponEnergy
 
 signal used(amount: float)
+signal changed(new_value: float)
 
 var max_value: float = 100
 var value: float = 0 : set = _set_value
@@ -12,3 +13,5 @@ func _set_value(new_value: float) -> void:
 		used.emit(value - res)
 	
 	value = res
+	
+	changed.emit(value)

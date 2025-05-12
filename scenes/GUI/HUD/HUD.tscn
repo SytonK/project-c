@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddppfoesrk6ab"]
+[gd_scene load_steps=8 format=3 uid="uid://ddppfoesrk6ab"]
 
 [ext_resource type="Script" uid="uid://cgvr3fej24hub" path="res://scripts/GUI/HUD/HUD.gd" id="1_25ca6"]
 [ext_resource type="Script" uid="uid://c8kv52kh56fwf" path="res://scripts/GUI/HUD/health/health_GUI.gd" id="2_rlusd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://60bqr1segsrg" path="res://scripts/GUI/HUD/ability/ability_gui.gd" id="4_jcln6"]
 [ext_resource type="Texture2D" uid="uid://f55xftwocsab" path="res://assets/temp assets/dash.png" id="5_xyc4y"]
 [ext_resource type="Script" uid="uid://ub36d8is1gia" path="res://scripts/GUI/HUD/ability/energy ability/energy_ability_gui.gd" id="6_kt6eb"]
+[ext_resource type="Script" uid="uid://dkdepjrdq3h1p" path="res://scripts/GUI/HUD/weapon energy bar/weapon_energy_bar.gd" id="7_kt6eb"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -52,3 +53,23 @@ value = 100.0
 texture_progress = ExtResource("5_xyc4y")
 script = ExtResource("6_kt6eb")
 metadata/_custom_type_script = "uid://ub36d8is1gia"
+
+[node name="WeaponEnergyBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 35.0
+offset_top = 1007.0
+offset_right = 39.0
+offset_bottom = 1034.0
+script = ExtResource("7_kt6eb")
+metadata/_custom_type_script = "uid://dkdepjrdq3h1p"
+
+[node name="WeaponEnergyBar2" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 153.0
+offset_top = 1007.0
+offset_right = 253.0
+offset_bottom = 1034.0
+script = ExtResource("7_kt6eb")
+metadata/_custom_type_script = "uid://dkdepjrdq3h1p"
