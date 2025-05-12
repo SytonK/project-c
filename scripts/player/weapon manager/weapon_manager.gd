@@ -25,10 +25,10 @@ func _init_unarmed() -> void:
 
 func add_weapon(new_weapon: Weapon) -> void:
 	new_weapon.player = player
+	new_weapon.weapon_energy.used.connect(_use_weapon_energy)
 	add_child(new_weapon)
 	weapons.append(new_weapon)
 	current_weapon_index = weapons.size() - 1
-	
 
 func remove_current_weapon() -> void:
 	if current_weapon_index == -1:
@@ -49,8 +49,13 @@ func _set_current_weapon_index(new_current_weapon_index: int) -> void:
 		current_weapon = weapons[current_weapon_index]
 	
 	current_weapon.visible = true
-	
-	
-func next_weapon() -> void:
+
+func go_to_next_weapon() -> void:
 	if weapons.size() > 0:
 		current_weapon_index = posmod(current_weapon_index + 1, weapons.size())
+
+func _use_weapon_energy(amount: float) -> void:
+	assert(current_weapon_index != -1, 'Unarrmed attempted to use energy weapon')
+	
+	var weapon_index_to_charge: int = posmod(current_weapon_index + 1, weapons.size())
+	weapons[weapon_index_to_charge].weapon_energy.value += amount

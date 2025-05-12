@@ -21,4 +21,4 @@ func input(event: InputEvent) -> void:
 		player.player_block_action.cast()
 	player.attack(event)
 	if event.is_action_pressed("next_weapon"):
-		player.weapon_manager.next_weapon()
+		player.weapon_manager.go_tonext_weapon()
