@@ -10,5 +10,5 @@ func _ready() -> void:
 		if child is MultiRegionHitShape:
 			child.hit.connect(_on_hit)
 
-func _on_hit(attack_resource: AttackResource, attack_position: Vector2, defense_resource: DefenseResource, defense_position: Vector2) -> void:
-	hit.emit(attack_resource, attack_position, defense_resource, defense_position)
+func _on_hit(attack_resource: AttackResource, defense_resource: DefenseResource, defense_position: Vector2) -> void:
+	hit.emit(attack_resource, global_position, defense_resource, defense_position)
