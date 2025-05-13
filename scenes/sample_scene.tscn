@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=17 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
 [ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]
+[ext_resource type="PackedScene" uid="uid://c23xu5ma0bx7" path="res://scenes/enemies/dummies/multi_region_attacking_dummy.tscn" id="9_1o07t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
 
@@ -70,7 +71,7 @@ ease = 2
 script = SubResource("GDScript_jcc8f")
 
 [node name="Player" parent="." instance=ExtResource("1_jcc8f")]
-position = Vector2(262, 796)
+position = Vector2(493, 853)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(953, 987)
@@ -196,7 +197,7 @@ text = "Use energy"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(262, 796)
+position = Vector2(493, 853)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -207,7 +208,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(262, 796)
+position = Vector2(493, 853)
 script = ExtResource("8_1o07t")
 follow_mode = 5
 follow_target = NodePath("../Player")
@@ -218,6 +219,9 @@ dead_zone_width = 0.24
 dead_zone_height = 0.24
 show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="MultiRegionAttackingDummy" parent="." instance=ExtResource("9_1o07t")]
+position = Vector2(314, 839)
 
 [connection signal="button_down" from="CanvasLayer/Tests/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="CanvasLayer/Tests/Button2" to="." method="_on_button_2_button_down"]
