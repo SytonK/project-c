@@ -30,7 +30,7 @@ func _on_area_shape_entered(_area_rid: RID, area: MultiRegionHitbox, area_shape_
 	
 	var hit_shape: MultiRegionHitShape = _get_hit_shape(area, area_shape_index)
 	
-	hurt.emit(hit_shape.attack_resource, hit_shape.global_position, defense_resource, global_position)
+	hurt.emit(hit_shape.attack_resource, hit_shape.owner.global_position, defense_resource, global_position)
 	hit_shape.on_hit(defense_resource, global_position)
 	
 	allow_multi_region_shape_collision = false
