@@ -25,7 +25,7 @@ func _on_block_timer_timeout() -> void:
 	block_sprite.visible = false
 
 
-func _on_hurtbox_hurt(_hitbox: Hitbox, _hurtbox: Hurtbox) -> void:
+func _on_hurtbox_hurt(_attack_resource: AttackResource, _attack_position: Vector2, _defense_resource: DefenseResource, _defense_position: Vector2) -> void:
 	blocked = true
 
 func _exit_after_blocking() -> void:

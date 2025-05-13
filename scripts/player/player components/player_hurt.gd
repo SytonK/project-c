@@ -17,20 +17,25 @@ func _ready() -> void:
 	assert(player != null, "The PlayerHurt component was used on an owner that is not a Player")
 
 
-func _on_hurtbox_hurt(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
+func _on_hurtbox_hurt(attack_resource: AttackResource, attack_position: Vector2, _defense_resource: DefenseResource, defense_position: Vector2) -> void:
 	if is_invulnerable || player.state_machine.state.name == PlayerStates.BLOCK:
 		return
 	
 	player.state_machine.transition(PlayerStates.HURT)
-	_launch_player(hitbox, hurtbox)
+	_launch_player(attack_position, defense_position)
 	_start_invulnerable()
 	_blink()
-	_hurt_player(hitbox.attack_resource)
+	_hurt_player(attack_resource)
 
-func _launch_player(hitbox: Hitbox, hurtbox: Hurtbox) -> void:
-	player.velocity = Vector2(
-		((hurtbox.global_position.x - hitbox.global_position.x)/abs(hurtbox.global_position.x - hitbox.global_position.x)) * PUSHBACK_FOCRCE
-		,PUSHUP_FORCE)
+func _launch_player(attack_position: Vector2, defense_position: Vector2) -> void:
+	var direction: float = 0
+	if defense_position.x == attack_position.x:
+		direction = 1 if player.facing_direction == Player.FACING_DIRECTIONS.RIGHT else -1
+	else:
+		direction = (defense_position.x - attack_position.x)/abs(defense_position.x - attack_position.x)
+		
+		
+	player.velocity = Vector2(direction * PUSHBACK_FOCRCE, PUSHUP_FORCE)
 
 func _start_invulnerable() -> void:
 	is_invulnerable = true
