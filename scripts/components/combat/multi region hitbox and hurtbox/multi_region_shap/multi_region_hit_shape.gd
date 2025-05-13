@@ -4,5 +4,5 @@ signal hit(attack_resource: AttackResource, attack_position: Vector2, defense_re
 
 @export var attack_resource: AttackResource
 
-func on_hit(defense_resource: DefenseResource, position: Vector2) -> void:
-	hit.emit(attack_resource, global_position, defense_resource, position)
+func on_hit(defense_resource: DefenseResource, defense_position: Vector2) -> void:
+	hit.emit(attack_resource, global_position, defense_resource, defense_position)

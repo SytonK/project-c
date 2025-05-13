@@ -24,7 +24,7 @@ func _hitbox_entered(hitbox: Hitbox) -> void:
 func _multi_region_hitbox_entered() -> void:
 	allow_multi_region_shape_collision = true
 
-func _on_area_shape_entered(_area_rid: RID, area: MultiRegionHitbox, area_shape_index: int, local_shape_index: int) -> void:
+func _on_area_shape_entered(_area_rid: RID, area: MultiRegionHitbox, area_shape_index: int, _local_shape_index: int) -> void:
 	if !allow_multi_region_shape_collision:
 		return
 	
