@@ -3,8 +3,9 @@ extends PlayerState
 @onready var edge_forgiveness_timer: Timer = $EdgeForgivenessTimer
 var is_edge_forgiveness: bool = false
 
-func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
-	_start_edge_forgivness()
+func enter(previuse_state_name: String = "", _data: Dictionary = {}) -> void:
+	if previuse_state_name == PlayerStates.GROUND:
+		_start_edge_forgivness()
 
 func process(delta: float) -> void:
 	player.gravity.apply_gravity(delta)
