@@ -10,7 +10,7 @@ const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light 
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
 @onready var axe_handle_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHandleShape"
 
-func _on_handle_hit(attack_resource: AttackResource, defense_resource: DefenseResource, defense_position: Vector2) -> void:
+func _on_handle_hit(_attack_resource: AttackResource, _defense_resource: DefenseResource, _defense_position: Vector2) -> void:
 	_push_back_on_handle_hit()
 
 func _push_back_on_handle_hit() -> void:
