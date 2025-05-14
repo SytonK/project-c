@@ -6,6 +6,8 @@ var player: Player
 
 var weapon_energy: WeaponEnergy = WeaponEnergy.new()
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 func attack(attack_type: AttackType) -> void:
 	var type_str: String = AttackType.keys()[attack_type].to_lower()
 	var direction_str: String = PlayerInput.InputDirection.keys()[PlayerInput.get_input_direction()].to_lower()
