@@ -6,4 +6,6 @@ extends Weapon
 
 func light_side_ground_attack() -> void:
 	axe_light_side.light_side_0()
-	
+
+func light_side_air_attack() -> void:
+	axe_light_side.light_side_0()

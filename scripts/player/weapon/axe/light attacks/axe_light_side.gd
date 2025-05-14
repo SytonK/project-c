@@ -10,7 +10,10 @@ const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light 
 
 func light_side_0() -> void:
 	player.state_machine.transition(PlayerStates.ATTACK)
+	player.velocity.x = 0
+	player.velocity.y = max(player.velocity.y, 0)
 	animation_player.play("light_side_swing_0")
+	
 	if weapon.weapon_energy.value >= ENERGY_COST:
 		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_HEANDLE_0
