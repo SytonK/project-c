@@ -17,6 +17,10 @@ func attack(attack_type: AttackType) -> void:
 	assert(has_method(attack_str))
 	call(attack_str)
 
+func _finish_attack() -> void:
+	if player.state_machine.state.name == PlayerStates.ATTACK:
+		player.calculate_transition()
+
 func light_side_ground_attack() -> void:
 	pass
 

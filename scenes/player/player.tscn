@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=24 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bo06h86do71w6" path="res://scripts/player/weapon manager/weapon_manager.gd" id="2_8ydkj"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bdat73a1rvolc" path="res://scripts/components/movement/stop_jump_action.gd" id="8_qek5x"]
 [ext_resource type="Script" uid="uid://h4io0iikjqmk" path="res://scripts/components/movement/air_jump_action.gd" id="9_5gtgg"]
 [ext_resource type="Script" uid="uid://bhe5lbupxdii4" path="res://scripts/player/player state/states/player_block_state.gd" id="9_uf5tr"]
+[ext_resource type="Script" uid="uid://7cngdneojr7h" path="res://scripts/player/player state/states/player_attack_state.gd" id="11_3j4b4"]
 [ext_resource type="Script" uid="uid://ydvnrumpiyfg" path="res://scripts/player/actions/player_dash_action.gd" id="11_je7p5"]
 [ext_resource type="Script" uid="uid://bf1wciljq743l" path="res://scripts/player/actions/player_wall_jump_action.gd" id="13_gx1jg"]
 [ext_resource type="Script" uid="uid://mgmnw6x6ay7" path="res://scripts/player/player components/player_hurt.gd" id="15_fcs02"]
@@ -101,6 +102,9 @@ script = ExtResource("9_uf5tr")
 
 [node name="BlockTimer" type="Timer" parent="StateMachine/Block"]
 wait_time = 0.15
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("11_3j4b4")
 
 [node name="Components" type="Node" parent="."]
 

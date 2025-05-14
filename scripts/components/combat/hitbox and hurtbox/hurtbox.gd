@@ -28,7 +28,7 @@ func _on_area_shape_entered(_area_rid: RID, area: Area2D, area_shape_index: int,
 	if !allow_multi_region_shape_collision:
 		return
 	
-	assert(area is MultiRegionHitbox)
+	assert(area is MultiRegionHitbox, "Mulit region hit on a single region hitbox")
 	var hit_shape: MultiRegionHitShape = _get_hit_shape(area, area_shape_index)
 	
 	hurt.emit(hit_shape.attack_resource, hit_shape.owner.global_position, defense_resource, global_position)
