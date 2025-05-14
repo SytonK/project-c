@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8ajt1fecjyqa"
-path="res://.godot/imported/axe light side swing 0.png-04a035fb879ad922ed3ca9d1f9e249d8.ctex"
+path="res://.godot/imported/axe light side swing 0.png-fdd2d85f163856dac9c21e828cad57c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/weapons/axe/swing 0/axe light side swing 0.png"
-dest_files=["res://.godot/imported/axe light side swing 0.png-04a035fb879ad922ed3ca9d1f9e249d8.ctex"]
+source_file="res://assets/sprites/player/weapons/axe/axe light side swing 0.png"
+dest_files=["res://.godot/imported/axe light side swing 0.png-fdd2d85f163856dac9c21e828cad57c2.ctex"]
 
 [params]
 

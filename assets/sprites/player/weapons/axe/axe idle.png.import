@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsy8y30chtt24"
-path="res://.godot/imported/axe idle.png-51df1400b35ec901662e46bce7804408.ctex"
+path="res://.godot/imported/axe idle.png-7d8eee68ee44e97f0d5fe38e8398b96e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/weapons/axe/idle/axe idle.png"
-dest_files=["res://.godot/imported/axe idle.png-51df1400b35ec901662e46bce7804408.ctex"]
+source_file="res://assets/sprites/player/weapons/axe/axe idle.png"
+dest_files=["res://.godot/imported/axe idle.png-7d8eee68ee44e97f0d5fe38e8398b96e.ctex"]
 
 [params]
 
