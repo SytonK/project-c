@@ -7,3 +7,6 @@ func physics_process(delta: float) -> void:
 		player.gravity.apply_gravity(delta)
 	
 	player.move_and_slide()
+
+func exit() -> void:
+	player.weapon_manager.enter_cooldown()

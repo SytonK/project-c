@@ -8,6 +8,10 @@ var current_weapon: Weapon
 var unarmed: Weapon
 
 var player: Player
+
+var is_on_cooldown: bool = false
+@export var cooldown_duration: float = 0.05
+
 func _ready() -> void:
 	await _init_player()
 	_init_unarmed()
@@ -61,9 +65,17 @@ func _use_weapon_energy(amount: float) -> void:
 	weapons[weapon_index_to_charge].weapon_energy.value += amount
 
 func attack(event: InputEvent) -> void:
+	if is_on_cooldown:
+		return
+	
 	if event.is_action_pressed("light_attack"):
 		current_weapon.attack(Weapon.AttackType.LIGHT)
 	elif event.is_action_pressed("heavy_attack"):
 		current_weapon.attack(Weapon.AttackType.HEAVY)
 	if event.is_action_pressed("special_attack"):
 		current_weapon.attack(Weapon.AttackType.SPECIAL)
+
+func enter_cooldown() -> void:
+	is_on_cooldown = true
+	await get_tree().create_timer(cooldown_duration).timeout
+	is_on_cooldown = false
