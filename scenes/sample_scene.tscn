@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=20 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
 [ext_resource type="PackedScene" uid="uid://svc2i3u3vvqk" path="res://scenes/enemies/dummies/target_dummy.tscn" id="10_kg8jk"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
+[ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="11_kg8jk"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -24,21 +25,6 @@ func _ready() -> void:
 	player.weapon_manager.add_weapon(AXE.instantiate())
 	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
-
-func _on_button_button_down() -> void:
-	player.weapon_manager.add_weapon(TEST_WEAPON_0.instantiate())
-
-
-func _on_button_3_button_down() -> void:
-	player.weapon_manager.go_to_next_weapon()
-
-
-func _on_button_4_button_down() -> void:
-	player.weapon_manager.remove_current_weapon()
-
-
-func _on_button_5_button_down() -> void:
-	player.weapon_manager.current_weapon.weapon_energy.value -= 7
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
@@ -63,6 +49,16 @@ script = ExtResource("9_udu4s")
 duration = 1.0
 transition = 0
 ease = 2
+
+[sub_resource type="GDScript" id="GDScript_6idux"]
+script/source = "extends Node
+@onready var sequence: Sequence = $Sequence
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"ui_accept\"):
+		print(sequence.value)
+		sequence.value += 1
+"
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -144,46 +140,6 @@ scale = Vector2(-1, 1)
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
 
-[node name="Tests" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Button" type="Button" parent="CanvasLayer/Tests"]
-layout_mode = 0
-offset_left = 406.0
-offset_top = 531.0
-offset_right = 489.0
-offset_bottom = 562.0
-text = "weapon 1
-"
-
-[node name="Button3" type="Button" parent="CanvasLayer/Tests"]
-layout_mode = 0
-offset_left = 575.0
-offset_top = 637.0
-offset_right = 618.0
-offset_bottom = 668.0
-text = "next"
-
-[node name="Button4" type="Button" parent="CanvasLayer/Tests"]
-layout_mode = 0
-offset_left = 538.0
-offset_top = 752.0
-offset_right = 605.0
-offset_bottom = 783.0
-text = "remove"
-
-[node name="Button5" type="Button" parent="CanvasLayer/Tests"]
-layout_mode = 0
-offset_left = 354.0
-offset_top = 674.0
-offset_right = 449.0
-offset_bottom = 705.0
-text = "Use energy"
-
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(31, 851)
@@ -215,7 +171,10 @@ position = Vector2(988, 851)
 [node name="TargetDummy" parent="." instance=ExtResource("10_kg8jk")]
 position = Vector2(390, 859)
 
-[connection signal="button_down" from="CanvasLayer/Tests/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Tests/Button3" to="." method="_on_button_3_button_down"]
-[connection signal="button_down" from="CanvasLayer/Tests/Button4" to="." method="_on_button_4_button_down"]
-[connection signal="button_down" from="CanvasLayer/Tests/Button5" to="." method="_on_button_5_button_down"]
+[node name="SequenceTest" type="Node" parent="."]
+script = SubResource("GDScript_6idux")
+
+[node name="Sequence" type="Timer" parent="SequenceTest"]
+script = ExtResource("11_kg8jk")
+modulo = 4
+metadata/_custom_type_script = "uid://bpgr6i145id22"
