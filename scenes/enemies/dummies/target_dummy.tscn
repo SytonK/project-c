@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://svc2i3u3vvqk"]
+
+[ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_55kgs"]
+[ext_resource type="Script" uid="uid://4iqf7tk8trea" path="res://scripts/enemies/dummies/target_dummy.gd" id="1_ky8gl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky8gl"]
+size = Vector2(64, 96)
+
+[node name="TargetDummy" type="Node2D"]
+script = ExtResource("1_ky8gl")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.35, 0.75, 0.6, 1)
+polygon = PackedVector2Array(-30, 50, 30, 50, 30, -50, -30, -50)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 4
+script = ExtResource("1_55kgs")
+metadata/_custom_type_script = "uid://e14frlxwqj6p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_ky8gl")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -89.0
+offset_right = 21.0
+offset_bottom = -66.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
