@@ -1,5 +1,7 @@
 extends PlayerState
 
+const MOVE_OUT_OF_WALL_SPEED: float = 1
+
 @export var gravity_force: float
 @export var max_fall_speed: float
 
@@ -36,3 +38,8 @@ func input(event: InputEvent) -> void:
 		player.player_wall_jump_action.jump()
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
+	if event.is_action_pressed("look_down"):
+		_leave_wall_state()
+
+func _leave_wall_state() -> void:
+	player.velocity.x = player.get_facing_direction_to_float() * MOVE_OUT_OF_WALL_SPEED

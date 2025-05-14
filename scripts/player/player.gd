@@ -66,8 +66,11 @@ func look_at_movement_direction() -> void:
 func get_input_side_direction() -> float:
 	var strength: float = PlayerInput.get_side_strength()
 	if strength == 0:
-		return 1 if facing_direction == FACING_DIRECTIONS.RIGHT else -1
+		return get_facing_direction_to_float()
 	return strength/abs(strength)
+
+func get_facing_direction_to_float() -> float:
+	return 1 if facing_direction == FACING_DIRECTIONS.RIGHT else -1
 
 func _should_transition_to_wall_state() -> bool:
 	if !is_on_wall() || velocity.y < 0:
