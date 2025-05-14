@@ -5,6 +5,7 @@ const PUSH_BACK_SIDE_FORCE: float = 600
 
 const LIGHT_SIDE_SWING_BASE = preload("res://data/player/weapons/axe/light side swing 0/light side swing base.tres")
 const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 0.tres")
+const LIGHT_SIDE_SWING_HEANDLE_1 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 1.tres")
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
@@ -34,9 +35,7 @@ func attack() -> void:
 	sequence.value += 1
 
 func _light_side_0() -> void:
-	player.state_machine.transition(PlayerStates.ATTACK)
-	player.velocity.x = 0
-	player.velocity.y = max(player.velocity.y, 0)
+	_attack_setup()
 	animation_player.play("light_side_swing_0")
 	
 	if weapon.weapon_energy.value >= ENERGY_COST:
@@ -47,6 +46,20 @@ func _light_side_0() -> void:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 
 func _light_side_1() -> void:
-	print(1)
+	_attack_setup()
+	animation_player.play("light_side_swing_1")
+	
+	if weapon.weapon_energy.value >= ENERGY_COST:
+		weapon.weapon_energy.value -= ENERGY_COST
+		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_HEANDLE_1
+		axe_handle_shape.hit.connect(_on_handle_hit)
+	else:
+		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
+
 func _light_side_2() -> void:
 	print(2)
+
+func _attack_setup() -> void:
+	player.state_machine.transition(PlayerStates.ATTACK)
+	player.velocity.x = 0
+	player.velocity.y = max(player.velocity.y, 0)
