@@ -17,7 +17,8 @@ func _push_back_on_handle_hit() -> void:
 	player.velocity.x = (-1 if player.facing_direction == Player.FACING_DIRECTIONS.RIGHT else 1) * PUSH_BACK_SIDE_FORCE
 
 func finish_side_attack() -> void:
-	axe_handle_shape.hit.disconnect(_on_handle_hit)
+	if axe_handle_shape.hit.is_connected(_on_handle_hit):
+		axe_handle_shape.hit.disconnect(_on_handle_hit)
 	player.velocity.x = 0
 
 func light_side_0() -> void:
