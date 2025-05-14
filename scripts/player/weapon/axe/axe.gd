@@ -2,10 +2,10 @@ extends Weapon
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var axe_light_side: AxeLightSide = $AxeLightSide
+@onready var light_side: AxeLightSide = $LightSide
 
 func light_side_ground_attack() -> void:
-	axe_light_side.light_side_0()
+	light_side.light_side_0()
 
 func light_side_air_attack() -> void:
-	axe_light_side.light_side_0()
+	light_side.light_side_0()

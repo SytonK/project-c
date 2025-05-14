@@ -398,7 +398,7 @@ tracks/13/keys = {
 tracks/14/type = "method"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("AxeLightSide")
+tracks/14/path = NodePath("LightSide")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
@@ -457,5 +457,5 @@ shape = SubResource("RectangleShape2D_44re8")
 script = ExtResource("4_fwdx1")
 metadata/_custom_type_script = "uid://dibuvunt2k3j0"
 
-[node name="AxeLightSide" type="Node" parent="."]
+[node name="LightSide" type="Node" parent="."]
 script = ExtResource("7_44re8")
