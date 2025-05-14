@@ -162,7 +162,6 @@ tween_on_load = false
 follow_damping = true
 dead_zone_width = 0.24
 dead_zone_height = 0.24
-show_viewfinder_in_play = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="MultiRegionAttackingDummy" parent="." instance=ExtResource("9_1o07t")]
