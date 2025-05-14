@@ -59,3 +59,11 @@ func _use_weapon_energy(amount: float) -> void:
 	
 	var weapon_index_to_charge: int = posmod(current_weapon_index + 1, weapons.size())
 	weapons[weapon_index_to_charge].weapon_energy.value += amount
+
+func attack(event: InputEvent) -> void:
+	if event.is_action_pressed("light_attack"):
+		current_weapon.attack(Weapon.AttackType.LIGHT)
+	elif event.is_action_pressed("heavy_attack"):
+		current_weapon.attack(Weapon.AttackType.HEAVY)
+	if event.is_action_pressed("special_attack"):
+		current_weapon.attack(Weapon.AttackType.SPECIAL)

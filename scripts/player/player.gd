@@ -81,11 +81,3 @@ func _should_transition_to_wall_state() -> bool:
 	assert(collision, "Calculate stikcy wall without being on a wall")
 	
 	return collision.get_collider().is_in_group("sticky_walls")
-
-func attack(event: InputEvent) -> void:
-	if event.is_action_pressed("light_attack"):
-		weapon_manager.current_weapon.attack(Weapon.AttackType.LIGHT)
-	elif event.is_action_pressed("heavy_attack"):
-		weapon_manager.current_weapon.attack(Weapon.AttackType.HEAVY)
-	if event.is_action_pressed("special_attack"):
-		weapon_manager.current_weapon.attack(Weapon.AttackType.SPECIAL)

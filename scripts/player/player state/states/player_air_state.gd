@@ -31,7 +31,7 @@ func input(event: InputEvent) -> void:
 		player.player_dash_action.cast()
 	if event.is_action_pressed("block"):
 		player.player_block_action.cast()
-	player.attack(event)
+	player.weapon_manager.attack(event)
 	if event.is_action_pressed("next_weapon"):
 		player.weapon_manager.go_to_next_weapon()
 
