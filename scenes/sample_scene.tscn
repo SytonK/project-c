@@ -16,12 +16,13 @@
 script/source = "extends Node2D
 @onready var player: Player = $Player
 
-const TEST_WEAPON_0 = preload(\"res://scenes/player/weapons/test_weapons/test_weapon_0.tscn\")
 const AXE = preload(\"res://scenes/player/weapons/axe/axe.tscn\")
+const DUAL_GUNS = preload(\"res://scenes/player/weapons/dual guns/dual_guns.tscn\")
+
 @onready var heads_up_display: Control = $CanvasLayer/HeadsUpDisplay
 
 func _ready() -> void:
-	player.weapon_manager.add_weapon(TEST_WEAPON_0.instantiate())
+	player.weapon_manager.add_weapon(DUAL_GUNS.instantiate())
 	player.weapon_manager.add_weapon(AXE.instantiate())
 	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
