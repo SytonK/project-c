@@ -11,3 +11,5 @@ metadata/_custom_type_script = "uid://f757cb66dyeg"
 texture = ExtResource("2_ajo8g")
 hframes = 2
 vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
