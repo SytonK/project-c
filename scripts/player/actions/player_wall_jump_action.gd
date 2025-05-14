@@ -11,5 +11,4 @@ func _ready() -> void:
 	assert(player != null, "The PlayerWallJumpAction was used on an owner that is not a Player")
 
 func jump() -> void:
-	var jump_direction: int = 1 if player.facing_direction == Player.FACING_DIRECTIONS.RIGHT else -1
-	owner.velocity = Vector2(jump_pushback_force * jump_direction, -jump_force)
+	owner.velocity = Vector2(jump_pushback_force * player.get_facing_direction_to_float(), -jump_force)

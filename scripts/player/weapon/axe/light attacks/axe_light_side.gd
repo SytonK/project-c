@@ -14,7 +14,7 @@ func _on_handle_hit(_attack_resource: AttackResource, _defense_resource: Defense
 	_push_back_on_handle_hit()
 
 func _push_back_on_handle_hit() -> void:
-	player.velocity.x = (-1 if player.facing_direction == Player.FACING_DIRECTIONS.RIGHT else 1) * PUSH_BACK_SIDE_FORCE
+	player.velocity.x = -player.get_facing_direction_to_float() * PUSH_BACK_SIDE_FORCE
 
 func finish_side_attack() -> void:
 	if axe_handle_shape.hit.is_connected(_on_handle_hit):

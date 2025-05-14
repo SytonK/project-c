@@ -30,7 +30,7 @@ func _on_hurtbox_hurt(attack_resource: AttackResource, attack_position: Vector2,
 func _launch_player(attack_position: Vector2, defense_position: Vector2) -> void:
 	var direction: float = 0
 	if defense_position.x == attack_position.x:
-		direction = 1 if player.facing_direction == Player.FACING_DIRECTIONS.RIGHT else -1
+		direction = player.get_facing_direction_to_float()
 	else:
 		direction = (defense_position.x - attack_position.x)/abs(defense_position.x - attack_position.x)
 		
