@@ -21,8 +21,8 @@ const AXE = preload(\"res://scenes/player/weapons/axe/axe.tscn\")
 
 func _ready() -> void:
 	player.weapon_manager.add_weapon(TEST_WEAPON_0.instantiate())
-	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	player.weapon_manager.add_weapon(AXE.instantiate())
+	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
 
 func _on_button_button_down() -> void:

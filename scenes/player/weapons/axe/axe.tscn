@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6viydnwnr018"]
+[gd_scene load_steps=14 format=3 uid="uid://6viydnwnr018"]
 
 [ext_resource type="Script" uid="uid://631iueqp2xfg" path="res://scripts/player/weapon/axe/axe.gd" id="1_fvkb5"]
 [ext_resource type="Texture2D" uid="uid://bsy8y30chtt24" path="res://assets/sprites/player/weapons/axe/idle/axe idle.png" id="2_2epgt"]
@@ -184,6 +184,42 @@ tracks/9/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MultiRegionHitbox/AxeHeadShape:shape:size")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(72, 118)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MultiRegionHitbox/AxeHeadShape:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(86, -23)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MultiRegionHitbox/AxeHeadShape:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_fvkb5"]
 resource_name = "light_side_swing_0"
@@ -283,7 +319,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(80, 28)]
+"values": [Vector2(74, 28)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -295,7 +331,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(10, -21)]
+"values": [Vector2(7, -21)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -323,6 +359,42 @@ tracks/10/keys = {
 "method": &"_finish_attack"
 }]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MultiRegionHitbox/AxeHeadShape:shape:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85, 118)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("MultiRegionHitbox/AxeHeadShape:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(86.5, -23)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("MultiRegionHitbox/AxeHeadShape:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hitak"]
 _data = {
@@ -333,6 +405,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fvkb5"]
 size = Vector2(80, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44re8"]
+size = Vector2(72, 118)
 
 [node name="Axe" type="Node2D"]
 script = ExtResource("1_fvkb5")
@@ -363,6 +438,8 @@ attack_resource = ExtResource("3_44re8")
 metadata/_custom_type_script = "uid://dibuvunt2k3j0"
 
 [node name="AxeHeadShape" type="CollisionShape2D" parent="MultiRegionHitbox"]
+position = Vector2(86, -23)
+shape = SubResource("RectangleShape2D_44re8")
 script = ExtResource("4_fwdx1")
 metadata/_custom_type_script = "uid://dibuvunt2k3j0"
 
