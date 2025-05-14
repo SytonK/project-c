@@ -2,7 +2,8 @@ extends Weapon
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@onready var axe_light_side: AxeLightSide = $AxeLightSide
+
 func light_side_ground_attack() -> void:
-	player.state_machine.transition(PlayerStates.ATTACK)
-	animation_player.play("light_side_swing_0")
+	axe_light_side.light_side_0()
 	
