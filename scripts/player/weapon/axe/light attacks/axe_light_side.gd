@@ -9,6 +9,7 @@ const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
 @onready var axe_handle_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHandleShape"
+@onready var sequence: Sequence = $Sequence
 
 func _on_handle_hit(_attack_resource: AttackResource, _defense_resource: DefenseResource, _defense_position: Vector2) -> void:
 	_push_back_on_handle_hit()
@@ -21,7 +22,18 @@ func finish_side_attack() -> void:
 		axe_handle_shape.hit.disconnect(_on_handle_hit)
 	player.velocity.x = 0
 
-func light_side_0() -> void:
+func attack() -> void:
+	match sequence.value:
+		0:
+			_light_side_0()
+		1:
+			_light_side_1()
+		2:
+			_light_side_2()
+	
+	sequence.value += 1
+
+func _light_side_0() -> void:
 	player.state_machine.transition(PlayerStates.ATTACK)
 	player.velocity.x = 0
 	player.velocity.y = max(player.velocity.y, 0)
@@ -33,3 +45,8 @@ func light_side_0() -> void:
 		axe_handle_shape.hit.connect(_on_handle_hit)
 	else:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
+
+func _light_side_1() -> void:
+	print(1)
+func _light_side_2() -> void:
+	print(2)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://6viydnwnr018"]
+[gd_scene load_steps=15 format=3 uid="uid://6viydnwnr018"]
 
 [ext_resource type="Script" uid="uid://631iueqp2xfg" path="res://scripts/player/weapon/axe/axe.gd" id="1_fvkb5"]
 [ext_resource type="Texture2D" uid="uid://bsy8y30chtt24" path="res://assets/sprites/player/weapons/axe/axe idle.png" id="2_2epgt"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b6vkknfgca0fg" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_hitbox.gd" id="3_hitak"]
 [ext_resource type="Script" uid="uid://dibuvunt2k3j0" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_shap/multi_region_hit_shape.gd" id="4_fwdx1"]
 [ext_resource type="Script" uid="uid://b33hqtq2mm20h" path="res://scripts/player/weapon/axe/light attacks/axe_light_side.gd" id="7_44re8"]
+[ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="8_i2yj4"]
 
 [sub_resource type="Animation" id="Animation_l8uss"]
 length = 0.001
@@ -459,3 +460,8 @@ metadata/_custom_type_script = "uid://dibuvunt2k3j0"
 
 [node name="LightSide" type="Node" parent="."]
 script = ExtResource("7_44re8")
+
+[node name="Sequence" type="Timer" parent="LightSide"]
+script = ExtResource("8_i2yj4")
+modulo = 3
+metadata/_custom_type_script = "uid://bpgr6i145id22"
