@@ -40,6 +40,8 @@ func input(event: InputEvent) -> void:
 		player.player_dash_action.cast()
 	if event.is_action_pressed("look_down"):
 		_leave_wall_state()
+	if event.is_action_pressed("next_weapon"):
+		player.weapon_manager.go_to_next_weapon()
 
 func _leave_wall_state() -> void:
 	player.velocity.x = player.get_facing_direction_to_float() * MOVE_OUT_OF_WALL_SPEED
