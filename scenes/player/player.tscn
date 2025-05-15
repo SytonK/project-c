@@ -102,6 +102,7 @@ script = ExtResource("9_uf5tr")
 
 [node name="BlockTimer" type="Timer" parent="StateMachine/Block"]
 wait_time = 0.15
+one_shot = true
 
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("11_3j4b4")
