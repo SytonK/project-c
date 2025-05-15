@@ -14,7 +14,7 @@ func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 func exit() -> void:
 	player.reset_gravity()
 
-func process(delta: float) -> void:
+func physics_process(delta: float) -> void:
 	player.gravity.apply_gravity(delta)
 	
 	player.move_and_slide()
