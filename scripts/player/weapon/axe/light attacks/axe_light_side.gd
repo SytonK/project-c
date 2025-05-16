@@ -26,9 +26,6 @@ var weapon: Weapon
 
 func _ready() -> void:
 	super._ready()
-	_init_player()
-
-func _init_player() -> void:
 	assert(owner is Weapon, "weapon ability was used not on a weapon")
 	weapon = owner
 	await owner.ready
