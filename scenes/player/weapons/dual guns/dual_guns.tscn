@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://br6n2k8tf210c"]
+[gd_scene load_steps=4 format=3 uid="uid://br6n2k8tf210c"]
 
 [ext_resource type="Script" uid="uid://dyoaitv13nvng" path="res://scripts/player/weapon/dual guns/dual_guns.gd" id="1_ajo8g"]
 [ext_resource type="Texture2D" uid="uid://bkajww8muvtpq" path="res://assets/sprites/player/weapons/dual guns/dual guns idle.png" id="2_ajo8g"]
+[ext_resource type="Script" uid="uid://dmpnfnsd5vfxb" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_lisht_side.gd" id="3_o0nj2"]
 
 [node name="DualGuns" type="Node2D"]
 script = ExtResource("1_ajo8g")
@@ -13,3 +14,7 @@ hframes = 2
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="DualGunsLishtSide" type="Node" parent="."]
+script = ExtResource("3_o0nj2")
+metadata/_custom_type_script = "uid://dmpnfnsd5vfxb"
