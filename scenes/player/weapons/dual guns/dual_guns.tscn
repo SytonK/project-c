@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://br6n2k8tf210c"]
 
-[ext_resource type="Script" uid="uid://f757cb66dyeg" path="res://scripts/player/weapon/weapon.gd" id="1_q1sjs"]
+[ext_resource type="Script" uid="uid://dyoaitv13nvng" path="res://scripts/player/weapon/dual guns/dual_guns.gd" id="1_ajo8g"]
 [ext_resource type="Texture2D" uid="uid://bkajww8muvtpq" path="res://assets/sprites/player/weapons/dual guns/dual guns idle.png" id="2_ajo8g"]
 
 [node name="DualGuns" type="Node2D"]
-script = ExtResource("1_q1sjs")
+script = ExtResource("1_ajo8g")
 metadata/_custom_type_script = "uid://f757cb66dyeg"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
