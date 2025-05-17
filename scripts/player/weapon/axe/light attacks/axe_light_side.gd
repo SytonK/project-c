@@ -12,10 +12,6 @@ const COOLDOWN0: float = 0.3
 const COOLDOWN1: float = 0.38
 const COOLDOWN2: float = 0.96
 
-const SEQUENCE0: float = 1.2
-const SEQUENCE1: float = 1.4
-const SEQUENCE2: float = 1.6
-
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
 @onready var axe_handle_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHandleShape"
@@ -69,7 +65,6 @@ func _light_side_0() -> void:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
 	cooldown = COOLDOWN0
-	sequence.wait_time = SEQUENCE0
 
 func _light_side_1() -> void:
 	_attack_setup()
@@ -83,7 +78,6 @@ func _light_side_1() -> void:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
 	cooldown = COOLDOWN1
-	sequence.wait_time = SEQUENCE1
 
 func _light_side_2() -> void:
 	_attack_setup()
@@ -96,7 +90,6 @@ func _light_side_2() -> void:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
 	cooldown = COOLDOWN2
-	sequence.wait_time = SEQUENCE2
 
 func _attack_setup() -> void:
 	player.state_machine.transition(PlayerStates.ATTACK)
