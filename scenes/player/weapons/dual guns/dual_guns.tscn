@@ -1,9 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://br6n2k8tf210c"]
+[gd_scene load_steps=8 format=3 uid="uid://br6n2k8tf210c"]
 
 [ext_resource type="Script" uid="uid://dyoaitv13nvng" path="res://scripts/player/weapon/dual guns/dual_guns.gd" id="1_ajo8g"]
 [ext_resource type="Texture2D" uid="uid://bkajww8muvtpq" path="res://assets/sprites/player/weapons/dual guns/dual guns idle.png" id="2_ajo8g"]
 [ext_resource type="Script" uid="uid://dmpnfnsd5vfxb" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_lisht_side.gd" id="3_o0nj2"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="4_rjpmr"]
+
+[sub_resource type="Animation" id="Animation_rjpmr"]
+resource_name = "light_side_0"
+length = 0.1
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish_attack"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ulptl"]
+resource_name = "light_side_2"
+length = 0.15
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish_attack"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8mg8"]
+_data = {
+&"light_side_0": SubResource("Animation_rjpmr"),
+&"light_side_1": SubResource("Animation_ulptl")
+}
 
 [node name="DualGuns" type="Node2D"]
 script = ExtResource("1_ajo8g")
@@ -15,6 +59,9 @@ hframes = 2
 vframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j8mg8")
+}
 
 [node name="DualGunsLishtSide" type="Node" parent="."]
 script = ExtResource("3_o0nj2")

@@ -18,6 +18,7 @@ const COOLDOWN_1: float = .7
 const ENERGY_COST: float = 15
 
 @onready var sequence: Sequence = $Sequence
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 var player: Player
 var weapon: Weapon
@@ -39,14 +40,22 @@ func _ability_effect() -> void:
 	sequence.value += 1
 
 func _attack_0() -> void:
+	_set_up_attack()
+	animation_player.play("light_side_0")
 	_spawn_bullet(DUAL_GUN_LIGHT_SIDE_0, BULLET_0)
 	
 	cooldown = COOLDOWN_0
 	
 func _attack_1() -> void:
+	_set_up_attack()
+	animation_player.play("light_side_1")
 	_spawn_bullet(DUAL_GUN_LIGHT_SIDE_1, BULLET_1)
 	
 	cooldown = COOLDOWN_1
+
+func _set_up_attack() -> void:
+	player.state_machine.transition(PlayerStates.ATTACK)
+	player.velocity.x = 0
 
 func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> void:
 	var attack_resourc: AttackResource
