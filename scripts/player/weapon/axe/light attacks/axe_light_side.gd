@@ -8,9 +8,9 @@ const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light 
 const LIGHT_SIDE_SWING_HEANDLE_1 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 1.tres")
 const LIGHT_SIDE_SWING_HEANDLE_2 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 2.tres")
 
-const COOLDOWN0: float = 0.3
-const COOLDOWN1: float = 0.38
-const COOLDOWN2: float = 0.96
+const COOLDOWN_0: float = 0.3
+const COOLDOWN_1: float = 0.38
+const COOLDOWN_2: float = 0.96
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
@@ -26,7 +26,6 @@ func _ready() -> void:
 	weapon = owner
 	await owner.ready
 	player = owner.player
-
 
 func _on_handle_hit(_attack_resource: AttackResource, _defense_resource: DefenseResource, _defense_position: Vector2) -> void:
 	_push_back_on_handle_hit()
@@ -64,7 +63,7 @@ func _light_side_0() -> void:
 	else:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
-	cooldown = COOLDOWN0
+	cooldown = COOLDOWN_0
 
 func _light_side_1() -> void:
 	_attack_setup()
@@ -77,7 +76,7 @@ func _light_side_1() -> void:
 	else:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
-	cooldown = COOLDOWN1
+	cooldown = COOLDOWN_1
 
 func _light_side_2() -> void:
 	_attack_setup()
@@ -89,7 +88,7 @@ func _light_side_2() -> void:
 	else:
 		axe_head_shape.attack_resource = LIGHT_SIDE_SWING_BASE
 	
-	cooldown = COOLDOWN2
+	cooldown = COOLDOWN_2
 
 func _attack_setup() -> void:
 	player.state_machine.transition(PlayerStates.ATTACK)
