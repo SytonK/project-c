@@ -1029,5 +1029,4 @@ metadata/_custom_type_script = "uid://bpgr6i145id22"
 
 [node name="AxeLightUp" type="Node" parent="."]
 script = ExtResource("12_c33el")
-cooldown = 0.8
 metadata/_custom_type_script = "uid://bp4bcnhhmuh7j"

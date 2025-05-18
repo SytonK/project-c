@@ -191,6 +191,9 @@ position = Vector2(988, 851)
 [node name="TargetDummy" parent="." instance=ExtResource("10_kg8jk")]
 position = Vector2(390, 859)
 
+[node name="TargetDummy2" parent="." instance=ExtResource("10_kg8jk")]
+position = Vector2(276, 732)
+
 [node name="SequenceTest" type="Node" parent="."]
 script = SubResource("GDScript_6idux")
 
