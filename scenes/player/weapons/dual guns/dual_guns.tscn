@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://br6n2k8tf210c"]
+[gd_scene load_steps=11 format=3 uid="uid://br6n2k8tf210c"]
 
 [ext_resource type="Script" uid="uid://dyoaitv13nvng" path="res://scripts/player/weapon/dual guns/dual_guns.gd" id="1_ajo8g"]
 [ext_resource type="Texture2D" uid="uid://bkajww8muvtpq" path="res://assets/sprites/player/weapons/dual guns/dual guns idle.png" id="2_ajo8g"]
 [ext_resource type="Script" uid="uid://dmpnfnsd5vfxb" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_lisht_side.gd" id="3_o0nj2"]
+[ext_resource type="Texture2D" uid="uid://cndpr1ekxo15h" path="res://assets/sprites/player/weapons/dual guns/dual guns light side 0.png" id="3_ulptl"]
+[ext_resource type="Texture2D" uid="uid://cdgv2ngv4w1ej" path="res://assets/sprites/player/weapons/dual guns/dual guns light side 1.png" id="4_j8mg8"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="4_rjpmr"]
 
 [sub_resource type="Animation" id="Animation_rjpmr"]
 resource_name = "light_side_0"
 length = 0.1
-step = 0.1
+step = 0.01
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,11 +25,110 @@ tracks/0/keys = {
 "method": &"_finish_attack"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_ulptl")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.03, 0.07, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
-[sub_resource type="Animation" id="Animation_ulptl"]
-resource_name = "light_side_2"
-length = 0.15
-step = 0.05
+[sub_resource type="Animation" id="Animation_j8mg8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ajo8g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wu1hw"]
+resource_name = "light_side_1"
+length = 0.1
+step = 0.01
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -35,18 +136,67 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.15),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"_finish_attack"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_j8mg8")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:vframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.03, 0.07, 0.08),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8mg8"]
 _data = {
+&"RESET": SubResource("Animation_j8mg8"),
 &"light_side_0": SubResource("Animation_rjpmr"),
-&"light_side_1": SubResource("Animation_ulptl")
+&"light_side_1": SubResource("Animation_wu1hw")
 }
 
 [node name="DualGuns" type="Node2D"]

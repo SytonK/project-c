@@ -8,9 +8,9 @@ const LIGHT_SIDE_SWING_HEANDLE_0 = preload("res://data/player/weapons/axe/light 
 const LIGHT_SIDE_SWING_HEANDLE_1 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 1.tres")
 const LIGHT_SIDE_SWING_HEANDLE_2 = preload("res://data/player/weapons/axe/light side swing 0/light side swing heandle 2.tres")
 
-const COOLDOWN_0: float = 0.3
-const COOLDOWN_1: float = 0.38
-const COOLDOWN_2: float = 0.96
+const COOLDOWN_0: float = 0.15
+const COOLDOWN_1: float = 0.2
+const COOLDOWN_2: float = 0.8
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
