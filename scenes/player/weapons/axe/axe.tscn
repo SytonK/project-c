@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://6viydnwnr018"]
+[gd_scene load_steps=21 format=3 uid="uid://6viydnwnr018"]
 
 [ext_resource type="Script" uid="uid://631iueqp2xfg" path="res://scripts/player/weapon/axe/axe.gd" id="1_fvkb5"]
 [ext_resource type="Texture2D" uid="uid://bsy8y30chtt24" path="res://assets/sprites/player/weapons/axe/axe idle.png" id="2_2epgt"]
-[ext_resource type="Resource" uid="uid://dbt3vllrxvidr" path="res://data/player/weapons/axe/light side swing 0/light side swing base.tres" id="3_44re8"]
 [ext_resource type="Texture2D" uid="uid://b8ajt1fecjyqa" path="res://assets/sprites/player/weapons/axe/axe light side swing 0.png" id="3_fwdx1"]
 [ext_resource type="Script" uid="uid://b6vkknfgca0fg" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_hitbox.gd" id="3_hitak"]
 [ext_resource type="Script" uid="uid://dibuvunt2k3j0" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_shap/multi_region_hit_shape.gd" id="4_fwdx1"]
@@ -10,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ce5fyivvt6r72" path="res://assets/sprites/player/weapons/axe/axe light side swing 2.png" id="6_kp8mg"]
 [ext_resource type="Script" uid="uid://b33hqtq2mm20h" path="res://scripts/player/weapon/axe/light attacks/axe_light_side.gd" id="7_44re8"]
 [ext_resource type="Texture2D" uid="uid://cv372n6cv34in" path="res://assets/sprites/player/weapons/axe/axe light up.png" id="7_cwh6x"]
-[ext_resource type="Resource" uid="uid://itryp3e3dbc2" path="res://data/player/weapons/axe/light/base attack.tres" id="8_c33el"]
+[ext_resource type="Resource" uid="uid://itryp3e3dbc2" path="res://data/player/weapons/axe/light/axe_base_attack.tres" id="8_c33el"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="8_i2yj4"]
 
 [sub_resource type="Animation" id="Animation_l8uss"]
@@ -97,7 +96,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_44re8")]
+"values": [ExtResource("8_c33el")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -312,7 +311,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_44re8")]
+"values": [ExtResource("8_c33el")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -501,7 +500,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_44re8")]
+"values": [ExtResource("8_c33el")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -687,10 +686,10 @@ tracks/6/path = NodePath("MultiRegionHitbox/AxeHandleShape:attack_resource")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(100),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_44re8")]
+"values": [ExtResource("8_c33el")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -1009,7 +1008,7 @@ metadata/_custom_type_script = "uid://b6vkknfgca0fg"
 position = Vector2(10, -21)
 shape = SubResource("RectangleShape2D_fvkb5")
 script = ExtResource("4_fwdx1")
-attack_resource = ExtResource("3_44re8")
+attack_resource = ExtResource("8_c33el")
 metadata/_custom_type_script = "uid://dibuvunt2k3j0"
 
 [node name="AxeHeadShape" type="CollisionShape2D" parent="MultiRegionHitbox"]
