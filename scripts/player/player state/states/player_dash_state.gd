@@ -10,6 +10,11 @@ func enter(_previuse_state_name: String = "", data: Dictionary = {}) -> void:
 	assert(data.has("dash_duration"), "dash have no dash_duration")
 	dash_timer.wait_time = data["dash_duration"]
 	dash_timer.start()
+	_animate()
+
+func _animate() -> void:
+	if player.weapon_manager.current_weapon.animation_player.has_animation('dash'):
+		player.weapon_manager.current_weapon.animation_player.play('dash')
 
 func physics_process(_delta: float) -> void:
 	player.move_and_slide()

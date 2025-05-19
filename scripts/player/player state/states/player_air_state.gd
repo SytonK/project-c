@@ -17,6 +17,8 @@ func process(delta: float) -> void:
 	player.look_at_movement_direction()
 	
 	player.calculate_transition()
+	
+	_animate()
 
 func input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
@@ -44,3 +46,14 @@ func _start_edge_forgivness() -> void:
 
 func _on_edge_forgiveness_timer_timeout() -> void:
 	is_edge_forgiveness = false
+
+func _animate() -> void:
+	var animation_name: String
+	
+	if player.velocity.y > 0:
+		animation_name = "fall"
+	else:
+		animation_name = "jump"
+	
+	if player.weapon_manager.current_weapon.animation_player.has_animation(animation_name):
+		player.weapon_manager.current_weapon.animation_player.play(animation_name)

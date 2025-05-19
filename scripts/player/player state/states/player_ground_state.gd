@@ -11,6 +11,8 @@ func physics_process(delta: float) -> void:
 	player.look_at_movement_direction()
 	
 	player.calculate_transition()
+	
+	_animate()
 
 func input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
@@ -22,3 +24,14 @@ func input(event: InputEvent) -> void:
 	player.weapon_manager.attack(event)
 	if event.is_action_pressed("next_weapon"):
 		player.weapon_manager.go_to_next_weapon()
+
+func _animate() -> void:
+	var animation_name: String
+	
+	if player.velocity.x == 0:
+		animation_name = "idle"
+	else:
+		animation_name = "run"
+	
+	if player.weapon_manager.current_weapon.animation_player.has_animation(animation_name):
+		player.weapon_manager.current_weapon.animation_player.play(animation_name)

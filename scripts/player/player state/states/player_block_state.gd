@@ -12,7 +12,11 @@ func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 	block_timer.start()
 	block_sprite.visible = true
 	blocked = false
+	_animate()
 
+func _animate() -> void:
+	if player.weapon_manager.current_weapon.animation_player.has_animation('block'):
+		player.weapon_manager.current_weapon.animation_player.play('block')
 
 func exit() -> void:
 	if blocked:
