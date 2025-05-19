@@ -864,6 +864,17 @@ metadata/_custom_type_script = "uid://f757cb66dyeg"
 color = Color(0.1, 0.15, 0.65, 1)
 polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
 
+[node name="Eye" type="Polygon2D" parent="Body"]
+polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
+
+[node name="Axe" type="Polygon2D" parent="Body"]
+color = Color(0.75, 0.35, 0.25, 1)
+polygon = PackedVector2Array(0, -6, 0, 6, 100, 6, 100, -6)
+
+[node name="AxeHead" type="Polygon2D" parent="Body/Axe"]
+color = Color(0.6, 0.3, 0.6, 1)
+polygon = PackedVector2Array(100, -25, 100, 25, 120, 25, 120, -25)
+
 [node name="Label" type="Label" parent="Body"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -871,17 +882,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -37.5
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 37.5
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Eye" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -204,6 +204,13 @@ metadata/_custom_type_script = "uid://f757cb66dyeg"
 color = Color(0.1, 0.15, 0.65, 1)
 polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
 
+[node name="Eye" type="Polygon2D" parent="Body"]
+polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
+
+[node name="Gun" type="Polygon2D" parent="Body"]
+color = Color(0.6, 0.2, 0.6, 1)
+polygon = PackedVector2Array(18, -6, 18, -29, 49, -29, 49, -17, 32, -17, 32, -6)
+
 [node name="Label" type="Label" parent="Body"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -219,9 +226,6 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="Eye" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
