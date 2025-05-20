@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6viydnwnr018"]
+[gd_scene load_steps=24 format=3 uid="uid://6viydnwnr018"]
 
 [ext_resource type="Script" uid="uid://631iueqp2xfg" path="res://scripts/player/weapon/axe/axe.gd" id="1_fvkb5"]
 [ext_resource type="Script" uid="uid://b6vkknfgca0fg" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_hitbox.gd" id="3_hitak"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b33hqtq2mm20h" path="res://scripts/player/weapon/axe/light attacks/axe_light_side.gd" id="7_44re8"]
 [ext_resource type="Resource" uid="uid://itryp3e3dbc2" path="res://data/player/weapons/axe/light/axe_base_attack.tres" id="8_c33el"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="8_i2yj4"]
+[ext_resource type="Script" uid="uid://bb0tkwwpqwl6" path="res://scripts/player/weapon/axe/light attacks/axe_light_down_ground.gd" id="8_qxc3v"]
 [ext_resource type="Script" uid="uid://bp4bcnhhmuh7j" path="res://scripts/player/weapon/axe/light attacks/axe_ligth_up.gd" id="12_c33el"]
 
 [sub_resource type="Animation" id="Animation_l8uss"]
@@ -1287,3 +1288,8 @@ metadata/_custom_type_script = "uid://bpgr6i145id22"
 script = ExtResource("12_c33el")
 cooldown = 0.8
 metadata/_custom_type_script = "uid://bp4bcnhhmuh7j"
+
+[node name="AxeLightDownGround" type="Node" parent="."]
+script = ExtResource("8_qxc3v")
+cooldown = 1.0
+metadata/_custom_type_script = "uid://bb0tkwwpqwl6"
