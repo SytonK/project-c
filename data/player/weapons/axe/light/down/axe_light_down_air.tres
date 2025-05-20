@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="AttackResource" load_steps=2 format=3 uid="uid://b7njy7s8h1eo8"]
+
+[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/resources/combat/attack_resource.gd" id="1_cabxp"]
+
+[resource]
+script = ExtResource("1_cabxp")
+damage = 200
+metadata/_custom_type_script = "uid://brg71t7h26ou0"
