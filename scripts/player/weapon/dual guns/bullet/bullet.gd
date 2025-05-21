@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 func _destroy_on_timeout() -> void:
 	queue_free()
 
-func _on_hitbox_hit(attack_resource: AttackResource, attack_position: Vector2, defense_resource: DefenseResource, defense_position: Vector2):
+func _on_hitbox_hit(_attack_resource: AttackResource, _attack_position: Vector2, _defense_resource: DefenseResource, _defense_position: Vector2):
 	queue_free()
 
 func _destroy_on_wall_hit() -> void:
