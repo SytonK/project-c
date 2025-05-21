@@ -60,13 +60,15 @@ func _set_up_attack() -> void:
 func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> void:
 	var attack_resourc: AttackResource
 	var speed: float
+	var bounce: bool = false
 	if weapon.weapon_energy.value >= ENERGY_COST:
 		attack_resourc = p_attack_reasource
 		speed = FAST_BULLET_SPEED
 		weapon.weapon_energy.value -= ENERGY_COST
+		bounce = true
 	else:
 		attack_resourc = DUAL_GUN_LIGHT_SIDE_BASE
 		speed = BASE_BULLET_SPEED
-	var new_bullet := Bullet.new(attack_resourc, speed, Vector2(player.get_facing_direction_to_float(), 0), BULLET_LIFE_TIME, texture)
+	var new_bullet := Bullet.new(attack_resourc, speed, Vector2(player.get_facing_direction_to_float(), 0), BULLET_LIFE_TIME, texture, bounce)
 	new_bullet.global_position = weapon.global_position
 	get_tree().root.add_child(new_bullet)
