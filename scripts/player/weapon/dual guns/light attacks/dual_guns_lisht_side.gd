@@ -1,6 +1,6 @@
 class_name DualGunsLishtSide extends Ability
 
-const DUAL_GUNS_LIGHT_SIDE_BASE = preload("res://data/player/weapons/dual guns/light/dual_guns_light_side_base.tres")
+const DUAL_GUNS_LIGHT_BASE = preload("res://data/player/weapons/dual guns/light/dual_guns_light_base.tres")
 const DUAL_GUNS_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_0.tres")
 const DUAL_GUNS_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_1.tres")
 
@@ -60,7 +60,7 @@ func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> vo
 		weapon.weapon_energy.value -= ENERGY_COST
 		bounce = true
 	else:
-		attack_resourc = DUAL_GUNS_LIGHT_SIDE_BASE
+		attack_resourc = DUAL_GUNS_LIGHT_BASE
 		speed = BASE_BULLET_SPEED
 	var new_bullet := Bullet.new(attack_resourc, speed, Vector2(player.get_facing_direction_to_float(), 0), BULLET_LIFE_TIME, texture, bounce)
 	new_bullet.global_position = weapon.global_position

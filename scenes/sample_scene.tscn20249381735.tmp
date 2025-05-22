@@ -63,6 +63,7 @@ func _input(event: InputEvent) -> void:
 
 [sub_resource type="GDScript" id="GDScript_oiwk8"]
 script/source = "extends Node2D
+
 "
 
 [node name="SampleScene" type="Node2D"]

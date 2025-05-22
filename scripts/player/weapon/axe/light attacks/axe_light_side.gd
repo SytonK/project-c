@@ -3,7 +3,7 @@ class_name AxeLightSide extends Ability
 const ENERGY_COST: float = 12
 const PUSH_BACK_SIDE_FORCE: float = 600
 
-const AXE_BASE_ATTACK = preload("res://data/player/weapons/axe/light/axe_base_attack.tres")
+const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
 const AXE_LIGHT_SIDE_HEAD_0 = preload("res://data/player/weapons/axe/light/side/axe_light_side_head_0.tres")
 const AXE_LIGHT_SIDE_HEAD_1 = preload("res://data/player/weapons/axe/light/side/axe_light_side_head_1.tres")
 const AXE_LIGHT_SIDE_HEAD_2 = preload("res://data/player/weapons/axe/light/side/axe_light_side_head_2.tres")
@@ -54,7 +54,7 @@ func _light_side_0() -> void:
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_0
 		axe_handle_shape.hit.connect(_on_handle_hit)
 	else:
-		axe_head_shape.attack_resource = AXE_BASE_ATTACK
+		axe_head_shape.attack_resource = AXE_LIGHT_BASE
 	
 	cooldown = COOLDOWN_0
 
@@ -67,7 +67,7 @@ func _light_side_1() -> void:
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_1
 		axe_handle_shape.hit.connect(_on_handle_hit)
 	else:
-		axe_head_shape.attack_resource = AXE_BASE_ATTACK
+		axe_head_shape.attack_resource = AXE_LIGHT_BASE
 	
 	cooldown = COOLDOWN_1
 
@@ -79,7 +79,7 @@ func _light_side_2() -> void:
 		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_2
 	else:
-		axe_head_shape.attack_resource = AXE_BASE_ATTACK
+		axe_head_shape.attack_resource = AXE_LIGHT_BASE
 	
 	cooldown = COOLDOWN_2
 

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b6vkknfgca0fg" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_hitbox.gd" id="3_hitak"]
 [ext_resource type="Script" uid="uid://dibuvunt2k3j0" path="res://scripts/components/combat/multi region hitbox and hurtbox/multi_region_shap/multi_region_hit_shape.gd" id="4_fwdx1"]
 [ext_resource type="Script" uid="uid://b33hqtq2mm20h" path="res://scripts/player/weapon/axe/light attacks/axe_light_side.gd" id="7_44re8"]
-[ext_resource type="Resource" uid="uid://itryp3e3dbc2" path="res://data/player/weapons/axe/light/axe_base_attack.tres" id="8_c33el"]
+[ext_resource type="Resource" uid="uid://itryp3e3dbc2" path="res://data/player/weapons/axe/light/axe_light_base.tres" id="8_c33el"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="8_i2yj4"]
 [ext_resource type="Script" uid="uid://bb0tkwwpqwl6" path="res://scripts/player/weapon/axe/light attacks/axe_light_down_ground.gd" id="8_qxc3v"]
 [ext_resource type="Script" uid="uid://bw6kphaf0q73" path="res://scripts/player/weapon/axe/light attacks/axe_light_down_air.gd" id="9_qxc3v"]

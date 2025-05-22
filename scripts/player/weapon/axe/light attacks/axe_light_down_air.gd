@@ -2,7 +2,7 @@ class_name AxeLightDownAir extends Ability
 
 const ENERGY_COST: float = 10
 const AXE_LIGHT_DOWN_AIR = preload("res://data/player/weapons/axe/light/down/axe_light_down_air.tres")
-const AXE_BASE_ATTACK = preload("res://data/player/weapons/axe/light/axe_base_attack.tres")
+const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
@@ -17,7 +17,7 @@ func _ability_effect() -> void:
 		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_DOWN_AIR
 	else:
-		axe_head_shape.attack_resource = AXE_BASE_ATTACK
+		axe_head_shape.attack_resource = AXE_LIGHT_BASE
 
 
 func _attack_setup() -> void:
