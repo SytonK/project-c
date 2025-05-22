@@ -1,8 +1,8 @@
 class_name DualGunsLishtSide extends Ability
 
-const DUAL_GUN_LIGHT_SIDE_BASE = preload("res://data/player/weapons/dual guns/dual_gun_light_side_base.tres")
-const DUAL_GUN_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/dual_gun_light_side_0.tres")
-const DUAL_GUN_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/dual_gun_light_side_1.tres")
+const DUAL_GUN_LIGHT_SIDE_BASE = preload("res://data/player/weapons/dual guns/light/dual_gun_light_side_base.tres")
+const DUAL_GUN_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/light/side/dual_gun_light_side_0.tres")
+const DUAL_GUN_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/light/side/dual_gun_light_side_1.tres")
 
 const BASE_BULLET_SPEED: float = 860
 const FAST_BULLET_SPEED: float = 2070
