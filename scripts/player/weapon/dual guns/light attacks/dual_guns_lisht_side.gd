@@ -1,8 +1,8 @@
 class_name DualGunsLishtSide extends Ability
 
-const DUAL_GUN_LIGHT_SIDE_BASE = preload("res://data/player/weapons/dual guns/light/dual_gun_light_side_base.tres")
-const DUAL_GUN_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/light/side/dual_gun_light_side_0.tres")
-const DUAL_GUN_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/light/side/dual_gun_light_side_1.tres")
+const DUAL_GUNS_LIGHT_SIDE_BASE = preload("res://data/player/weapons/dual guns/light/dual_guns_light_side_base.tres")
+const DUAL_GUNS_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_0.tres")
+const DUAL_GUNS_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_1.tres")
 
 const BASE_BULLET_SPEED: float = 860
 const FAST_BULLET_SPEED: float = 2070
@@ -42,14 +42,14 @@ func _ability_effect() -> void:
 func _attack_0() -> void:
 	_set_up_attack()
 	animation_player.play("light_side_0")
-	_spawn_bullet(DUAL_GUN_LIGHT_SIDE_0, BULLET_0)
+	_spawn_bullet(DUAL_GUNS_LIGHT_SIDE_0, BULLET_0)
 	
 	cooldown = COOLDOWN_0
 	
 func _attack_1() -> void:
 	_set_up_attack()
 	animation_player.play("light_side_1")
-	_spawn_bullet(DUAL_GUN_LIGHT_SIDE_1, BULLET_1)
+	_spawn_bullet(DUAL_GUNS_LIGHT_SIDE_1, BULLET_1)
 	
 	cooldown = COOLDOWN_1
 
@@ -67,7 +67,7 @@ func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> vo
 		weapon.weapon_energy.value -= ENERGY_COST
 		bounce = true
 	else:
-		attack_resourc = DUAL_GUN_LIGHT_SIDE_BASE
+		attack_resourc = DUAL_GUNS_LIGHT_SIDE_BASE
 		speed = BASE_BULLET_SPEED
 	var new_bullet := Bullet.new(attack_resourc, speed, Vector2(player.get_facing_direction_to_float(), 0), BULLET_LIFE_TIME, texture, bounce)
 	new_bullet.global_position = weapon.global_position
