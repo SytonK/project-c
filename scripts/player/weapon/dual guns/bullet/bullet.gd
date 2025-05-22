@@ -1,7 +1,14 @@
 class_name Bullet extends CharacterBody2D
 
+const DUAL_GUNS_LIGHT_BASE = preload("res://data/player/weapons/dual guns/light/dual_guns_light_base.tres")
+
 const BULLET_COLLISION_LAYER: int = 4
 const BULLET_SIZE := Vector2(42, 12)
+
+const BASE_BULLET_SPEED: float = 860
+const FAST_BULLET_SPEED: float = 2070
+
+const BULLET_DEFAULT_LIFE_TIME: float = .4
 
 var speed: float
 var direction: Vector2
@@ -11,7 +18,13 @@ var bounce: bool
 
 var time_passed: float = 0
 
-func _init(p_attack_resource: AttackResource ,p_speed: float, p_direction: Vector2, p_life_time: float, texture: Texture2D, p_bounce: bool = false) -> void:
+func _init(texture: Texture2D,
+	p_direction: Vector2,
+	p_attack_resource: AttackResource = DUAL_GUNS_LIGHT_BASE,
+	p_speed: float = BASE_BULLET_SPEED,
+	p_bounce: bool = false,
+	p_life_time: float = BULLET_DEFAULT_LIFE_TIME
+) -> void:
 	attack_resource = p_attack_resource
 	speed = p_speed
 	direction = p_direction.normalized()

@@ -1,13 +1,7 @@
 class_name DualGunsLishtSide extends Ability
 
-const DUAL_GUNS_LIGHT_BASE = preload("res://data/player/weapons/dual guns/light/dual_guns_light_base.tres")
 const DUAL_GUNS_LIGHT_SIDE_0 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_0.tres")
 const DUAL_GUNS_LIGHT_SIDE_1 = preload("res://data/player/weapons/dual guns/light/side/dual_guns_light_side_1.tres")
-
-const BASE_BULLET_SPEED: float = 860
-const FAST_BULLET_SPEED: float = 2070
-
-const BULLET_LIFE_TIME: float = .4
 
 const BULLET_0 = preload("res://assets/sprites/player/weapons/dual guns/bullet 0.png")
 const BULLET_1 = preload("res://assets/sprites/player/weapons/dual guns/bullet 1.png")
@@ -56,12 +50,12 @@ func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> vo
 	var bounce: bool = false
 	if weapon.weapon_energy.value >= ENERGY_COST:
 		attack_resourc = p_attack_reasource
-		speed = FAST_BULLET_SPEED
-		weapon.weapon_energy.value -= ENERGY_COST
+		speed = Bullet.FAST_BULLET_SPEED
 		bounce = true
+		weapon.weapon_energy.value -= ENERGY_COST
 	else:
-		attack_resourc = DUAL_GUNS_LIGHT_BASE
-		speed = BASE_BULLET_SPEED
-	var new_bullet := Bullet.new(attack_resourc, speed, Vector2(player.get_facing_direction_to_float(), 0), BULLET_LIFE_TIME, texture, bounce)
+		attack_resourc = Bullet.DUAL_GUNS_LIGHT_BASE
+		speed = Bullet.BASE_BULLET_SPEED
+	var new_bullet := Bullet.new(texture, Vector2(player.get_facing_direction_to_float(), 0), attack_resourc, speed, bounce)
 	new_bullet.global_position = weapon.global_position
 	get_tree().root.add_child(new_bullet)
