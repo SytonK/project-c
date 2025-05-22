@@ -7,15 +7,8 @@ const AXE_BASE_ATTACK = preload("res://data/player/weapons/axe/light/axe_base_at
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
 
-var player: Player
-var weapon: Weapon
-
-func _ready() -> void:
-	super._ready()
-	assert(owner is Weapon, "weapon ability was used not on a weapon")
-	weapon = owner
-	await owner.ready
-	player = owner.player
+@onready var weapon: Weapon = WeaponHelper.get_weapon_owner(self)
+@onready var player: Player = weapon.player
 
 func _ability_effect() -> void:
 	_attack_setup()

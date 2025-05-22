@@ -8,15 +8,8 @@ const AXE_LIGHT_UP_HEAD = preload("res://data/player/weapons/axe/light/up/axe_li
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
-var player: Player
-var weapon: Weapon
-
-func _ready() -> void:
-	super._ready()
-	assert(owner is Weapon, "weapon ability was used not on a weapon")
-	weapon = owner
-	await owner.ready
-	player = owner.player
+@onready var weapon: Weapon = WeaponHelper.get_weapon_owner(self)
+@onready var player: Player = weapon.player
 
 func _ability_effect() -> void:
 	_attack_setup()

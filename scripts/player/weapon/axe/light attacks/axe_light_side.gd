@@ -17,15 +17,8 @@ const COOLDOWN_2: float = 0.8
 @onready var axe_handle_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHandleShape"
 @onready var sequence: Sequence = $Sequence
 
-var player: Player
-var weapon: Weapon
-
-func _ready() -> void:
-	super._ready()
-	assert(owner is Weapon, "weapon ability was used not on a weapon")
-	weapon = owner
-	await owner.ready
-	player = owner.player
+@onready var weapon: Weapon = WeaponHelper.get_weapon_owner(self)
+@onready var player: Player = weapon.player
 
 func _on_handle_hit(_attack_resource: AttackResource, _defense_resource: DefenseResource, _defense_position: Vector2) -> void:
 	_push_back_on_handle_hit()

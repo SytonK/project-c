@@ -20,15 +20,8 @@ const ENERGY_COST: float = 15
 @onready var sequence: Sequence = $Sequence
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
-var player: Player
-var weapon: Weapon
-
-func _ready() -> void:
-	super._ready()
-	assert(owner is Weapon, "weapon ability was used not on a weapon")
-	weapon = owner
-	await weapon.ready
-	player = weapon.player
+@onready var weapon: Weapon = WeaponHelper.get_weapon_owner(self)
+@onready var player: Player = weapon.player
 
 func _ability_effect() -> void:
 	match sequence.value:
