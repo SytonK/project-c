@@ -3,7 +3,6 @@ extends PlayerState
 var dash_timer: Timer
 
 func _ready() -> void:
-	super._ready()
 	_init_dash_timer()
 
 func enter(_previuse_state_name: String = "", data: Dictionary = {}) -> void:

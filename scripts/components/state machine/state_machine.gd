@@ -23,7 +23,7 @@ func transition(target_state_path: String, data: Dictionary = {}) -> void:
 		return
 	
 	if not has_node(target_state_path):
-		printerr(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
+		print(owner.name + ": Trying to transition to state " + target_state_path + " but it does not exist.")
 	
 	var previous_state_path: String = state.name
 	state.exit()
