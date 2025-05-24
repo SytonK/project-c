@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://br6n2k8tf210c"]
+[gd_scene load_steps=18 format=3 uid="uid://br6n2k8tf210c"]
 
 [ext_resource type="Script" uid="uid://dyoaitv13nvng" path="res://scripts/player/weapon/dual guns/dual_guns.gd" id="1_ajo8g"]
 [ext_resource type="Script" uid="uid://dmpnfnsd5vfxb" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_lisht_side.gd" id="3_o0nj2"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="4_rjpmr"]
 [ext_resource type="Script" uid="uid://bau4vmgb8xb1p" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_light_down_ground.gd" id="4_ulptl"]
+[ext_resource type="Script" uid="uid://bncm4u7cqm335" path="res://scripts/player/weapon/dual guns/light attacks/dual_guns_light_down_air.gd" id="5_ulptl"]
 
 [sub_resource type="Animation" id="Animation_j8mg8"]
 length = 0.001
@@ -234,6 +235,56 @@ tracks/0/keys = {
 "values": ["walk"]
 }
 
+[sub_resource type="Animation" id="Animation_hwyux"]
+resource_name = "light_down_air"
+length = 0.1
+step = 0.01
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_finish_attack"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["light
+down
+ground"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DualGunsLightDownAir")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.01, 0.09),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_bullet_0"
+}, {
+"args": [],
+"method": &"spawn_bullet_1"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8mg8"]
 _data = {
 &"RESET": SubResource("Animation_j8mg8"),
@@ -242,6 +293,7 @@ _data = {
 &"fall": SubResource("Animation_f2bws"),
 &"idle": SubResource("Animation_o0nj2"),
 &"jump": SubResource("Animation_s2bw2"),
+&"light_down_air": SubResource("Animation_hwyux"),
 &"light_down_ground": SubResource("Animation_lyiub"),
 &"light_side_0": SubResource("Animation_rjpmr"),
 &"light_side_1": SubResource("Animation_wu1hw"),
@@ -298,3 +350,8 @@ metadata/_custom_type_script = "uid://bpgr6i145id22"
 script = ExtResource("4_ulptl")
 cooldown = 0.8
 metadata/_custom_type_script = "uid://bau4vmgb8xb1p"
+
+[node name="DualGunsLightDownAir" type="Node" parent="."]
+script = ExtResource("5_ulptl")
+cooldown = 1.4
+metadata/_custom_type_script = "uid://bncm4u7cqm335"

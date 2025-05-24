@@ -1,9 +1,18 @@
 extends PlayerState
 
-var apply_gravity: bool = true
+var aplly_gravity: bool = true
+
+func enter(_previuse_state_name: String = "", data: Dictionary = {}) -> void:
+	_apply_enter_data(data)
+
+func _apply_enter_data(data: Dictionary) -> void:
+	if data.has("apply_gravity"):
+		aplly_gravity = data["apply_gravity"]
+	else:
+		aplly_gravity = true
 
 func physics_process(delta: float) -> void:
-	if apply_gravity:
+	if aplly_gravity:
 		player.gravity.apply_gravity(delta)
 	
 	player.move_and_slide()
