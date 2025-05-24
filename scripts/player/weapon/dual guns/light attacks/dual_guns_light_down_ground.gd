@@ -14,12 +14,16 @@ const ENERGY_COST: float = 10
 func _ability_effect() -> void:
 	_set_up_attack()
 	animation_player.play("light_down_ground")
-	_spawn_bullet(player.get_facing_direction_to_float(), BULLET_0)
-	_spawn_bullet(-player.get_facing_direction_to_float(), BULLET_1)
 
 func _set_up_attack() -> void:
 	player.state_machine.transition(PlayerStates.ATTACK)
 	player.velocity.x = 0
+
+func spawn_bullet_0() -> void:
+	_spawn_bullet(player.get_facing_direction_to_float(), BULLET_0)
+
+func spawn_bullet_1() -> void:
+	_spawn_bullet(-player.get_facing_direction_to_float(), BULLET_1)
 
 func _spawn_bullet(x_direction: float, texture: Texture2D) -> void:
 	var attack_resourc: AttackResource
