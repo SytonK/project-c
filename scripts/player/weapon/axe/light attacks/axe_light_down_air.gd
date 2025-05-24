@@ -12,7 +12,7 @@ const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_ba
 
 func _ability_effect() -> void:
 	_attack_setup()
-	animation_player.play("light_down_ground")
+	animation_player.play("light_down_air")
 	if weapon.weapon_energy.value >= ENERGY_COST:
 		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_DOWN_AIR
