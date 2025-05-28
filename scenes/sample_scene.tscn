@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=27 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://svc2i3u3vvqk" path="res://scenes/enemies/dummies/target_dummy.tscn" id="10_kg8jk"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="10_udu4s"]
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="11_kg8jk"]
+[ext_resource type="Script" uid="uid://h317peq5uxl7" path="res://scripts/components/behavior tree/task_print.gd" id="12_6idux"]
+[ext_resource type="Script" uid="uid://svq8hry4lt2r" path="res://scripts/components/behavior tree/task_root.gd" id="12_oiwk8"]
+[ext_resource type="Script" uid="uid://dnegsubnbbrl2" path="res://scripts/components/behavior tree/task_sequence.gd" id="13_l4noq"]
+[ext_resource type="Script" uid="uid://dfm5u3e4l4biy" path="res://scripts/components/behavior tree/task_selector.gd" id="15_8n6kf"]
+[ext_resource type="Script" uid="uid://6lo0k168vb55" path="res://scripts/components/behavior tree/task_return_state.gd" id="16_8n6kf"]
+[ext_resource type="Script" uid="uid://bdl4ut8cg4m67" path="res://scripts/components/behavior tree/task_wait.gd" id="17_e351d"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -194,3 +200,60 @@ metadata/_custom_type_script = "uid://bpgr6i145id22"
 [node name="BulletTest" type="Node2D" parent="."]
 position = Vector2(176, 859)
 script = SubResource("GDScript_oiwk8")
+
+[node name="TaskTest" type="Node" parent="."]
+
+[node name="TaskRoot" type="Node" parent="TaskTest"]
+script = ExtResource("12_oiwk8")
+metadata/_custom_type_script = "uid://svq8hry4lt2r"
+
+[node name="TaskSequence" type="Node" parent="TaskTest/TaskRoot"]
+script = ExtResource("13_l4noq")
+metadata/_custom_type_script = "uid://dnegsubnbbrl2"
+
+[node name="TaskPrint" type="Node" parent="TaskTest/TaskRoot/TaskSequence"]
+script = ExtResource("12_6idux")
+string = "start"
+metadata/_custom_type_script = "uid://h317peq5uxl7"
+
+[node name="TaskSelector" type="Node" parent="TaskTest/TaskRoot/TaskSequence"]
+script = ExtResource("15_8n6kf")
+metadata/_custom_type_script = "uid://dfm5u3e4l4biy"
+
+[node name="TaskReturnState" type="Node" parent="TaskTest/TaskRoot/TaskSequence/TaskSelector"]
+script = ExtResource("16_8n6kf")
+state = 1
+metadata/_custom_type_script = "uid://6lo0k168vb55"
+
+[node name="TaskPrint" type="Node" parent="TaskTest/TaskRoot/TaskSequence/TaskSelector"]
+script = ExtResource("12_6idux")
+string = "task selector 0"
+metadata/_custom_type_script = "uid://h317peq5uxl7"
+
+[node name="TaskSequence" type="Node" parent="TaskTest/TaskRoot/TaskSequence"]
+script = ExtResource("13_l4noq")
+metadata/_custom_type_script = "uid://dnegsubnbbrl2"
+
+[node name="TaskPrint" type="Node" parent="TaskTest/TaskRoot/TaskSequence/TaskSequence"]
+script = ExtResource("12_6idux")
+string = "task sequence 0"
+metadata/_custom_type_script = "uid://h317peq5uxl7"
+
+[node name="TaskWait" type="Node" parent="TaskTest/TaskRoot/TaskSequence/TaskSequence"]
+script = ExtResource("17_e351d")
+metadata/_custom_type_script = "uid://bdl4ut8cg4m67"
+
+[node name="TaskPrint2" type="Node" parent="TaskTest/TaskRoot/TaskSequence/TaskSequence"]
+script = ExtResource("12_6idux")
+string = "task sequence 1"
+metadata/_custom_type_script = "uid://h317peq5uxl7"
+
+[node name="TaskReturnState" type="Node" parent="TaskTest/TaskRoot/TaskSequence"]
+script = ExtResource("16_8n6kf")
+state = 1
+metadata/_custom_type_script = "uid://6lo0k168vb55"
+
+[node name="TaskPrint2" type="Node" parent="TaskTest/TaskRoot/TaskSequence"]
+script = ExtResource("12_6idux")
+string = "finished"
+metadata/_custom_type_script = "uid://h317peq5uxl7"
