@@ -409,4 +409,5 @@ metadata/_custom_type_script = "uid://bncm4u7cqm335"
 
 [node name="DualGunsLightUp" type="Node" parent="."]
 script = ExtResource("6_j8mg8")
+cooldown = 1.2
 metadata/_custom_type_script = "uid://dmhptlfcjfq72"
