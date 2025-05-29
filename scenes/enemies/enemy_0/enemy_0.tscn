@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ds0s6ss7dbilw"]
+[gd_scene load_steps=5 format=3 uid="uid://ds0s6ss7dbilw"]
 
 [ext_resource type="Script" uid="uid://bnrubn0b6h1ig" path="res://scripts/enemies/enemy_0/enemy_0.gd" id="1_0t53x"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="1_v2vsy"]
+[ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_wpnga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
 size = Vector2(64, 96)
@@ -25,4 +26,14 @@ script = ExtResource("1_v2vsy")
 max_value = 600.0
 metadata/_custom_type_script = "uid://ms6uadhjfufy"
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_wpnga")
+metadata/_custom_type_script = "uid://e14frlxwqj6p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_m35b1")
+
 [connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]

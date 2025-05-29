@@ -35,9 +35,6 @@ func _ready() -> void:
 	player.weapon_manager.add_weapon(AXE.instantiate())
 	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
-	
-	await get_tree().create_timer(1).timeout
-	enemy_0.health.value = 0
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
