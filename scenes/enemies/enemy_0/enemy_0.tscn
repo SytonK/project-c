@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds0s6ss7dbilw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
+size = Vector2(64, 96)
+
+[node name="Enemy0" type="CharacterBody2D"]
+collision_layer = 0
+
+[node name="Body" type="Polygon2D" parent="."]
+color = Color(0.5, 0.5, 0.5, 1)
+polygon = PackedVector2Array(-32, -48, 32, -48, 32, 48, -32, 48)
+
+[node name="Eye" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m35b1")
