@@ -262,4 +262,4 @@ string = "finished"
 metadata/_custom_type_script = "uid://h317peq5uxl7"
 
 [node name="Enemy0" parent="." instance=ExtResource("18_fenef")]
-position = Vector2(592, 856)
+position = Vector2(592, 785)

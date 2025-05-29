@@ -1,7 +1,7 @@
 class_name Gravity extends Node
 
-@export var graivty_force: float = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var max_fall_speed: float
+@export var graivty_force: float = 3000
+@export var max_fall_speed: float = 1000
 
 func apply_gravity(delta: float) -> void:
 	assert(owner is CharacterBody2D, "Owner of the Gravity component must be of type CharacterBody2D")
