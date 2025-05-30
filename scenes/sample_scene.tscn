@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
-[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/resources/combat/attack_resource.gd" id="3_hvwi5"]
+[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/components/combat/resources/attack_resource.gd" id="3_hvwi5"]
 [ext_resource type="PackedScene" uid="uid://f4fepxq5itwb" path="res://scenes/enemies/dummies/attacking_dummy.tscn" id="6_xw57j"]
 [ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]

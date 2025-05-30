@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackResource" load_steps=2 format=3 uid="uid://c6vlkd0htyaqh"]
 
-[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/resources/combat/attack_resource.gd" id="1_fd6qs"]
+[ext_resource type="Script" uid="uid://brg71t7h26ou0" path="res://scripts/components/combat/resources/attack_resource.gd" id="1_fd6qs"]
 
 [resource]
 script = ExtResource("1_fd6qs")

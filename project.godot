@@ -39,8 +39,7 @@ folder_colors={
 "res://data/": "blue",
 "res://scenes/": "orange",
 "res://scenes/GUI/": "pink",
-"res://scripts/": "green",
-"res://scripts/resources/": "teal"
+"res://scripts/": "green"
 }
 
 [global_group]
