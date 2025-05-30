@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bro60eusjxrgn"]
+[gd_scene load_steps=26 format=3 uid="uid://bro60eusjxrgn"]
 
 [ext_resource type="Script" uid="uid://c5iywohsn6a7a" path="res://scripts/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://bo06h86do71w6" path="res://scripts/player/weapon manager/weapon_manager.gd" id="2_8ydkj"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://ydvnrumpiyfg" path="res://scripts/player/actions/player_dash_action.gd" id="11_je7p5"]
 [ext_resource type="Script" uid="uid://bf1wciljq743l" path="res://scripts/player/actions/player_wall_jump_action.gd" id="13_gx1jg"]
 [ext_resource type="Script" uid="uid://mgmnw6x6ay7" path="res://scripts/player/player components/player_hurt.gd" id="15_fcs02"]
+[ext_resource type="Script" uid="uid://bg2bx8lgxodxa" path="res://scripts/components/facing_direction/facing_direction.gd" id="15_ioxgp"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="17_kvlxm"]
 [ext_resource type="Script" uid="uid://cqs7mhkrcck2f" path="res://scripts/player/actions/player_block_action.gd" id="19_lgqa7"]
 
@@ -114,6 +115,10 @@ metadata/_custom_type_script = "uid://5i0ndfls3olj"
 [node name="SideMovementAction" type="Node" parent="Components"]
 script = ExtResource("6_75vfm")
 metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
+
+[node name="FacingDirection" type="Node2D" parent="Components"]
+script = ExtResource("15_ioxgp")
+metadata/_custom_type_script = "uid://bg2bx8lgxodxa"
 
 [node name="JumpAction" type="Node" parent="Components"]
 script = ExtResource("7_0owmy")
