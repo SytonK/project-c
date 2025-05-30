@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://ds0s6ss7dbilw"]
+[gd_scene load_steps=21 format=3 uid="uid://ds0s6ss7dbilw"]
 
 [ext_resource type="Script" uid="uid://bnrubn0b6h1ig" path="res://scripts/enemies/enemy_0/enemy_0.gd" id="1_0t53x"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="1_v2vsy"]
+[ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_02nk3"]
+[ext_resource type="Resource" uid="uid://duqdfhdfmihx4" path="res://data/enemies/enemy_0/enemy_0_attack.tres" id="3_oruo0"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_wpnga"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="4_07iyj"]
 [ext_resource type="Script" uid="uid://svq8hry4lt2r" path="res://scripts/components/behavior tree/task_root.gd" id="5_pnoho"]
@@ -10,9 +12,117 @@
 [ext_resource type="Script" uid="uid://dfm5u3e4l4biy" path="res://scripts/components/behavior tree/task_selector.gd" id="7_oq1xb"]
 [ext_resource type="Script" uid="uid://bmutoajcbdfjq" path="res://scripts/enemies/behavior tree/play_animation_task.gd" id="7_rjf6a"]
 [ext_resource type="Script" uid="uid://bqeuqo2t25mhn" path="res://scripts/enemies/behavior tree/side_movement_task.gd" id="9_ugo1p"]
+[ext_resource type="Script" uid="uid://bdl4ut8cg4m67" path="res://scripts/components/behavior tree/wait_task.gd" id="13_5ewib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
 size = Vector2(64, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oruo0"]
+size = Vector2(20, 124)
+
+[sub_resource type="Animation" id="Animation_d05gb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:monitorable")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5ewib"]
+resource_name = "attack"
+length = 1.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.785398, 3.14159, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["attack"]
+}
 
 [sub_resource type="Animation" id="Animation_07iyj"]
 resource_name = "recover"
@@ -28,21 +138,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["recover"]
-}
-
-[sub_resource type="Animation" id="Animation_d05gb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
 }
 
 [sub_resource type="Animation" id="Animation_oq1xb"]
@@ -64,6 +159,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pnoho"]
 _data = {
 &"RESET": SubResource("Animation_d05gb"),
+&"attack": SubResource("Animation_5ewib"),
 &"recover": SubResource("Animation_07iyj"),
 &"run": SubResource("Animation_oq1xb")
 }
@@ -81,6 +177,23 @@ polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m35b1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("2_02nk3")
+attack_resource = ExtResource("3_oruo0")
+metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_oruo0")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hitbox"]
+color = Color(0.3, 0.3, 0.3, 1)
+polygon = PackedVector2Array(10, 0, -10, 0, -11, -126, 10, -126)
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -150,14 +263,25 @@ metadata/_custom_type_script = "uid://bmutoajcbdfjq"
 [node name="SideMovementTask" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("side_movement_action")]
 script = ExtResource("9_ugo1p")
 side_movement_action = NodePath("../../../../Components/SideMovementAction")
-stop_distance = 300.0
+stop_distance = 64.0
 metadata/_custom_type_script = "uid://bqeuqo2t25mhn"
+
+[node name="PlayAnimationAttack" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("7_rjf6a")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = "attack"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://bmutoajcbdfjq"
 
 [node name="PlayAnimationRecover" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("7_rjf6a")
 animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "recover"
 metadata/_custom_type_script = "uid://bmutoajcbdfjq"
+
+[node name="WaitTask" type="Node" parent="TaskRoot/TaskSelector/TaskSequence"]
+script = ExtResource("13_5ewib")
+metadata/_custom_type_script = "uid://bdl4ut8cg4m67"
 
 [node name="PlayAnimationTask" type="Node" parent="TaskRoot/TaskSelector" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("7_rjf6a")
