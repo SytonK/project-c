@@ -1,4 +1,4 @@
-class_name TaskReturnState extends Task
+class_name ReturnStateTask extends Task
 
 @export var state: States
 

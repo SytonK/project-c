@@ -1,4 +1,4 @@
-class_name TaskWait extends Task
+class_name WaitTask extends Task
 
 @export var wait_time: float = 1
 var time_passed: float = 0

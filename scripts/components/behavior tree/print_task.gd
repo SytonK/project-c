@@ -1,4 +1,4 @@
-class_name TaskPrint extends Task
+class_name PrintTask extends Task
 
 @export var string: String
 
