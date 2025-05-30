@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@onready var health: Health = $Health
-@onready var gravity: Gravity = $Gravity
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+@onready var health: Health = $Components/Health
+@onready var gravity: Gravity = $Components/Gravity
 
 func _process(delta: float) -> void:
 	gravity.apply_gravity(delta)

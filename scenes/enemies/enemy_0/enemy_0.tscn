@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ds0s6ss7dbilw"]
+[gd_scene load_steps=16 format=3 uid="uid://ds0s6ss7dbilw"]
 
 [ext_resource type="Script" uid="uid://bnrubn0b6h1ig" path="res://scripts/enemies/enemy_0/enemy_0.gd" id="1_0t53x"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="1_v2vsy"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="3_wpnga"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="4_07iyj"]
 [ext_resource type="Script" uid="uid://svq8hry4lt2r" path="res://scripts/components/behavior tree/task_root.gd" id="5_pnoho"]
+[ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side_movement_action.gd" id="5_rjf6a"]
 [ext_resource type="Script" uid="uid://dnegsubnbbrl2" path="res://scripts/components/behavior tree/task_sequence.gd" id="6_wvdg0"]
+[ext_resource type="Script" uid="uid://dfm5u3e4l4biy" path="res://scripts/components/behavior tree/task_selector.gd" id="7_oq1xb"]
 [ext_resource type="Script" uid="uid://bmutoajcbdfjq" path="res://scripts/enemies/behavior tree/play_animation_task.gd" id="7_rjf6a"]
+[ext_resource type="Script" uid="uid://bqeuqo2t25mhn" path="res://scripts/enemies/behavior tree/side_movement_task.gd" id="9_ugo1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
 size = Vector2(64, 96)
@@ -42,10 +45,27 @@ tracks/0/keys = {
 "values": [""]
 }
 
+[sub_resource type="Animation" id="Animation_oq1xb"]
+resource_name = "run"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["run"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pnoho"]
 _data = {
 &"RESET": SubResource("Animation_d05gb"),
-&"recover": SubResource("Animation_07iyj")
+&"recover": SubResource("Animation_07iyj"),
+&"run": SubResource("Animation_oq1xb")
 }
 
 [node name="Enemy0" type="CharacterBody2D"]
@@ -62,11 +82,6 @@ polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_m35b1")
 
-[node name="Health" type="Node" parent="."]
-script = ExtResource("1_v2vsy")
-max_value = 600.0
-metadata/_custom_type_script = "uid://ms6uadhjfufy"
-
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -75,10 +90,6 @@ metadata/_custom_type_script = "uid://e14frlxwqj6p"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_m35b1")
-
-[node name="Gravity" type="Node" parent="."]
-script = ExtResource("4_07iyj")
-metadata/_custom_type_script = "uid://5i0ndfls3olj"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -100,19 +111,59 @@ grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Components" type="Node" parent="."]
+
+[node name="Gravity" type="Node" parent="Components"]
+script = ExtResource("4_07iyj")
+metadata/_custom_type_script = "uid://5i0ndfls3olj"
+
+[node name="Health" type="Node" parent="Components"]
+script = ExtResource("1_v2vsy")
+max_value = 600.0
+metadata/_custom_type_script = "uid://ms6uadhjfufy"
+
+[node name="SideMovementAction" type="Node" parent="Components"]
+script = ExtResource("5_rjf6a")
+acceleration = 3000.0
+friction = 1500.0
+max_speed = 300.0
+metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
+
 [node name="TaskRoot" type="Node" parent="."]
 script = ExtResource("5_pnoho")
 metadata/_custom_type_script = "uid://svq8hry4lt2r"
 
-[node name="TaskSequence" type="Node" parent="TaskRoot"]
+[node name="TaskSelector" type="Node" parent="TaskRoot"]
+script = ExtResource("7_oq1xb")
+metadata/_custom_type_script = "uid://dfm5u3e4l4biy"
+
+[node name="TaskSequence" type="Node" parent="TaskRoot/TaskSelector"]
 script = ExtResource("6_wvdg0")
 metadata/_custom_type_script = "uid://dnegsubnbbrl2"
 
-[node name="PlayAnimationTask" type="Node" parent="TaskRoot/TaskSequence" node_paths=PackedStringArray("animation_player")]
+[node name="PlayAnimationRun" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("7_rjf6a")
-animation_player = NodePath("../../../AnimationPlayer")
+animation_player = NodePath("../../../../AnimationPlayer")
+animation_name = "run"
+metadata/_custom_type_script = "uid://bmutoajcbdfjq"
+
+[node name="SideMovementTask" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("side_movement_action")]
+script = ExtResource("9_ugo1p")
+side_movement_action = NodePath("../../../../Components/SideMovementAction")
+stop_distance = 300.0
+metadata/_custom_type_script = "uid://bqeuqo2t25mhn"
+
+[node name="PlayAnimationRecover" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("7_rjf6a")
+animation_player = NodePath("../../../../AnimationPlayer")
 animation_name = "recover"
 metadata/_custom_type_script = "uid://bmutoajcbdfjq"
 
-[connection signal="died" from="Health" to="." method="_on_health_died"]
+[node name="PlayAnimationTask" type="Node" parent="TaskRoot/TaskSelector" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("7_rjf6a")
+animation_player = NodePath("../../../AnimationPlayer")
+animation_name = "RESET"
+metadata/_custom_type_script = "uid://bmutoajcbdfjq"
+
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="died" from="Components/Health" to="." method="_on_health_died"]
