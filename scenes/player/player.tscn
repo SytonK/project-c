@@ -116,7 +116,7 @@ metadata/_custom_type_script = "uid://5i0ndfls3olj"
 script = ExtResource("6_75vfm")
 metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
 
-[node name="FacingDirection" type="Node2D" parent="Components"]
+[node name="FacingDirection" type="Node" parent="Components"]
 script = ExtResource("15_ioxgp")
 metadata/_custom_type_script = "uid://bg2bx8lgxodxa"
 
