@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ds0s6ss7dbilw"]
+[gd_scene load_steps=24 format=3 uid="uid://ds0s6ss7dbilw"]
 
 [ext_resource type="Script" uid="uid://bnrubn0b6h1ig" path="res://scripts/enemies/enemy_0/enemy_0.gd" id="1_0t53x"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="1_v2vsy"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://bqeuqo2t25mhn" path="res://scripts/components/behavior tree/tasks/side_movement_task.gd" id="9_ugo1p"]
 [ext_resource type="Script" uid="uid://bg2bx8lgxodxa" path="res://scripts/components/facing_direction/facing_direction.gd" id="9_vvn3b"]
 [ext_resource type="Script" uid="uid://bdl4ut8cg4m67" path="res://scripts/components/behavior tree/tasks/wait_task.gd" id="13_5ewib"]
+[ext_resource type="Script" uid="uid://bs14vftmu84of" path="res://scripts/components/behavior tree/tasks/look_at_target_task.gd" id="15_83c43"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
 size = Vector2(64, 96)
@@ -269,6 +270,11 @@ script = ExtResource("9_ugo1p")
 side_movement_action = NodePath("../../../../Components/SideMovementAction")
 stop_distance = 64.0
 metadata/_custom_type_script = "uid://bqeuqo2t25mhn"
+
+[node name="LookAtTargetTask" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("facing_direction")]
+script = ExtResource("15_83c43")
+facing_direction = NodePath("../../../../Components/FacingDirection")
+metadata/_custom_type_script = "uid://bs14vftmu84of"
 
 [node name="WaitToAttack" type="Node" parent="TaskRoot/TaskSelector/TaskSequence"]
 script = ExtResource("13_5ewib")

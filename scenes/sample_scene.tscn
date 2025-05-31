@@ -261,10 +261,6 @@ script = ExtResource("12_6idux")
 string = "finished"
 metadata/_custom_type_script = "uid://h317peq5uxl7"
 
-[node name="Enemy0" parent="." instance=ExtResource("18_fenef")]
-position = Vector2(592, 785)
-
-[node name="SideMovementToTarget" parent="Enemy0/TaskRoot/TaskSelector/TaskSequence" index="1" node_paths=PackedStringArray("targer")]
-targer = NodePath("../../../../../Player")
-
-[editable path="Enemy0"]
+[node name="Enemy0" parent="." node_paths=PackedStringArray("target") instance=ExtResource("18_fenef")]
+position = Vector2(556, 681)
+target = NodePath("../Player")
