@@ -272,6 +272,7 @@ metadata/_custom_type_script = "uid://bqeuqo2t25mhn"
 
 [node name="WaitToAttack" type="Node" parent="TaskRoot/TaskSelector/TaskSequence"]
 script = ExtResource("13_5ewib")
+wait_time = 0.3
 metadata/_custom_type_script = "uid://bdl4ut8cg4m67"
 
 [node name="PlayAnimationAttack" type="Node" parent="TaskRoot/TaskSelector/TaskSequence" node_paths=PackedStringArray("animation_player")]
