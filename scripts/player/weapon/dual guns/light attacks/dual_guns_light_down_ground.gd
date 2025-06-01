@@ -20,10 +20,10 @@ func _set_up_attack() -> void:
 	player.velocity.x = 0
 
 func spawn_bullet_0() -> void:
-	_spawn_bullet(player.get_facing_direction_to_float(), BULLET_0)
+	_spawn_bullet(player.facing_direction.get_float(), BULLET_0)
 
 func spawn_bullet_1() -> void:
-	_spawn_bullet(-player.get_facing_direction_to_float(), BULLET_1)
+	_spawn_bullet(-player.facing_direction.get_float(), BULLET_1)
 
 func _spawn_bullet(x_direction: float, texture: Texture2D) -> void:
 	var attack_resourc: AttackResource

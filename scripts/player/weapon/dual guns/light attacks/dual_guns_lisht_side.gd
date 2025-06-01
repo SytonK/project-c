@@ -56,6 +56,6 @@ func _spawn_bullet(p_attack_reasource: AttackResource, texture: Texture2D) -> vo
 	else:
 		attack_resourc = Bullet.DUAL_GUNS_LIGHT_BASE
 		speed = Bullet.BASE_BULLET_SPEED
-	var new_bullet := Bullet.new(texture, Vector2(player.get_facing_direction_to_float(), 0), attack_resourc, speed, bounce)
+	var new_bullet := Bullet.new(texture, Vector2(player.facing_direction.get_float(), 0), attack_resourc, speed, bounce)
 	new_bullet.global_position = weapon.global_position
 	get_tree().root.add_child(new_bullet)
