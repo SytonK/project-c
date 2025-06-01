@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://x1jgiwkfoig6"]
+
+[ext_resource type="Script" uid="uid://cqnrvkby2vr1m" path="res://scripts/components/behavior tree/trees/enemy 0/enemy_0_behavior_tree.gd" id="1_it1dy"]
+[ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="2_es0gk"]
+
+[node name="Enemy0BehaviorTree" type="Node"]
+script = ExtResource("1_it1dy")
+metadata/_custom_type_script = "uid://dyaisjh31vmpr"
+
+[node name="SequenceComposite" type="Node" parent="."]
+script = ExtResource("2_es0gk")
+metadata/_custom_type_script = "uid://bj4jsll1k7sok"

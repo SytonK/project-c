@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=31 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_7kit5"]
@@ -13,10 +13,8 @@
 [ext_resource type="Script" uid="uid://bpgr6i145id22" path="res://scripts/components/sequence/sequence.gd" id="11_kg8jk"]
 [ext_resource type="Script" uid="uid://dyaisjh31vmpr" path="res://scripts/components/behavior tree/nodes/behavior_tree.gd" id="13_e351d"]
 [ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="14_fenef"]
-[ext_resource type="Script" uid="uid://xjfd5lnne5rj" path="res://scripts/components/behavior tree/nodes/leaves/print_leaf.gd" id="15_6yaw1"]
-[ext_resource type="Script" uid="uid://58nxka7eg0sp" path="res://scripts/components/behavior tree/nodes/leaves/state_leaf.gd" id="16_o6mf3"]
-[ext_resource type="Script" uid="uid://dpnj54ovsacj2" path="res://scripts/components/behavior tree/nodes/composites/selector_composite.gd" id="17_x320b"]
-[ext_resource type="Script" uid="uid://bb4qo4ci1wt3u" path="res://scripts/components/behavior tree/nodes/leaves/test_leaf.gd" id="18_6yaw1"]
+[ext_resource type="Script" uid="uid://ct2g4p1m1v3ot" path="res://scripts/components/behavior tree/nodes/leaves/play_animation_leaf.gd" id="15_l4noq"]
+[ext_resource type="Script" uid="uid://4wkv0obhffxl" path="res://scripts/components/behavior tree/nodes/leaves/wait_leaf.gd" id="16_8n6kf"]
 [ext_resource type="PackedScene" uid="uid://ds0s6ss7dbilw" path="res://scenes/enemies/enemy_0/enemy_0.tscn" id="18_fenef"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
@@ -78,6 +76,75 @@ func _input(event: InputEvent) -> void:
 [sub_resource type="GDScript" id="GDScript_oiwk8"]
 script/source = "extends Node2D
 "
+
+[sub_resource type="Animation" id="Animation_8n6kf"]
+resource_name = "test"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["test1"]
+}
+
+[sub_resource type="Animation" id="Animation_e351d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_fenef"]
+resource_name = "test_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["test2"]
+}
+
+[sub_resource type="Animation" id="Animation_6yaw1"]
+resource_name = "test_3"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["test3"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6yaw1"]
+_data = {
+&"RESET": SubResource("Animation_e351d"),
+&"test": SubResource("Animation_8n6kf"),
+&"test_2": SubResource("Animation_fenef"),
+&"test_3": SubResource("Animation_6yaw1")
+}
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -220,39 +287,39 @@ metadata/_custom_type_script = "uid://dyaisjh31vmpr"
 script = ExtResource("14_fenef")
 metadata/_custom_type_script = "uid://bj4jsll1k7sok"
 
-[node name="SequenceComposite" type="Node" parent="BehaviorTree/SequenceComposite"]
-script = ExtResource("14_fenef")
-metadata/_custom_type_script = "uid://bj4jsll1k7sok"
+[node name="PlayAnimationLeaf" type="Node" parent="BehaviorTree/SequenceComposite" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("15_l4noq")
+animation_player = NodePath("../../../AnimationPlayer")
+animation_name = "test"
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 
-[node name="PrintLeaf" type="Node" parent="BehaviorTree/SequenceComposite/SequenceComposite"]
-script = ExtResource("15_6yaw1")
-string = "p1"
-metadata/_custom_type_script = "uid://xjfd5lnne5rj"
+[node name="WaitLeaf" type="Node" parent="BehaviorTree/SequenceComposite"]
+script = ExtResource("16_8n6kf")
+wait_time = 3.0
+metadata/_custom_type_script = "uid://4wkv0obhffxl"
 
-[node name="PrintLeaf2" type="Node" parent="BehaviorTree/SequenceComposite/SequenceComposite"]
-script = ExtResource("15_6yaw1")
-string = "p2"
-metadata/_custom_type_script = "uid://xjfd5lnne5rj"
+[node name="PlayAnimationLeaf2" type="Node" parent="BehaviorTree/SequenceComposite" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("15_l4noq")
+animation_player = NodePath("../../../AnimationPlayer")
+animation_name = "test_2"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 
-[node name="SelectComposite" type="Node" parent="BehaviorTree/SequenceComposite"]
-script = ExtResource("17_x320b")
-metadata/_custom_type_script = "uid://dpnj54ovsacj2"
+[node name="PlayAnimationLeaf3" type="Node" parent="BehaviorTree/SequenceComposite" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("15_l4noq")
+animation_player = NodePath("../../../AnimationPlayer")
+animation_name = "test_3"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 
-[node name="StateLeaf" type="Node" parent="BehaviorTree/SequenceComposite/SelectComposite"]
-script = ExtResource("16_o6mf3")
-state = 1
-metadata/_custom_type_script = "uid://58nxka7eg0sp"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6yaw1")
+}
 
-[node name="PrintLeaf" type="Node" parent="BehaviorTree/SequenceComposite/SelectComposite"]
-script = ExtResource("15_6yaw1")
-string = "psel1"
-metadata/_custom_type_script = "uid://xjfd5lnne5rj"
-
-[node name="PrintLeaf2" type="Node" parent="BehaviorTree/SequenceComposite/SelectComposite"]
-script = ExtResource("15_6yaw1")
-string = "psel2"
-metadata/_custom_type_script = "uid://xjfd5lnne5rj"
-
-[node name="TestLeaf" type="Node" parent="BehaviorTree/SequenceComposite"]
-script = ExtResource("18_6yaw1")
-metadata/_custom_type_script = "uid://bb4qo4ci1wt3u"
+[node name="Label" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 838.0
+offset_right = 296.0
+offset_bottom = 861.0
+theme_override_font_sizes/font_size = 50

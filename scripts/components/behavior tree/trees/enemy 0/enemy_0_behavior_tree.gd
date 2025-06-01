@@ -1,0 +1,1 @@
+class_name Enemy0BT extends BehaviorTree
