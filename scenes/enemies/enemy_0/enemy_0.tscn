@@ -241,9 +241,10 @@ metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
 script = ExtResource("9_vvn3b")
 metadata/_custom_type_script = "uid://bg2bx8lgxodxa"
 
-[node name="Enemy0BehaviorTree" parent="." node_paths=PackedStringArray("animation_player", "side_movement_action") instance=ExtResource("10_oq1xb")]
+[node name="Enemy0BehaviorTree" parent="." node_paths=PackedStringArray("animation_player", "side_movement_action", "facing_direction") instance=ExtResource("10_oq1xb")]
 animation_player = NodePath("../AnimationPlayer")
 side_movement_action = NodePath("../Components/SideMovementAction")
+facing_direction = NodePath("../Components/FacingDirection")
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="died" from="Components/Health" to="." method="_on_health_died"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://x1jgiwkfoig6"]
+[gd_scene load_steps=6 format=3 uid="uid://x1jgiwkfoig6"]
 
 [ext_resource type="Script" uid="uid://cqnrvkby2vr1m" path="res://scripts/components/behavior tree/trees/enemy 0/enemy_0_behavior_tree.gd" id="1_it1dy"]
 [ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="2_es0gk"]
 [ext_resource type="Script" uid="uid://ct2g4p1m1v3ot" path="res://scripts/components/behavior tree/nodes/leaves/play_animation_leaf.gd" id="3_6eth1"]
 [ext_resource type="Script" uid="uid://ediqs1qgxyxd" path="res://scripts/components/behavior tree/nodes/leaves/side_move_to_targer_leaf.gd" id="4_8fso4"]
+[ext_resource type="Script" uid="uid://cbv8jdc7fghlw" path="res://scripts/components/behavior tree/nodes/leaves/look_at_target_leaf.gd" id="5_wj2p0"]
 
 [node name="Enemy0BehaviorTree" type="Node"]
 script = ExtResource("1_it1dy")
@@ -22,3 +23,7 @@ metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 script = ExtResource("4_8fso4")
 stop_distance = 96.0
 metadata/_custom_type_script = "uid://ediqs1qgxyxd"
+
+[node name="LookAtTargetLeaf" type="Node" parent="SequenceComposite"]
+script = ExtResource("5_wj2p0")
+metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
