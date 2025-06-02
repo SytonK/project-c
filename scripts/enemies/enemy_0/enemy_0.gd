@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
+@export var target: Player
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var enemy_0_behavior_tree: Node = $Enemy0BehaviorTree
 
 @onready var health: Health = $Components/Health
 @onready var gravity: Gravity = $Components/Gravity
 @onready var facing_direction: FacingDirection = $Components/FacingDirection
+
+func _ready() -> void:
+	enemy_0_behavior_tree.target = target
 
 func _process(delta: float) -> void:
 	gravity.apply_gravity(delta)
