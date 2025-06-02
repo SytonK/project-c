@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ds0s6ss7dbilw"]
+[gd_scene load_steps=18 format=3 uid="uid://ds0s6ss7dbilw"]
 
 [ext_resource type="Script" uid="uid://bnrubn0b6h1ig" path="res://scripts/enemies/enemy_0/enemy_0.gd" id="1_0t53x"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="1_v2vsy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side movement action/side_movement_action.gd" id="5_rjf6a"]
 [ext_resource type="Resource" uid="uid://bor644i82gxx7" path="res://data/enemies/enemy_0/enemy_0_side_movement.tres" id="8_dtppe"]
 [ext_resource type="Script" uid="uid://bg2bx8lgxodxa" path="res://scripts/components/facing_direction/facing_direction.gd" id="9_vvn3b"]
+[ext_resource type="PackedScene" uid="uid://x1jgiwkfoig6" path="res://scenes/behavior trees/enemy 0/enemy_0_behavior_tree.tscn" id="10_oq1xb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m35b1"]
 size = Vector2(64, 96)
@@ -239,6 +240,9 @@ metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
 [node name="FacingDirection" type="Node" parent="Components"]
 script = ExtResource("9_vvn3b")
 metadata/_custom_type_script = "uid://bg2bx8lgxodxa"
+
+[node name="Enemy0BehaviorTree" parent="." node_paths=PackedStringArray("animation_player") instance=ExtResource("10_oq1xb")]
+animation_player = NodePath("../AnimationPlayer")
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="died" from="Components/Health" to="." method="_on_health_died"]
