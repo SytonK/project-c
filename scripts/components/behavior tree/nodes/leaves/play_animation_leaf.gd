@@ -24,8 +24,6 @@ func tick(_delta: float, _blackboard: Dictionary = {}) -> States:
 		if(!animation_player.animation_finished.is_connected(_on_animation_player_animation_finished)):
 			animation_player.animation_finished.connect(_on_animation_player_animation_finished)
 		return States.RUNNING
-	
-	return States.RUNNING
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == animation_name):
