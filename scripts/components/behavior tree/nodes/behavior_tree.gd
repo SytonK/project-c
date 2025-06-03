@@ -2,7 +2,7 @@ class_name BehaviorTree extends BehaviorNode
 
 @export var blackboard: Dictionary = {}
 
-@export var behavior_node: BehaviorNode
+var behavior_node: BehaviorNode
 var is_running: bool = false
 
 func _ready() -> void:
