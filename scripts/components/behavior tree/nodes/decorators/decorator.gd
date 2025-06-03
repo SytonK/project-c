@@ -1,7 +1,6 @@
 class_name Decorator extends BehaviorNode
 
 var behavior_node: BehaviorNode = null
-var is_running: bool = false
 
 func _ready() -> void:
 	behavior_node = get_child(0)
