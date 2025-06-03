@@ -11,3 +11,8 @@ func interrupt(blackboard: Dictionary = {}) -> void:
 	
 	index = 0
 	last_index = -1
+
+
+func end(_blackboard: Dictionary = {}) -> void:
+	index = 0
+	last_index = -1
