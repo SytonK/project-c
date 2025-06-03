@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://djk4wu40qlx11"]
+
+[ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02xse"]
+size = Vector2(192, 288)
+
+[node name="Boss0" type="Node2D"]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_02xse")
+metadata/_custom_type_script = "uid://e14frlxwqj6p"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_02xse")
+
+[node name="Body" type="Polygon2D" parent="."]
+color = Color(0.55, 0.15, 0.25, 1)
+polygon = PackedVector2Array(96, -144, 96, 144, -96, 144, -96, -144)
+
+[node name="Eye" type="Polygon2D" parent="Body"]
+polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
