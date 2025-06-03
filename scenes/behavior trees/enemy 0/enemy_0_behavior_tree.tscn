@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://dyaisjh31vmpr"
 script = ExtResource("2_es0gk")
 metadata/_custom_type_script = "uid://bj4jsll1k7sok"
 
-[node name="PlayAnimationLeaf" type="Node" parent="SequenceComposite"]
+[node name="PlayAnimationRun" type="Node" parent="SequenceComposite"]
 script = ExtResource("3_6eth1")
 animation_name = "run"
 metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
@@ -27,3 +27,9 @@ metadata/_custom_type_script = "uid://ediqs1qgxyxd"
 [node name="LookAtTargetLeaf" type="Node" parent="SequenceComposite"]
 script = ExtResource("5_wj2p0")
 metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
+
+[node name="PlayAnimationAttack" type="Node" parent="SequenceComposite"]
+script = ExtResource("3_6eth1")
+animation_name = "attack"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
