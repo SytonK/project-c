@@ -9,18 +9,27 @@
 [sub_resource type="GDScript" id="GDScript_hvwi5"]
 script/source = "extends Node2D
 
-@onready var player: Player = $Player
-
 const AXE = preload(\"res://scenes/player/weapons/axe/axe.tscn\")
 const DUAL_GUNS = preload(\"res://scenes/player/weapons/dual guns/dual_guns.tscn\")
 
+const ENEMY_0 = preload(\"res://scenes/enemies/enemy_0/enemy_0.tscn\")
+
+@onready var player: Player = $Player
+
 @onready var heads_up_display: Control = $CanvasLayer/HeadsUpDisplay
+@onready var spawn_point: Marker2D = $SpawnPoint
 
 func _ready() -> void:
 	player.weapon_manager.add_weapon(DUAL_GUNS.instantiate())
 	player.weapon_manager.add_weapon(AXE.instantiate())
 	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
+
+func _on_spawn_timer_timeout() -> void:
+	var new_enemy = ENEMY_0.instantiate()
+	new_enemy.target = player
+	new_enemy.global_position = spawn_point.global_position
+	add_child(new_enemy)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqgs1"]
@@ -128,3 +137,12 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(-382, 121)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
