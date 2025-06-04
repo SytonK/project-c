@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=33 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_g7mfh"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_8b5lh"]
@@ -14,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://ds0s6ss7dbilw" path="res://scenes/enemies/enemy_0/enemy_0.tscn" id="12_r0eph"]
 [ext_resource type="Script" uid="uid://dyaisjh31vmpr" path="res://scripts/components/behavior tree/nodes/behavior_tree.gd" id="13_dugpm"]
 [ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="14_h8pyj"]
-[ext_resource type="Script" uid="uid://cjo0ture1thpo" path="res://scripts/components/behavior tree/nodes/decorators/condition.gd" id="15_g7mfh"]
+[ext_resource type="Script" uid="uid://cjo0ture1thpo" path="res://scripts/components/behavior tree/nodes/decorators/conditions/condition.gd" id="15_g7mfh"]
+[ext_resource type="Script" uid="uid://olj6dk6u7s50" path="res://scripts/components/behavior tree/nodes/decorators/conditions/in_range.gd" id="15_hc7ve"]
 [ext_resource type="Script" uid="uid://4wkv0obhffxl" path="res://scripts/components/behavior tree/nodes/leaves/wait_leaf.gd" id="16_8oyde"]
+[ext_resource type="Script" uid="uid://xjfd5lnne5rj" path="res://scripts/components/behavior tree/nodes/leaves/print_leaf.gd" id="16_vvfch"]
 
 [sub_resource type="GDScript" id="GDScript_jcc8f"]
 script/source = "extends Node2D
@@ -287,6 +289,18 @@ metadata/_custom_type_script = "uid://dyaisjh31vmpr"
 [node name="SequenceComposite" type="Node" parent="BehaviorTree"]
 script = ExtResource("14_h8pyj")
 metadata/_custom_type_script = "uid://bj4jsll1k7sok"
+
+[node name="InRange" type="Node" parent="BehaviorTree/SequenceComposite" node_paths=PackedStringArray("target", "source")]
+script = ExtResource("15_hc7ve")
+target = NodePath("../../../Player")
+distance = 100.0
+source = NodePath("../../../Enemy0")
+metadata/_custom_type_script = "uid://olj6dk6u7s50"
+
+[node name="PrintLeaf" type="Node" parent="BehaviorTree/SequenceComposite/InRange"]
+script = ExtResource("16_vvfch")
+string = "in range"
+metadata/_custom_type_script = "uid://xjfd5lnne5rj"
 
 [node name="Condition" type="Node" parent="BehaviorTree/SequenceComposite"]
 script = ExtResource("15_g7mfh")
