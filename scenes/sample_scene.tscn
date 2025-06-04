@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsrd3vuqvvi5v"]
+[gd_scene load_steps=12 format=3 uid="uid://dsrd3vuqvvi5v"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_jcc8f"]
+[ext_resource type="PackedScene" uid="uid://djk4wu40qlx11" path="res://scenes/enemies/bosses/boss 0/boss_0.tscn" id="6_xw57j"]
 [ext_resource type="PackedScene" uid="uid://ddppfoesrk6ab" path="res://scenes/GUI/HUD/HUD.tscn" id="7_jddra"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="8_1o07t"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="9_udu4s"]
@@ -12,28 +13,19 @@ script/source = "extends Node2D
 const AXE = preload(\"res://scenes/player/weapons/axe/axe.tscn\")
 const DUAL_GUNS = preload(\"res://scenes/player/weapons/dual guns/dual_guns.tscn\")
 
-const ENEMY_0 = preload(\"res://scenes/enemies/enemy_0/enemy_0.tscn\")
-
 @onready var player: Player = $Player
 
 @onready var heads_up_display: Control = $CanvasLayer/HeadsUpDisplay
-@onready var spawn_point: Marker2D = $SpawnPoint
 
 func _ready() -> void:
 	player.weapon_manager.add_weapon(DUAL_GUNS.instantiate())
 	player.weapon_manager.add_weapon(AXE.instantiate())
 	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
-
-func _on_spawn_timer_timeout() -> void:
-	var new_enemy = ENEMY_0.instantiate()
-	new_enemy.target = player
-	new_enemy.global_position = spawn_point.global_position
-	add_child(new_enemy)
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yqgs1"]
-size = Vector2(1024, 64)
+size = Vector2(2048, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvwi5"]
 size = Vector2(64, 1024)
@@ -66,7 +58,7 @@ position = Vector2(0, 512)
 shape = SubResource("RectangleShape2D_yqgs1")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/Normal/Floor"]
-polygon = PackedVector2Array(512, -32, 512, 32, -512, 32, -512, -32)
+polygon = PackedVector2Array(1024, -32, 1024, 32, -1024, 32, -1024, -32)
 
 [node name="Roof" type="StaticBody2D" parent="Walls/Normal"]
 position = Vector2(0, -512)
@@ -75,10 +67,10 @@ position = Vector2(0, -512)
 shape = SubResource("RectangleShape2D_yqgs1")
 
 [node name="Polygon2D" type="Polygon2D" parent="Walls/Normal/Roof"]
-polygon = PackedVector2Array(512, -32, 512, 32, -512, 32, -512, -32)
+polygon = PackedVector2Array(1024, -32, 1024, 32, -1024, 32, -1024, -32)
 
 [node name="WallRight" type="StaticBody2D" parent="Walls/Normal"]
-position = Vector2(512, 0)
+position = Vector2(1024, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Normal/WallRight"]
 shape = SubResource("RectangleShape2D_hvwi5")
@@ -87,7 +79,7 @@ shape = SubResource("RectangleShape2D_hvwi5")
 polygon = PackedVector2Array(32, -512, 32, 512, -32, 512, -32, -512)
 
 [node name="WallLeft" type="StaticBody2D" parent="Walls/Normal"]
-position = Vector2(-512, 0)
+position = Vector2(-1024, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Normal/WallLeft"]
 shape = SubResource("RectangleShape2D_hvwi5")
@@ -138,11 +130,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 [node name="HeadsUpDisplay" parent="CanvasLayer" node_paths=PackedStringArray("player") instance=ExtResource("7_jddra")]
 player = NodePath("../../Player")
 
-[node name="SpawnPoint" type="Marker2D" parent="."]
-position = Vector2(-382, 121)
-
-[node name="SpawnTimer" type="Timer" parent="."]
-wait_time = 4.0
-autostart = true
-
-[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[node name="Boss0" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_xw57j")]
+position = Vector2(-338, 333)
+target = NodePath("../Player")

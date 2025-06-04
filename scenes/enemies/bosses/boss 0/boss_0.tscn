@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://djk4wu40qlx11"]
+[gd_scene load_steps=5 format=3 uid="uid://djk4wu40qlx11"]
 
+[ext_resource type="Script" uid="uid://dodg6w8wkm2yg" path="res://scripts/enemies/bosses/boss 0/boss_0.gd" id="1_0sghr"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
+[ext_resource type="PackedScene" uid="uid://d2chtdf8dxuqd" path="res://scenes/behavior trees/bosses/boss 0/boss_0_behavior_tree.tscn" id="2_hyytk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02xse"]
 size = Vector2(192, 288)
 
 [node name="Boss0" type="Node2D"]
+script = ExtResource("1_0sghr")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -22,3 +25,5 @@ polygon = PackedVector2Array(96, -144, 96, 144, -96, 144, -96, -144)
 
 [node name="Eye" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
+
+[node name="Boss0BehaviorTree" parent="." instance=ExtResource("2_hyytk")]
