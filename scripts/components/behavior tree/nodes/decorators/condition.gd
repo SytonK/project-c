@@ -23,7 +23,7 @@ func end(blackboard: Dictionary = {}) -> void:
 	super.end(blackboard)
 	is_condition_met = false
 
-func _condition(delta: float, blackboard: Dictionary = {}) -> bool:
+func _condition(_delta: float, _blackboard: Dictionary = {}) -> bool:
 	return true
 
 func _continues_tick(delta: float, blackboard: Dictionary = {}) -> States:
