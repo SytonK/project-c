@@ -27,3 +27,6 @@ func _in_range() -> bool:
 
 func interrupt(_blackboard: Dictionary = {}) -> void:
 	(side_movement_action.owner as CharacterBody2D).velocity.x = 0
+
+func end(_blackboard: Dictionary = {}) -> void:
+	(side_movement_action.owner as CharacterBody2D).velocity.x = 0
