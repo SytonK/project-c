@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://djk4wu40qlx11"]
+[gd_scene load_steps=10 format=3 uid="uid://djk4wu40qlx11"]
 
 [ext_resource type="Script" uid="uid://dodg6w8wkm2yg" path="res://scripts/enemies/bosses/boss 0/boss_0.gd" id="1_0sghr"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
 [ext_resource type="PackedScene" uid="uid://d2chtdf8dxuqd" path="res://scenes/behavior trees/bosses/boss 0/boss_0_behavior_tree.tscn" id="2_hyytk"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="4_v67i4"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="5_0q0ui"]
+[ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side movement action/side_movement_action.gd" id="6_2fl28"]
+[ext_resource type="Resource" uid="uid://xbeylflb05y7" path="res://data/enemies/bosses/boss 0/boss_0_side_movement.tres" id="7_31okg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0q0ui"]
 size = Vector2(192, 288)
@@ -35,7 +37,8 @@ polygon = PackedVector2Array(96, -144, 96, 144, -96, 144, -96, -144)
 [node name="Eye" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
 
-[node name="Boss0BehaviorTree" parent="." instance=ExtResource("2_hyytk")]
+[node name="Boss0BehaviorTree" parent="." node_paths=PackedStringArray("side_movement_action") instance=ExtResource("2_hyytk")]
+side_movement_action = NodePath("../Compontnts/SideMovementAction")
 
 [node name="Compontnts" type="Node" parent="."]
 
@@ -47,6 +50,11 @@ metadata/_custom_type_script = "uid://ms6uadhjfufy"
 [node name="Gravity" type="Node" parent="Compontnts"]
 script = ExtResource("5_0q0ui")
 metadata/_custom_type_script = "uid://5i0ndfls3olj"
+
+[node name="SideMovementAction" type="Node" parent="Compontnts"]
+script = ExtResource("6_2fl28")
+resource = ExtResource("7_31okg")
+metadata/_custom_type_script = "uid://b5xm35yv1b4y5"
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="died" from="Compontnts/Health" to="." method="_on_health_died"]

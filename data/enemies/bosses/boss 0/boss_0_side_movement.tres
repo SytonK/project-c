@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SideMovementResource" load_steps=2 format=3 uid="uid://xbeylflb05y7"]
+
+[ext_resource type="Script" uid="uid://dfnix416j3c8e" path="res://scripts/components/movement/side movement action/side_movement_resource.gd" id="1_xfsvx"]
+
+[resource]
+script = ExtResource("1_xfsvx")
+acceleration = 2000.0
+friction = 1000.0
+max_speed = 200.0
+metadata/_custom_type_script = "uid://dfnix416j3c8e"
