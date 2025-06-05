@@ -131,5 +131,5 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 player = NodePath("../../Player")
 
 [node name="Boss0" parent="." node_paths=PackedStringArray("target") instance=ExtResource("6_xw57j")]
-position = Vector2(-338, 333)
+position = Vector2(-717, 198)
 target = NodePath("../Player")

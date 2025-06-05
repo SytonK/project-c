@@ -1,15 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://djk4wu40qlx11"]
+[gd_scene load_steps=8 format=3 uid="uid://djk4wu40qlx11"]
 
 [ext_resource type="Script" uid="uid://dodg6w8wkm2yg" path="res://scripts/enemies/bosses/boss 0/boss_0.gd" id="1_0sghr"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
 [ext_resource type="PackedScene" uid="uid://d2chtdf8dxuqd" path="res://scenes/behavior trees/bosses/boss 0/boss_0_behavior_tree.tscn" id="2_hyytk"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="4_v67i4"]
+[ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="5_0q0ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q0ui"]
+size = Vector2(192, 288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02xse"]
 size = Vector2(192, 288)
 
-[node name="Boss0" type="Node2D"]
+[node name="Boss0" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_0sghr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0q0ui")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -35,6 +43,10 @@ polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
 script = ExtResource("4_v67i4")
 max_value = 700.0
 metadata/_custom_type_script = "uid://ms6uadhjfufy"
+
+[node name="Gravity" type="Node" parent="Compontnts"]
+script = ExtResource("5_0q0ui")
+metadata/_custom_type_script = "uid://5i0ndfls3olj"
 
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="died" from="Compontnts/Health" to="." method="_on_health_died"]
