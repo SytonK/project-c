@@ -13,6 +13,9 @@ func interrupt(blackboard: Dictionary = {}) -> void:
 	last_index = -1
 
 
-func end(_blackboard: Dictionary = {}) -> void:
+func end(blackboard: Dictionary = {}) -> void:
+	if(behavior_node):
+		behavior_node.end(blackboard)
+	
 	index = 0
 	last_index = -1
