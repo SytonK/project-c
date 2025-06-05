@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2chtdf8dxuqd"]
+[gd_scene load_steps=8 format=3 uid="uid://d2chtdf8dxuqd"]
 
 [ext_resource type="Script" uid="uid://di8a3m1pyo562" path="res://scripts/components/behavior tree/trees/bosses/boss 0/boss_0_behavior_tree.gd" id="1_6rdxn"]
 [ext_resource type="Script" uid="uid://dpnj54ovsacj2" path="res://scripts/components/behavior tree/nodes/composites/selector_composite.gd" id="2_cv1k4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://xjfd5lnne5rj" path="res://scripts/components/behavior tree/nodes/leaves/print_leaf.gd" id="4_go51e"]
 [ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="4_hkucj"]
 [ext_resource type="Script" uid="uid://ediqs1qgxyxd" path="res://scripts/components/behavior tree/nodes/leaves/side_move_to_targer_leaf.gd" id="5_cv1k4"]
+[ext_resource type="Script" uid="uid://cbv8jdc7fghlw" path="res://scripts/components/behavior tree/nodes/leaves/look_at_target_leaf.gd" id="7_go51e"]
 
 [node name="Boss0BehaviorTree" type="Node"]
 script = ExtResource("1_6rdxn")
@@ -34,6 +35,10 @@ metadata/_custom_type_script = "uid://xjfd5lnne5rj"
 script = ExtResource("5_cv1k4")
 stop_distance = 192.0
 metadata/_custom_type_script = "uid://ediqs1qgxyxd"
+
+[node name="LookAtTargetLeaf" type="Node" parent="SelectComposite/InRangeMelle/SequenceComposite"]
+script = ExtResource("7_go51e")
+metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
 
 [node name="InRangeMid" type="Node" parent="SelectComposite"]
 script = ExtResource("3_hkucj")

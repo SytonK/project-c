@@ -38,8 +38,9 @@ polygon = PackedVector2Array(96, -144, 96, 144, -96, 144, -96, -144)
 [node name="Eye" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
 
-[node name="Boss0BehaviorTree" parent="." node_paths=PackedStringArray("side_movement_action") instance=ExtResource("2_hyytk")]
+[node name="Boss0BehaviorTree" parent="." node_paths=PackedStringArray("side_movement_action", "facing_direction") instance=ExtResource("2_hyytk")]
 side_movement_action = NodePath("../Compontnts/SideMovementAction")
+facing_direction = NodePath("../Compontnts/FacingDirection")
 
 [node name="Compontnts" type="Node" parent="."]
 
