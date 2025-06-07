@@ -36,16 +36,16 @@ script = ExtResource("4_go51e")
 string = "do melle attack"
 metadata/_custom_type_script = "uid://xjfd5lnne5rj"
 
-[node name="SideMoveToTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
+[node name="MeleeSideMoveToTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
 script = ExtResource("5_cv1k4")
 stop_distance = 192.0
 metadata/_custom_type_script = "uid://ediqs1qgxyxd"
 
-[node name="LookAtTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
+[node name="MeleeLookAtTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
 script = ExtResource("7_go51e")
 metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
 
-[node name="PlayAnimationLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
+[node name="PlayAnimationLeafMeleeAttack0" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
 script = ExtResource("8_hnq8x")
 animation_name = "melee_attack_0"
 wait_for_animation_to_finish = true
