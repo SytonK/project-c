@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2chtdf8dxuqd"]
+[gd_scene load_steps=9 format=3 uid="uid://d2chtdf8dxuqd"]
 
 [ext_resource type="Script" uid="uid://di8a3m1pyo562" path="res://scripts/components/behavior tree/trees/bosses/boss 0/boss_0_behavior_tree.gd" id="1_6rdxn"]
 [ext_resource type="Script" uid="uid://dpnj54ovsacj2" path="res://scripts/components/behavior tree/nodes/composites/selector_composite.gd" id="2_cv1k4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bj4jsll1k7sok" path="res://scripts/components/behavior tree/nodes/composites/sequence_composite.gd" id="4_hkucj"]
 [ext_resource type="Script" uid="uid://ediqs1qgxyxd" path="res://scripts/components/behavior tree/nodes/leaves/side_move_to_targer_leaf.gd" id="5_cv1k4"]
 [ext_resource type="Script" uid="uid://cbv8jdc7fghlw" path="res://scripts/components/behavior tree/nodes/leaves/look_at_target_leaf.gd" id="7_go51e"]
+[ext_resource type="Script" uid="uid://ct2g4p1m1v3ot" path="res://scripts/components/behavior tree/nodes/leaves/play_animation_leaf.gd" id="8_hnq8x"]
 
 [node name="Boss0BehaviorTree" type="Node"]
 script = ExtResource("1_6rdxn")
@@ -16,29 +17,39 @@ metadata/_custom_type_script = "uid://dyaisjh31vmpr"
 script = ExtResource("2_cv1k4")
 metadata/_custom_type_script = "uid://dpnj54ovsacj2"
 
-[node name="InRangeMelle" type="Node" parent="SelectComposite"]
+[node name="MeleeSequenceComposite" type="Node" parent="SelectComposite"]
+script = ExtResource("4_hkucj")
+metadata/_custom_type_script = "uid://bj4jsll1k7sok"
+
+[node name="InRangeMelle" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
 script = ExtResource("3_hkucj")
 distance = 512.0
 is_continues = true
 metadata/_custom_type_script = "uid://olj6dk6u7s50"
 
-[node name="SequenceComposite" type="Node" parent="SelectComposite/InRangeMelle"]
+[node name="SequenceComposite" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle"]
 script = ExtResource("4_hkucj")
 metadata/_custom_type_script = "uid://bj4jsll1k7sok"
 
-[node name="PrintLeaf" type="Node" parent="SelectComposite/InRangeMelle/SequenceComposite"]
+[node name="PrintLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
 script = ExtResource("4_go51e")
 string = "do melle attack"
 metadata/_custom_type_script = "uid://xjfd5lnne5rj"
 
-[node name="SideMoveToTargetLeaf" type="Node" parent="SelectComposite/InRangeMelle/SequenceComposite"]
+[node name="SideMoveToTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
 script = ExtResource("5_cv1k4")
 stop_distance = 192.0
 metadata/_custom_type_script = "uid://ediqs1qgxyxd"
 
-[node name="LookAtTargetLeaf" type="Node" parent="SelectComposite/InRangeMelle/SequenceComposite"]
+[node name="LookAtTargetLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite/InRangeMelle/SequenceComposite"]
 script = ExtResource("7_go51e")
 metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
+
+[node name="PlayAnimationLeaf" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
+script = ExtResource("8_hnq8x")
+animation_name = "melee_attack_0"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 
 [node name="InRangeMid" type="Node" parent="SelectComposite"]
 script = ExtResource("3_hkucj")

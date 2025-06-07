@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://djk4wu40qlx11"]
+[gd_scene load_steps=17 format=3 uid="uid://djk4wu40qlx11"]
 
 [ext_resource type="Script" uid="uid://dodg6w8wkm2yg" path="res://scripts/enemies/bosses/boss 0/boss_0.gd" id="1_0sghr"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
 [ext_resource type="PackedScene" uid="uid://d2chtdf8dxuqd" path="res://scenes/behavior trees/bosses/boss 0/boss_0_behavior_tree.tscn" id="2_hyytk"]
+[ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="3_viscg"]
+[ext_resource type="Resource" uid="uid://4mn1ydoi128f" path="res://data/enemies/bosses/boss 0/attacks/bess_0_melee_attack_0.tres" id="4_v1g8i"]
 [ext_resource type="Script" uid="uid://ms6uadhjfufy" path="res://scripts/components/health/health.gd" id="4_v67i4"]
 [ext_resource type="Script" uid="uid://5i0ndfls3olj" path="res://scripts/components/movement/gravity.gd" id="5_0q0ui"]
 [ext_resource type="Script" uid="uid://b5xm35yv1b4y5" path="res://scripts/components/movement/side movement action/side_movement_action.gd" id="6_2fl28"]
@@ -14,6 +16,119 @@ size = Vector2(192, 288)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_02xse"]
 size = Vector2(192, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_viscg"]
+size = Vector2(64, 320)
+
+[sub_resource type="Animation" id="Animation_v1g8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:attack_resource")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_viscg"]
+resource_name = "meele_attack_0"
+length = 3.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 1.8, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitorable")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 1.8, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.2, 1.8, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.0472, 3.66519, 3.66519, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox:attack_resource")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_v1g8i")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1g8i"]
+_data = {
+&"RESET": SubResource("Animation_v1g8i"),
+&"melee_attack_0": SubResource("Animation_viscg")
+}
 
 [node name="Boss0" type="CharacterBody2D"]
 collision_layer = 0
@@ -32,15 +147,37 @@ metadata/_custom_type_script = "uid://e14frlxwqj6p"
 shape = SubResource("RectangleShape2D_02xse")
 
 [node name="Body" type="Polygon2D" parent="."]
-color = Color(0.55, 0.15, 0.25, 1)
+color = Color(0.8, 0.55, 0.25, 1)
 polygon = PackedVector2Array(96, -144, 96, 144, -96, 144, -96, -144)
 
 [node name="Eye" type="Polygon2D" parent="Body"]
 polygon = PackedVector2Array(61, -93, 80, -107, 60, -119)
 
-[node name="Boss0BehaviorTree" parent="." node_paths=PackedStringArray("side_movement_action", "facing_direction") instance=ExtResource("2_hyytk")]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+monitorable = false
+script = ExtResource("3_viscg")
+metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -160)
+shape = SubResource("RectangleShape2D_viscg")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hitbox"]
+color = Color(0.4, 0.15, 0.15, 1)
+polygon = PackedVector2Array(32, -320, 32, 0, -32, 0, -32, -320)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v1g8i")
+}
+
+[node name="Boss0BehaviorTree" parent="." node_paths=PackedStringArray("side_movement_action", "facing_direction", "animation_player") instance=ExtResource("2_hyytk")]
 side_movement_action = NodePath("../Compontnts/SideMovementAction")
 facing_direction = NodePath("../Compontnts/FacingDirection")
+animation_player = NodePath("../AnimationPlayer")
 
 [node name="Compontnts" type="Node" parent="."]
 
