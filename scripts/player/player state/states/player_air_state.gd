@@ -33,7 +33,8 @@ func input(event: InputEvent) -> void:
 			player.jump_action.jump()
 			is_edge_forgiveness = false
 		else:
-			player.air_jump_action.air_jump()
+			if !player.air_jump_action.air_jump():
+				player.input_buffer.input_event = event
 		return
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
