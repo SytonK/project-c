@@ -1,4 +1,4 @@
-class_name InuptBuffer extends Node
+class_name InputBuffer extends Node
 
 @export var duration: float = 0.1
 

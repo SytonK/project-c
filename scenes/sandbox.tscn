@@ -46,13 +46,13 @@ func _input(event: InputEvent) -> void:
 [sub_resource type="GDScript" id="GDScript_yc6dp"]
 script/source = "extends Node
 
-@onready var inupt_buffer: InuptBuffer = $InuptBuffer
+@onready var input_buffer: InputBuffer = $InputBuffer
 
 func _input(event: InputEvent) -> void:
 	if(!event || !event.is_pressed()):
 		return
-	print('last input: ', inupt_buffer.input_event)
-	inupt_buffer.input_event = event
+	print('last input: ', input_buffer.input_event)
+	input_buffer.input_event = event
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jcc8f"]
@@ -167,7 +167,7 @@ script = SubResource("GDScript_jcc8f")
 [node name="InputBufferTest" type="Node" parent="."]
 script = SubResource("GDScript_yc6dp")
 
-[node name="InuptBuffer" type="Node" parent="InputBufferTest"]
+[node name="InputBuffer" type="Node" parent="InputBufferTest"]
 script = ExtResource("19_vvfch")
 duration = 1.1
 metadata/_custom_type_script = "uid://c77qpm1v4tq4q"
