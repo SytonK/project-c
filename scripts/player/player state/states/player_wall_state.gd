@@ -10,6 +10,10 @@ func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 	_set_gravity()
 	_set_facing_direction()
 	player.air_jump_action.reset_air_jumps()
+	
+	if(player.input_buffer.input_event):
+		input(player.input_buffer.input_event)
+		player.input_buffer.input_event = null
 
 func exit() -> void:
 	player.reset_gravity()
@@ -36,13 +40,20 @@ func _set_facing_direction() -> void:
 func input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		player.player_wall_jump_action.jump()
+		return
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
+		return
 	if event.is_action_pressed("look_down"):
 		_leave_wall_state()
+		return
 	if event.is_action_pressed("next_weapon"):
 		player.weapon_manager.go_to_next_weapon()
-	player.weapon_manager.attack(event)
+		return
+	if player.weapon_manager.attack(event):
+		return
+	
+	player.input_buffer.input_event = event
 
 func _leave_wall_state() -> void:
 	player.velocity.x = player.get_facing_direction_to_float() * MOVE_OUT_OF_WALL_SPEED

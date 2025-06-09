@@ -16,3 +16,6 @@ func physics_process(delta: float) -> void:
 		player.gravity.apply_gravity(delta)
 	
 	player.move_and_slide()
+
+func input(event: InputEvent) -> void:
+	player.input_buffer.input_event = event

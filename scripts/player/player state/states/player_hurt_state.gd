@@ -10,5 +10,8 @@ func physics_process(delta: float) -> void:
 	
 	player.move_and_slide()
 
+func input(event: InputEvent) -> void:
+	player.input_buffer.input_event = event
+
 func _on_hurt_timer_timeout() -> void:
 	player.calculate_transition()

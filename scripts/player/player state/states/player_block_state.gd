@@ -14,6 +14,10 @@ func enter(_previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 	blocked = false
 	_animate()
 
+
+func input(event: InputEvent) -> void:
+	player.input_buffer.input_event = event
+
 func _animate() -> void:
 	if player.weapon_manager.current_weapon.animation_player.has_animation('block'):
 		player.weapon_manager.current_weapon.animation_player.play('block')

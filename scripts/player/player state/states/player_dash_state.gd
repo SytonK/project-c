@@ -23,6 +23,9 @@ func physics_process(_delta: float) -> void:
 func input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		_try_jump()
+		return
+	
+	player.input_buffer.input_event = event
 
 func exit() -> void:
 	dash_timer.stop()

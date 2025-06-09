@@ -24,6 +24,7 @@ class_name Player extends CharacterBody2D
 @onready var player_hurt: PlayerHurt = $Components/PlayerHurt
 @onready var health: Health = $Components/Health
 @onready var player_block_action: PlayerBlockAction = $Components/PlayerBlockAction
+@onready var input_buffer: InputBuffer = $Components/InputBuffer
 
 func _ready() -> void:
 	reset_gravity()

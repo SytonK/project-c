@@ -6,6 +6,10 @@ var is_edge_forgiveness: bool = false
 func enter(previuse_state_name: String = "", _data: Dictionary = {}) -> void:
 	if previuse_state_name == PlayerStates.GROUND:
 		_start_edge_forgivness()
+	
+	if(player.input_buffer.input_event):
+		input(player.input_buffer.input_event)
+		player.input_buffer.input_event = null
 
 func process(delta: float) -> void:
 	player.gravity.apply_gravity(delta)
@@ -23,19 +27,27 @@ func process(delta: float) -> void:
 func input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		player.stop_jump_action.stop_jump()
+		return
 	if event.is_action_pressed("jump"):
 		if is_edge_forgiveness:
 			player.jump_action.jump()
 			is_edge_forgiveness = false
 		else:
 			player.air_jump_action.air_jump()
+		return
 	if event.is_action_pressed("dash"):
 		player.player_dash_action.cast()
+		return
 	if event.is_action_pressed("block"):
 		player.player_block_action.cast()
-	player.weapon_manager.attack(event)
+		return
+	if player.weapon_manager.attack(event):
+		return
 	if event.is_action_pressed("next_weapon"):
 		player.weapon_manager.go_to_next_weapon()
+		return
+	
+	player.input_buffer.input_event = event
 
 func _start_edge_forgivness() -> void:
 	if player.velocity.y < 0:
