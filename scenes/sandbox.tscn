@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://caa2tvliprdb0"]
+[gd_scene load_steps=37 format=3 uid="uid://caa2tvliprdb0"]
 
 [ext_resource type="PackedScene" uid="uid://bro60eusjxrgn" path="res://scenes/player/player.tscn" id="1_g7mfh"]
 [ext_resource type="Script" uid="uid://c6n7fhsvfdgav" path="res://scripts/components/combat/hitbox and hurtbox/hitbox.gd" id="2_8b5lh"]
@@ -160,6 +160,13 @@ _data = {
 &"test_2": SubResource("Animation_fenef"),
 &"test_3": SubResource("Animation_6yaw1")
 }
+
+[sub_resource type="Resource" id="Resource_vvfch"]
+script = ExtResource("3_hc7ve")
+damage = 1
+metadata/_custom_type_script = "uid://brg71t7h26ou0"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvfch"]
 
 [node name="SampleScene" type="Node2D"]
 script = SubResource("GDScript_jcc8f")
@@ -351,3 +358,16 @@ offset_top = 838.0
 offset_right = 296.0
 offset_bottom = 861.0
 theme_override_font_sizes/font_size = 50
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-759, 872)
+collision_layer = 8
+script = ExtResource("2_8b5lh")
+attack_resource = SubResource("Resource_vvfch")
+metadata/_custom_type_script = "uid://c6n7fhsvfdgav"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_vvfch")
+
+[node name="Polygon2D" type="Polygon2D" parent="Hitbox"]
+polygon = PackedVector2Array(-11, -15, 13, -13, 13, 18, -12, 11)
