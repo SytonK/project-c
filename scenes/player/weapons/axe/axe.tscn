@@ -1475,4 +1475,5 @@ metadata/_custom_type_script = "uid://bb0tkwwpqwl6"
 
 [node name="AxeLightDownAir" type="Node" parent="."]
 script = ExtResource("9_qxc3v")
+cooldown = 0.7
 metadata/_custom_type_script = "uid://bw6kphaf0q73"
