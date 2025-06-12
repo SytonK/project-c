@@ -1,6 +1,6 @@
 class_name AxeLightSide extends Ability
 
-const ENERGY_COST: float = 12
+const ENERGY_COST: float = 25
 const PUSH_BACK_SIDE_FORCE: float = 600
 
 const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
@@ -8,9 +8,9 @@ const AXE_LIGHT_SIDE_HEAD_0 = preload("res://data/player/weapons/axe/light/side/
 const AXE_LIGHT_SIDE_HEAD_1 = preload("res://data/player/weapons/axe/light/side/axe_light_side_head_1.tres")
 const AXE_LIGHT_SIDE_HEAD_2 = preload("res://data/player/weapons/axe/light/side/axe_light_side_head_2.tres")
 
-const COOLDOWN_0: float = 0.15
-const COOLDOWN_1: float = 0.2
-const COOLDOWN_2: float = 0.8
+const COOLDOWN_0: float = 0
+const COOLDOWN_1: float = 0
+const COOLDOWN_2: float = 1
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var axe_head_shape: MultiRegionHitShape = $"../MultiRegionHitbox/AxeHeadShape"
