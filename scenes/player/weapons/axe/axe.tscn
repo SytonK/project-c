@@ -349,7 +349,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(96, 64)]
+"values": [Vector2(40, 100)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -361,7 +361,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 24)]
+"values": [Vector2(0, 40)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -385,7 +385,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(256, 128)]
+"values": [Vector2(160, 100)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -397,7 +397,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 96)]
+"values": [Vector2(0, 140)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -442,38 +442,50 @@ air"]
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Body/Axe:rotation")
+tracks/11/path = NodePath("AttackVisual/Handle:color")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.14),
+"times": PackedFloat32Array(0, 0.06, 0.14),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [3.14159, 3.40339, 0.0]
+"update": 1,
+"values": [Color(0.6, 0.4, 0.2, 0), Color(0.6, 0.4, 0.2, 0.6), Color(0.6, 0.4, 0.2, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Body/Axe:position")
+tracks/12/path = NodePath("AttackVisual/Handle:polygon")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [PackedVector2Array(-20, -10, 20, -10, 20, 90, -20, 90)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Body/Axe:scale")
+tracks/13/path = NodePath("AttackVisual/Head:color")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Color(0.9, 0.9, 0.9, 0), Color(0.9, 0.9, 0.9, 0.6), Color(0.9, 0.9, 0.9, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AttackVisual/Head:polygon")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [PackedVector2Array(-80, 90, 80, 90, 80, 190, -80, 190)]
 }
 
 [sub_resource type="Animation" id="Animation_44re8"]
