@@ -1,6 +1,6 @@
 class_name AxeLightDownAir extends Ability
 
-const ENERGY_COST: float = 10
+const ENERGY_COST: float = 30
 const AXE_LIGHT_DOWN_AIR = preload("res://data/player/weapons/axe/light/down/axe_light_down_air.tres")
 const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
 

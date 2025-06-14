@@ -1,6 +1,6 @@
 class_name AxeLightUp extends Ability
 
-const ENERGY_COST: float = 10
+const ENERGY_COST: float = 30
 const AXE_LIGHT_UP_HEAD = preload("res://data/player/weapons/axe/light/up/axe_light_up_head.tres")
 const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
 

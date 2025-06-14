@@ -1,6 +1,6 @@
 class_name AxeLightSide extends Ability
 
-const ENERGY_COST: float = 25
+const ENERGY_COST: float = 20
 const PUSH_BACK_SIDE_FORCE: float = 600
 
 const AXE_LIGHT_BASE = preload("res://data/player/weapons/axe/light/axe_light_base.tres")
