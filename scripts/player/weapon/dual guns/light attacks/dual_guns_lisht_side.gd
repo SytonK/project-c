@@ -9,7 +9,7 @@ const BULLET_1 = preload("res://assets/sprites/player/weapons/dual guns/bullet 1
 const COOLDOWN_0: float = .1
 const COOLDOWN_1: float = .7
 
-const ENERGY_COST: float = 15
+const ENERGY_COST: float = 25
 
 @onready var sequence: Sequence = $Sequence
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"

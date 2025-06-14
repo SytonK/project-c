@@ -3,7 +3,7 @@ class_name DualGunsLightUp extends Ability
 const DUAL_GUNS_LIGHT_UP = preload("res://data/player/weapons/dual guns/light/up/dual_guns_light_up.tres")
 const BULLET_0 = preload("res://assets/sprites/player/weapons/dual guns/bullet 0.png")
 const BULLET_1 = preload("res://assets/sprites/player/weapons/dual guns/bullet 1.png")
-const ENERGY_COST: float = 10
+const ENERGY_COST: float = 15
 const X_POSITION: float = 24
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"

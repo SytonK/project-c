@@ -4,7 +4,7 @@ const DUAL_GUNS_LIGHT_DOWN_GROUND = preload("res://data/player/weapons/dual guns
 const BULLET_0 = preload("res://assets/sprites/player/weapons/dual guns/bullet 0.png")
 const BULLET_1 = preload("res://assets/sprites/player/weapons/dual guns/bullet 1.png")
 const Y_DIRECTION: float = .25
-const ENERGY_COST: float = 10
+const ENERGY_COST: float = 15
 
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
