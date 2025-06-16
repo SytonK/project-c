@@ -14,15 +14,12 @@ func tick(delta: float, blackboard: Dictionary = {}) -> States:
 			behavior_nodes[index].end(blackboard)
 			last_index = index
 			index += 1
-			behavior_node = null
 		if current_tick == States.FAILED:
 			behavior_nodes[index].end(blackboard)
 			index = 0
 			last_index = -1
-			behavior_node = null
 			return States.FAILED
 		if current_tick == States.RUNNING:
-			behavior_node = behavior_nodes[index]
 			return States.RUNNING
 	
 	return States.SUCCEEDED

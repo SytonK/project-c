@@ -1,21 +1,25 @@
 class_name Composite extends BehaviorNode
 
 @onready var behavior_nodes: Array[BehaviorNode] = BehaviorTreeUtils.get_behavior_nodes(self)
-var index: int = 0
+var index: int = -1
 var last_index: int = -1
-var behavior_node: BehaviorNode = null
+
+
+func start(_blackboard: Dictionary = {}) -> void:
+	index = 0
+	last_index = -1
 
 func interrupt(blackboard: Dictionary = {}) -> void:
-	if behavior_node:
-		behavior_node.interrupt(blackboard)
+	if index >= 0:
+		behavior_nodes[index].interrupt(blackboard)
 	
-	index = 0
+	index = -1
 	last_index = -1
 
 
 func end(blackboard: Dictionary = {}) -> void:
-	if(behavior_node):
-		behavior_node.end(blackboard)
+	if index >= 0 && index < behavior_nodes.size() - 1:
+		behavior_nodes[index].end(blackboard)
 	
-	index = 0
+	index = -1
 	last_index = -1
