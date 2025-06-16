@@ -14,10 +14,11 @@ func _ability_effect() -> void:
 	_attack_setup()
 	animation_player.play("light_down_air")
 	if weapon.weapon_energy.value >= ENERGY_COST:
-		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_DOWN_AIR
 	else:
 		axe_head_shape.attack_resource = AXE_LIGHT_BASE
+	
+	weapon.weapon_energy.value -= ENERGY_COST
 
 
 func _attack_setup() -> void:

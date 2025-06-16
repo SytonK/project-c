@@ -43,6 +43,7 @@ func _attack() -> void:
 		2:
 			_light_side_2()
 	
+	weapon.weapon_energy.value -= ENERGY_COST
 	sequence.value += 1
 
 func _light_side_0() -> void:
@@ -50,7 +51,6 @@ func _light_side_0() -> void:
 	animation_player.play("light_side_swing_0")
 	
 	if weapon.weapon_energy.value >= ENERGY_COST:
-		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_0
 		axe_handle_shape.hit.connect(_on_handle_hit)
 	else:
@@ -63,7 +63,6 @@ func _light_side_1() -> void:
 	animation_player.play("light_side_swing_1")
 	
 	if weapon.weapon_energy.value >= ENERGY_COST:
-		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_1
 		axe_handle_shape.hit.connect(_on_handle_hit)
 	else:
@@ -76,7 +75,6 @@ func _light_side_2() -> void:
 	animation_player.play("light_side_swing_2")
 	
 	if weapon.weapon_energy.value >= ENERGY_COST:
-		weapon.weapon_energy.value -= ENERGY_COST
 		axe_head_shape.attack_resource = AXE_LIGHT_SIDE_HEAD_2
 	else:
 		axe_head_shape.attack_resource = AXE_LIGHT_BASE
