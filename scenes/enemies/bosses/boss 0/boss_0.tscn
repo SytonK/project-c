@@ -283,7 +283,7 @@ animation_player = NodePath("../AnimationPlayer")
 
 [node name="Health" type="Node" parent="Compontnts"]
 script = ExtResource("4_v67i4")
-max_value = 700.0
+max_value = 20000.0
 metadata/_custom_type_script = "uid://ms6uadhjfufy"
 
 [node name="Gravity" type="Node" parent="Compontnts"]
