@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://djk4wu40qlx11"]
+[gd_scene load_steps=18 format=3 uid="uid://djk4wu40qlx11"]
 
 [ext_resource type="Script" uid="uid://dodg6w8wkm2yg" path="res://scripts/enemies/bosses/boss 0/boss_0.gd" id="1_0sghr"]
 [ext_resource type="Script" uid="uid://e14frlxwqj6p" path="res://scripts/components/combat/hitbox and hurtbox/hurtbox.gd" id="1_02xse"]
@@ -121,7 +121,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_viscg"]
 resource_name = "meele_attack_0"
-length = 3.0
+length = 2.6
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -130,7 +130,7 @@ tracks/0/path = NodePath("Hitbox:monitorable")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.2, 1.8, 2.2),
+"times": PackedFloat32Array(0, 0.6, 1, 1.8, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false]
@@ -142,7 +142,7 @@ tracks/1/path = NodePath("Hitbox:monitoring")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.2, 1.8, 2.2),
+"times": PackedFloat32Array(0, 0.6, 1, 1.8, 2.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false]
@@ -166,7 +166,7 @@ tracks/3/path = NodePath("AttackVisual:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.3),
+"times": PackedFloat32Array(0, 2.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -181,7 +181,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [PackedVector2Array(-190, -420, 260, -420, 260, 190, -190, 190), PackedVector2Array(-190, -230, 260, -230, 260, 225, -190, 225)]
+"values": [PackedVector2Array(-80, -200, 260, -200, 260, 200, -80, 200), PackedVector2Array(-80, -75, 260, -75, 260, 225, -80, 225)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -190,7 +190,7 @@ tracks/5/path = NodePath("AttackVisual:color")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.2, 1.4, 1.8),
+"times": PackedFloat32Array(0, 0.6, 1, 1.4, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [Color(0.8, 0.3, 0.3, 0.3), Color(0.8, 0.3, 0.3, 0.8), Color(0.8, 0.3, 0.3, 0), Color(0.8, 0.3, 0.3, 0.3), Color(0.8, 0.3, 0.3, 0.8)]
@@ -220,10 +220,112 @@ tracks/7/keys = {
 "values": [Vector2(90, 0), Vector2(90, 75)]
 }
 
+[sub_resource type="Animation" id="Animation_6ejj1"]
+resource_name = "melee_attack_1"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hitbox:monitorable")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitbox:attack_resource")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_v1g8i")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackVisual:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackVisual:polygon")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(-250, 0, 250, 0, 250, 150, -250, 150)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackVisual:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(0.8, 0.3, 0.3, 0.3), Color(0.8, 0.3, 0.3, 0.6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hitbox/CollisionShape2D:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(500, 150)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitbox/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 75)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v1g8i"]
 _data = {
 &"RESET": SubResource("Animation_v1g8i"),
-&"melee_attack_0": SubResource("Animation_viscg")
+&"melee_attack_0": SubResource("Animation_viscg"),
+&"melee_attack_1": SubResource("Animation_6ejj1")
 }
 
 [node name="Boss0" type="CharacterBody2D"]
@@ -263,8 +365,6 @@ shape = SubResource("RectangleShape2D_viscg")
 
 [node name="AttackVisual" type="Polygon2D" parent="."]
 visible = false
-position = Vector2(63.4706, 76.7647)
-scale = Vector2(0.755882, 0.658824)
 color = Color(0.8, 0.3, 0.3, 0.3)
 polygon = PackedVector2Array(-80, -200, 260, -200, 260, 200, -80, 200)
 uv = PackedVector2Array(-454, -38)
