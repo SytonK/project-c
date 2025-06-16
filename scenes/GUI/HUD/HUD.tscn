@@ -43,7 +43,7 @@ texture_progress = ExtResource("3_78xfm")
 script = ExtResource("4_jcln6")
 metadata/_custom_type_script = "uid://60bqr1segsrg"
 
-[node name="EnergyAbilityGUI" type="TextureProgressBar" parent="."]
+[node name="DashsGUI" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 1675.0
 offset_top = 969.0

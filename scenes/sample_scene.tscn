@@ -43,6 +43,8 @@ ease = 2
 script = SubResource("GDScript_hvwi5")
 
 [node name="Player" parent="." instance=ExtResource("1_jcc8f")]
+block_disabled = true
+dash_disabled = true
 
 [node name="Marker2D" type="Marker2D" parent="Player"]
 position = Vector2(128, -33)

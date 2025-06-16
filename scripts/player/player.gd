@@ -7,6 +7,10 @@ class_name Player extends CharacterBody2D
 @export_category("Side Movement")
 @export var side_movement_resource: SideMovementResource
 
+@export_category("Disables")
+@export var block_disabled: bool = false
+@export var dash_disabled: bool = false
+
 @onready var state_machine: StateMachine = $StateMachine
 
 @onready var weapon_manager: WeaponManager = $WeaponManager
@@ -29,6 +33,9 @@ class_name Player extends CharacterBody2D
 func _ready() -> void:
 	reset_gravity()
 	reset_side_movement()
+	
+	player_block_action.disabled = block_disabled
+	player_dash_action.disabled = dash_disabled
 
 func reset_gravity() -> void:
 	gravity.graivty_force = gravity_force
