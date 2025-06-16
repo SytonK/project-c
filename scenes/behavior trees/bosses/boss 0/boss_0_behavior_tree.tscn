@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2chtdf8dxuqd"]
+[gd_scene load_steps=11 format=3 uid="uid://d2chtdf8dxuqd"]
 
 [ext_resource type="Script" uid="uid://di8a3m1pyo562" path="res://scripts/components/behavior tree/trees/bosses/boss 0/boss_0_behavior_tree.gd" id="1_6rdxn"]
 [ext_resource type="Script" uid="uid://dpnj54ovsacj2" path="res://scripts/components/behavior tree/nodes/composites/selector_composite.gd" id="2_cv1k4"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ediqs1qgxyxd" path="res://scripts/components/behavior tree/nodes/leaves/side_move_to_targer_leaf.gd" id="5_cv1k4"]
 [ext_resource type="Script" uid="uid://cbv8jdc7fghlw" path="res://scripts/components/behavior tree/nodes/leaves/look_at_target_leaf.gd" id="7_go51e"]
 [ext_resource type="Script" uid="uid://ct2g4p1m1v3ot" path="res://scripts/components/behavior tree/nodes/leaves/play_animation_leaf.gd" id="8_hnq8x"]
+[ext_resource type="Script" uid="uid://de60b20fkibu7" path="res://scripts/components/behavior tree/nodes/composites/random_select_composite.gd" id="8_xr1q5"]
 [ext_resource type="Script" uid="uid://4wkv0obhffxl" path="res://scripts/components/behavior tree/nodes/leaves/wait_leaf.gd" id="9_dilty"]
 
 [node name="Boss0BehaviorTree" type="Node"]
@@ -46,9 +47,19 @@ metadata/_custom_type_script = "uid://ediqs1qgxyxd"
 script = ExtResource("7_go51e")
 metadata/_custom_type_script = "uid://cbv8jdc7fghlw"
 
-[node name="PlayAnimationLeafMeleeAttack0" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
+[node name="RandomSelectComposite" type="Node" parent="SelectComposite/MeleeSequenceComposite"]
+script = ExtResource("8_xr1q5")
+metadata/_custom_type_script = "uid://de60b20fkibu7"
+
+[node name="PlayAnimationLeafMeleeAttack0" type="Node" parent="SelectComposite/MeleeSequenceComposite/RandomSelectComposite"]
 script = ExtResource("8_hnq8x")
 animation_name = "melee_attack_0"
+wait_for_animation_to_finish = true
+metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
+
+[node name="PlayAnimationLeafMeleeAttack1" type="Node" parent="SelectComposite/MeleeSequenceComposite/RandomSelectComposite"]
+script = ExtResource("8_hnq8x")
+animation_name = "melee_attack_1"
 wait_for_animation_to_finish = true
 metadata/_custom_type_script = "uid://ct2g4p1m1v3ot"
 
