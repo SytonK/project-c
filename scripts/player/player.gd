@@ -7,6 +7,9 @@ class_name Player extends CharacterBody2D
 @export_category("Side Movement")
 @export var side_movement_resource: SideMovementResource
 
+@export_category("Air Jumps")
+@export var max_air_jumps: int = 0
+
 @export_category("Disables")
 @export var block_disabled: bool = false
 @export var dash_disabled: bool = false
@@ -36,6 +39,7 @@ func _ready() -> void:
 	
 	player_block_action.disabled = block_disabled
 	player_dash_action.disabled = dash_disabled
+	air_jump_action.max_air_jumps = max_air_jumps
 
 func reset_gravity() -> void:
 	gravity.graivty_force = gravity_force
