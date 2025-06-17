@@ -24,5 +24,7 @@ func _init_dash() -> void:
 func set_weapons() -> void:
 	if player.weapon_manager.weapons.size() >= 1:
 		weapon_energy_bar.weapon = player.weapon_manager.weapons[0]
+		weapon_energy_bar.visible = true
 	if player.weapon_manager.weapons.size() >= 2:
 		weapon_energy_bar_2.weapon = player.weapon_manager.weapons[1]
+		weapon_energy_bar_2.visible = true

@@ -55,6 +55,7 @@ script = ExtResource("6_kt6eb")
 metadata/_custom_type_script = "uid://ub36d8is1gia"
 
 [node name="WeaponEnergyBar" type="ProgressBar" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 35.0
@@ -65,6 +66,7 @@ script = ExtResource("7_kt6eb")
 metadata/_custom_type_script = "uid://dkdepjrdq3h1p"
 
 [node name="WeaponEnergyBar2" type="ProgressBar" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
 offset_left = 153.0
