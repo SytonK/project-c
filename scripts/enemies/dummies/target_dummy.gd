@@ -1,6 +1,6 @@
 extends Node2D
 
-const LABEL_FADE_DURATION: float = 1
+const LABEL_FADE_DURATION: float = .4
 
 @onready var label: Label = $Label
 
