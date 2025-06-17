@@ -132,7 +132,3 @@ next_weapon={
 [physics]
 
 common/physics_interpolation=true
-
-[rendering]
-
-environment/defaults/default_clear_color=Color(0.762404, 0.762404, 0.762404, 1)
