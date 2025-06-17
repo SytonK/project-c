@@ -7,11 +7,10 @@ var max_value: float = 100
 var value: float = 0 : set = _set_value
 
 func _set_value(new_value: float) -> void:
-	var res = clamp(new_value, 0, max_value)
+	var old_value: = value
+	value = clamp(new_value, 0, max_value)
 	
-	if res < value:
-		used.emit(value - res)
-	
-	value = res
+	if value < old_value:
+		used.emit(old_value - value)
 	
 	changed.emit(value)

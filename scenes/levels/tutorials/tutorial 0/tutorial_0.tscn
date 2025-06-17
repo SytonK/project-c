@@ -19,6 +19,7 @@ const AXE = preload(\"res://scenes/player/weapons/axe/axe.tscn\")
 
 func _ready() -> void:
 	player.weapon_manager.add_weapon(AXE.instantiate())
+	
 	heads_up_display.set_weapons()
 "
 

@@ -35,7 +35,6 @@ const DUAL_GUNS = preload(\"res://scenes/player/weapons/dual guns/dual_guns.tscn
 func _ready() -> void:
 	player.weapon_manager.add_weapon(DUAL_GUNS.instantiate())
 	player.weapon_manager.add_weapon(AXE.instantiate())
-	player.weapon_manager.current_weapon.weapon_energy.value = 100
 	heads_up_display.set_weapons()
 
 func _input(event: InputEvent) -> void:

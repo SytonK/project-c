@@ -30,6 +30,11 @@ func add_weapon(new_weapon: Weapon) -> void:
 	add_child(new_weapon)
 	weapons.append(new_weapon)
 	current_weapon_index = weapons.size() - 1
+	_init_energy()
+
+func _init_energy() -> void:
+	if weapons.size() == 1:
+		current_weapon.weapon_energy.value = current_weapon.weapon_energy.max_value
 
 func remove_current_weapon() -> void:
 	if current_weapon_index == -1:
