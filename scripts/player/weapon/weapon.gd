@@ -14,8 +14,6 @@ func attack(attack_type: AttackType) -> void:
 	var state_str: String = "ground" if player.state_machine.state.name == PlayerStates.GROUND else "air"
 	var attack_str: String = type_str + "_" + direction_str + "_" + state_str + "_attack"
 	
-	print(attack_str) #TODO remove
-	
 	assert(has_method(attack_str))
 	call(attack_str)
 
