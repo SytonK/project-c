@@ -1492,11 +1492,11 @@ polygon = PackedVector2Array(15, -40, 15, -30, 25, -35)
 [node name="Axe" type="Polygon2D" parent="Body"]
 rotation = -3.14159
 color = Color(0.75, 0.35, 0.25, 1)
-polygon = PackedVector2Array(0, -6, 0, 6, 100, 6, 100, -6)
+polygon = PackedVector2Array(-4, -10, -4, 10, 4, 10, 4, -10)
 
 [node name="AxeHead" type="Polygon2D" parent="Body/Axe"]
 color = Color(0.6, 0.3, 0.6, 1)
-polygon = PackedVector2Array(100, -40, 100, 40, 140, 40, 140, -40)
+polygon = PackedVector2Array(-7.99997, 10, -8, 16, 8, 16, 8, 10)
 
 [node name="Label" type="Label" parent="Body"]
 anchors_preset = 8
